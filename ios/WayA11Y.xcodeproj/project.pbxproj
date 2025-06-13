@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		21F3A326C02867CDE4800A49 /* libPods-WayA11Y.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D398F1940BC1806FF36DF984 /* libPods-WayA11Y.a */; };
+		3486EA69B8BA1AAB61F70171 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E142E65BA2AE4211D7B6F823 /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		5AB11DF8C107E504FE35AF18 /* libPods-rnaccessibility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 216B2C9018ECECB811DE9D74 /* libPods-rnaccessibility.a */; };
-		7D212C636F8A2363FC4647FE /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28898604E690FF8C4217F5E5 /* ExpoModulesProvider.swift */; };
-		B30E50F205709151678FD399 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D9EC37E0FBFD7954B1503C46 /* PrivacyInfo.xcprivacy */; };
+		931083EC20928ECF0D262E8B /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3559E0331724AC4F00E6EF /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* rnaccessibility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rnaccessibility.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rnaccessibility/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rnaccessibility/Info.plist; sourceTree = "<group>"; };
-		216B2C9018ECECB811DE9D74 /* libPods-rnaccessibility.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnaccessibility.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28898604E690FF8C4217F5E5 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-rnaccessibility/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = rnaccessibility/SplashScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* WayA11Y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WayA11Y.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WayA11Y/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WayA11Y/Info.plist; sourceTree = "<group>"; };
+		15881EA6D02DABDB476141BE /* Pods-WayA11Y.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayA11Y.release.xcconfig"; path = "Target Support Files/Pods-WayA11Y/Pods-WayA11Y.release.xcconfig"; sourceTree = "<group>"; };
+		7E3559E0331724AC4F00E6EF /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-WayA11Y/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		8D1B2867380986B43EA73E19 /* Pods-WayA11Y.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayA11Y.debug.xcconfig"; path = "Target Support Files/Pods-WayA11Y/Pods-WayA11Y.debug.xcconfig"; sourceTree = "<group>"; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = WayA11Y/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BE026BFAF1C8954F89DBE24D /* Pods-rnaccessibility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnaccessibility.release.xcconfig"; path = "Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility.release.xcconfig"; sourceTree = "<group>"; };
-		C48301362902CD3F63D06E06 /* Pods-rnaccessibility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnaccessibility.debug.xcconfig"; path = "Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility.debug.xcconfig"; sourceTree = "<group>"; };
-		D9EC37E0FBFD7954B1503C46 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = rnaccessibility/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D398F1940BC1806FF36DF984 /* libPods-WayA11Y.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WayA11Y.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E142E65BA2AE4211D7B6F823 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = WayA11Y/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = rnaccessibility/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* rnaccessibility-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "rnaccessibility-Bridging-Header.h"; path = "rnaccessibility/rnaccessibility-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = WayA11Y/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* WayA11Y-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WayA11Y-Bridging-Header.h"; path = "WayA11Y/WayA11Y-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,49 +37,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB11DF8C107E504FE35AF18 /* libPods-rnaccessibility.a in Frameworks */,
+				21F3A326C02867CDE4800A49 /* libPods-WayA11Y.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* rnaccessibility */ = {
+		13B07FAE1A68108700A75B9A /* WayA11Y */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* rnaccessibility-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* WayA11Y-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				D9EC37E0FBFD7954B1503C46 /* PrivacyInfo.xcprivacy */,
+				E142E65BA2AE4211D7B6F823 /* PrivacyInfo.xcprivacy */,
 			);
-			name = rnaccessibility;
+			name = WayA11Y;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				216B2C9018ECECB811DE9D74 /* libPods-rnaccessibility.a */,
+				D398F1940BC1806FF36DF984 /* libPods-WayA11Y.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		711E0A88B5D6123883E48FB6 /* rnaccessibility */ = {
+		770A3C0E6975584E8ADC2AB7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				28898604E690FF8C4217F5E5 /* ExpoModulesProvider.swift */,
-			);
-			name = rnaccessibility;
-			sourceTree = "<group>";
-		};
-		71D70031AA0EF9CFB7051570 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C48301362902CD3F63D06E06 /* Pods-rnaccessibility.debug.xcconfig */,
-				BE026BFAF1C8954F89DBE24D /* Pods-rnaccessibility.release.xcconfig */,
+				8D1B2867380986B43EA73E19 /* Pods-WayA11Y.debug.xcconfig */,
+				15881EA6D02DABDB476141BE /* Pods-WayA11Y.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -95,12 +87,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* rnaccessibility */,
+				13B07FAE1A68108700A75B9A /* WayA11Y */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				71D70031AA0EF9CFB7051570 /* Pods */,
-				998BAC1E180562E47F8292F1 /* ExpoModulesProviders */,
+				770A3C0E6975584E8ADC2AB7 /* Pods */,
+				EC8963456E1B4E71E4BE89BE /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -110,17 +102,17 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* rnaccessibility.app */,
+				13B07F961A680F5B00A75B9A /* WayA11Y.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		998BAC1E180562E47F8292F1 /* ExpoModulesProviders */ = {
+		9588C26213E8BAF6A59A7E11 /* WayA11Y */ = {
 			isa = PBXGroup;
 			children = (
-				711E0A88B5D6123883E48FB6 /* rnaccessibility */,
+				7E3559E0331724AC4F00E6EF /* ExpoModulesProvider.swift */,
 			);
-			name = ExpoModulesProviders;
+			name = WayA11Y;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -129,32 +121,40 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = rnaccessibility/Supporting;
+			path = WayA11Y/Supporting;
+			sourceTree = "<group>";
+		};
+		EC8963456E1B4E71E4BE89BE /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				9588C26213E8BAF6A59A7E11 /* WayA11Y */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* rnaccessibility */ = {
+		13B07F861A680F5B00A75B9A /* WayA11Y */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "rnaccessibility" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WayA11Y" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				1A55DF6F7BB6C6605CC708C3 /* [Expo] Configure project */,
+				3BCC1DCC82FC49AA0C12DB38 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				AFB589F50DABDB4C581E2FC7 /* [CP] Embed Pods Frameworks */,
+				9BE23483EB262CE2E1167356 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = rnaccessibility;
-			productName = rnaccessibility;
-			productReference = 13B07F961A680F5B00A75B9A /* rnaccessibility.app */;
+			name = WayA11Y;
+			productName = WayA11Y;
+			productReference = 13B07F961A680F5B00A75B9A /* WayA11Y.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "rnaccessibility" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WayA11Y" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* rnaccessibility */,
+				13B07F861A680F5B00A75B9A /* WayA11Y */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				B30E50F205709151678FD399 /* PrivacyInfo.xcprivacy in Resources */,
+				3486EA69B8BA1AAB61F70171 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,14 +233,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-rnaccessibility-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WayA11Y-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A55DF6F7BB6C6605CC708C3 /* [Expo] Configure project */ = {
+		3BCC1DCC82FC49AA0C12DB38 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -257,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-rnaccessibility/expo-configure-project.sh\"\n";
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-WayA11Y/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -265,12 +265,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WayA11Y/Pods-WayA11Y-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG/RNSVGFilters.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
@@ -286,6 +287,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNSVGFilters.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
@@ -296,16 +298,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WayA11Y/Pods-WayA11Y-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AFB589F50DABDB4C581E2FC7 /* [CP] Embed Pods Frameworks */ = {
+		9BE23483EB262CE2E1167356 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WayA11Y/Pods-WayA11Y-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -314,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rnaccessibility/Pods-rnaccessibility-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WayA11Y/Pods-WayA11Y-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -325,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				7D212C636F8A2363FC4647FE /* ExpoModulesProvider.swift in Sources */,
+				931083EC20928ECF0D262E8B /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,18 +336,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C48301362902CD3F63D06E06 /* Pods-rnaccessibility.debug.xcconfig */;
+			baseConfigurationReference = 8D1B2867380986B43EA73E19 /* Pods-WayA11Y.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rnaccessibility/rnaccessibility.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WayA11Y/WayA11Y.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = rnaccessibility/Info.plist;
+				INFOPLIST_FILE = WayA11Y/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -359,8 +361,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amiradgham.rnaccessibility;
-				PRODUCT_NAME = rnaccessibility;
-				SWIFT_OBJC_BRIDGING_HEADER = "rnaccessibility/rnaccessibility-Bridging-Header.h";
+				PRODUCT_NAME = WayA11Y;
+				SWIFT_OBJC_BRIDGING_HEADER = "WayA11Y/WayA11Y-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,13 +372,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE026BFAF1C8954F89DBE24D /* Pods-rnaccessibility.release.xcconfig */;
+			baseConfigurationReference = 15881EA6D02DABDB476141BE /* Pods-WayA11Y.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = rnaccessibility/rnaccessibility.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WayA11Y/WayA11Y.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = rnaccessibility/Info.plist;
+				INFOPLIST_FILE = WayA11Y/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,8 +392,8 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amiradgham.rnaccessibility;
-				PRODUCT_NAME = rnaccessibility;
-				SWIFT_OBJC_BRIDGING_HEADER = "rnaccessibility/rnaccessibility-Bridging-Header.h";
+				PRODUCT_NAME = WayA11Y;
+				SWIFT_OBJC_BRIDGING_HEADER = "WayA11Y/WayA11Y-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -525,7 +527,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "rnaccessibility" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WayA11Y" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -534,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "rnaccessibility" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "WayA11Y" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

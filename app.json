@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-accessibility",
-    "slug": "rn-accessibility",
+    "name": "WayA11Y",
+    "slug": "WayA11Y",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

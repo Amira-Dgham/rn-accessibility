@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "rnaccessibility.app"
-               BlueprintName = "rnaccessibility"
-               ReferencedContainer = "container:rnaccessibility.xcodeproj">
+               BuildableName = "WayA11Y.app"
+               BlueprintName = "WayA11Y"
+               ReferencedContainer = "container:WayA11Y.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rnaccessibilityTests.xctest"
-               BlueprintName = "rnaccessibilityTests"
-               ReferencedContainer = "container:rnaccessibility.xcodeproj">
+               BuildableName = "WayA11YTests.xctest"
+               BlueprintName = "WayA11YTests"
+               ReferencedContainer = "container:WayA11Y.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rnaccessibility.app"
-            BlueprintName = "rnaccessibility"
-            ReferencedContainer = "container:rnaccessibility.xcodeproj">
+            BuildableName = "WayA11Y.app"
+            BlueprintName = "WayA11Y"
+            ReferencedContainer = "container:WayA11Y.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rnaccessibility.app"
-            BlueprintName = "rnaccessibility"
-            ReferencedContainer = "container:rnaccessibility.xcodeproj">
+            BuildableName = "WayA11Y.app"
+            BlueprintName = "WayA11Y"
+            ReferencedContainer = "container:WayA11Y.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
