@@ -14,6 +14,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@expo-google-fonts/inter": "^0.4.1",
     "@expo/vector-icons": "^14.1.0",
     "@legendapp/list": "^1.0.17",
     "@react-navigation/bottom-tabs": "^7.3.10",
