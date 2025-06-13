@@ -4,17 +4,25 @@ import { Colors } from '@/theme/colors';
 import { Typography } from '@/theme/typography';
 import type { TabScreenName } from '@/types/navigation';
 import { Tabs } from 'expo-router';
+import { JSX } from 'react';
 import { Platform } from 'react-native';
 
-export default function TabLayout() {
+/**
+ * The top-level component for the tabs navigation.
+ */
+export default function TabLayout(): JSX.Element {
   const { colors, typography } = useTheme();
 
+  /**
+   * The list of tab screen names.
+   */
   const screens: TabScreenName[] = ['index', 'components', 'guidelines', 'settings'];
 
   return (
     <Tabs screenOptions={getTabBarOptions(colors, typography)}>
       {screens.map((name) => {
         const Icon = screenIcons[name];
+
         return (
           <Tabs.Screen
             key={name}
@@ -38,7 +46,7 @@ function getTabBarOptions(colors: (typeof Colors)['light'], typography: typeof T
       paddingBottom: Platform.OS === 'ios' ? 34 : 12,
       paddingTop: 8,
       backgroundColor: colors.background,
-      borderTopWidth: 1,
+      borderTopWidth: 0.5,
       borderTopColor: colors.icon,
     },
     tabBarLabelStyle: typography.tabBar,
