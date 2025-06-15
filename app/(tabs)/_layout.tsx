@@ -1,8 +1,8 @@
-import { screenIcons, screenTitles } from '@/constants/navigation';
+import { SCREEN_ICONS, SCREEN_TITLE_KEYS, SCREENS } from '@/constants/navigation';
+import { useLanguage } from '@/hooks/useLanguage';
 import { useTheme } from '@/hooks/useTheme';
 import { Colors } from '@/theme/colors';
 import { Typography } from '@/theme/typography';
-import type { TabScreenName } from '@/types/navigation';
 import { Tabs } from 'expo-router';
 import { JSX } from 'react';
 import { Platform } from 'react-native';
@@ -12,23 +12,19 @@ import { Platform } from 'react-native';
  */
 export default function TabLayout(): JSX.Element {
   const { colors, typography } = useTheme();
-
-  /**
-   * The list of tab screen names.
-   */
-  const screens: TabScreenName[] = ['index', 'components', 'guidelines', 'settings'];
+  const { t } = useLanguage();
 
   return (
     <Tabs screenOptions={getTabBarOptions(colors, typography)}>
-      {screens.map((name) => {
-        const Icon = screenIcons[name];
+      {SCREENS.map((name) => {
+        const Icon = SCREEN_ICONS[name];
 
         return (
           <Tabs.Screen
             key={name}
             name={name}
             options={{
-              title: screenTitles[name],
+              title: t(SCREEN_TITLE_KEYS[name]),
               tabBarIcon: ({ size, color }) => <Icon size={size} color={color} />,
             }}
           />
