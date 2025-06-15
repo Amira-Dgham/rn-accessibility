@@ -12,6 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
+import { StoreProvider } from '@/context/StoreContext';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
 import { CustomDarkTheme, CustomLightTheme } from '@/theme/navigationTheme';
 
@@ -50,15 +51,19 @@ export default function RootLayout() {
   const navigationTheme = colorScheme === 'dark' ? CustomDarkTheme : CustomLightTheme;
 
   return (
-    <ThemeProvider value={navigationTheme}>
-      <Stack>
-        {/* Main tab navigation */}
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* Fallback screen for unmatched routes */}
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      {/* Set the status bar style based on the color scheme */}
-      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-    </ThemeProvider>
+    <StoreProvider>
+      <ThemeProvider value={navigationTheme}>
+        <Stack>
+          {/* Main tab navigation */}
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+          {/* Fallback screen for unmatched routes */}
+          <Stack.Screen name="+not-found" />
+        </Stack>
+
+        {/* Set the status bar style based on the color scheme */}
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+      </ThemeProvider>
+    </StoreProvider>
   );
 }
