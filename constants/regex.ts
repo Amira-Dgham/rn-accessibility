@@ -1,3 +1,3 @@
 
-// Language code (ISO 639-1) — 2 lowercase letters (e.g., 'en', 'fr')
-export const LANGUAGE_CODE_REGEX = /\{\{(\w+)\}\}/g;
+// Mustache-style placeholder pattern (e.g., {{name}}, {{count}})
+export const TEMPLATE_PARAM_REGEX = /\{\{(\w+)\}\}/g;

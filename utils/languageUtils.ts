@@ -1,4 +1,4 @@
-import { LANGUAGE_CODE_REGEX } from '@/constants/regex';
+import { TEMPLATE_PARAM_REGEX } from '@/constants/regex';
 import { SupportedLanguage, TranslationNestedKey, translations } from '@/locales';
 
 /**
@@ -25,7 +25,7 @@ export function getTranslationFromLanguage(
 
     // Handle parameter interpolation
     if (params && typeof result === 'string') {
-        result = result.replace(LANGUAGE_CODE_REGEX, (match, paramKey) => {
+        result = result.replace(TEMPLATE_PARAM_REGEX, (match, paramKey) => {
             return params[paramKey]?.toString() || match;
         });
     }
@@ -71,7 +71,7 @@ export function translateWithFallback(
 
     // Handle parameter interpolation {{param}}
     if (params && typeof result === 'string') {
-        result = result.replace(LANGUAGE_CODE_REGEX, (match, paramKey) => {
+        result = result.replace(TEMPLATE_PARAM_REGEX, (match, paramKey) => {
             return params[paramKey]?.toString() || match;
         });
     }
