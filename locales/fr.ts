@@ -18,8 +18,8 @@ export const fr = {
   },
   screens: {
     home: {
-      title: 'Bienvenue',
-      subtitle: 'Bienvenue dans notre application',
+      title: 'Guide d\'Accessibilité',
+      subtitle: 'Maîtrisez l\'accessibilité numérique avec des exemples complets et des directives',
       button: 'Commencer',
       greeting: 'Bonjour, {{name}} !',
     },
@@ -34,6 +34,28 @@ export const fr = {
       title: 'Profil',
       editProfile: 'Modifier le profil',
       logout: 'Déconnexion',
+    },
+  },
+  accessibility: {
+    complianceLevels: 'Niveaux de Conformité',
+    features: 'Fonctionnalités',
+    feature: {
+      wcagCompliance: {
+        title: 'Conformité WCAG',
+        description: 'Apprenez et implémentez les directives WCAG 2.1 à tous les niveaux',
+      },
+      componentsSamples: {
+        title: 'Exemples de Composants',
+        description: 'Exemples interactifs de composants UI accessibles',
+      },
+      userTesting: {
+        title: 'Tests Utilisateur',
+        description: 'Outils et directives pour les tests d\'accessibilité utilisateur',
+      },
+      quickChecks: {
+        title: 'Vérifications Rapides',
+        description: 'Outils d\'audit et de validation d\'accessibilité rapides',
+      },
     },
   },
   errors: {

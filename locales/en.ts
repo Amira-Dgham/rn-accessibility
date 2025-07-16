@@ -13,13 +13,13 @@ export const en = {
   navigation: {
     home: 'Home',
     components: 'Components',
-    settings: 'Settings',
     guidelines: 'Guidelines',
+    settings: 'Settings',
   },
   screens: {
     home: {
-      title: 'Welcome',
-      subtitle: 'Welcome to our application',
+      title: 'Accessibility Guide',
+      subtitle: 'Master digital accessibility with comprehensive examples and guidelines',
       button: 'Get Started',
       greeting: 'Hello, {{name}}!',
     },
@@ -34,6 +34,28 @@ export const en = {
       title: 'Profile',
       editProfile: 'Edit Profile',
       logout: 'Logout',
+    },
+  },
+  accessibility: {
+    complianceLevels: 'Compliance Levels',
+    features: 'Features',
+    feature: {
+      wcagCompliance: {
+        title: 'WCAG Compliance',
+        description: 'Learn and implement WCAG 2.1 guidelines across all levels',
+      },
+      componentsSamples: {
+        title: 'Components Samples',
+        description: 'Interactive examples of accessible UI components',
+      },
+      userTesting: {
+        title: 'User Testing',
+        description: 'Tools and guidelines for accessibility user testing',
+      },
+      quickChecks: {
+        title: 'Quick Checks',
+        description: 'Rapid accessibility auditing and validation tools',
+      },
     },
   },
   errors: {

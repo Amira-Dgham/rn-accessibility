@@ -1,99 +1,63 @@
 import AccessibilityBadge from '@/components/Badge';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
+import Card from '@/components/ui/Card';
+import { ACCESSIBILITY_FEATURES, ACCESSIBILITY_LEVEL_CONFIG } from '@/constants/accessibility';
+import { useLanguage } from '@/hooks/useLanguage';
+import { AccessibilityLevel } from '@/types/accessibility';
 import { router } from 'expo-router';
-import { Shield, Target, Users, Zap } from 'lucide-react-native';
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-const features = [
-  {
-    icon: Shield,
-    title: 'WCAG Compliance',
-    description: 'Learn and implement WCAG 2.1 guidelines across all levels',
-    color: '#1e40af',
-  },
-  {
-    icon: Target,
-    title: 'Component Examples',
-    description: 'Interactive examples of accessible UI components',
-    color: '#059669',
-  },
-  {
-    icon: Users,
-    title: 'User Testing',
-    description: 'Tools and guidelines for accessibility user testing',
-    color: '#ea580c',
-  },
-  {
-    icon: Zap,
-    title: 'Quick Checks',
-    description: 'Rapid accessibility auditing and validation tools',
-    color: '#dc2626',
-  },
-];
+import { StyleSheet, View } from 'react-native';
 
 export default function HomeScreen() {
+  const { t } = useLanguage();
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        <View style={styles.header}>
-          <Text style={styles.title} accessibilityRole="header">
-            Accessibility Guide
-          </Text>
-          <Text style={styles.subtitle}>
-            Master digital accessibility with comprehensive examples and guidelines
-          </Text>
-        </View>
+    <ThemedView preset="scroll" safeAreaEdges={['top']}>
+      <View style={styles.header}>
+        <ThemedText accessibilityRole="header">{t('screens.home.title')}</ThemedText>
+        <ThemedText style={styles.subtitle}>{t('screens.home.subtitle')}</ThemedText>
+      </View>
 
-        <View style={styles.levelContainer}>
-          <Text style={styles.sectionTitle} accessibilityRole="header">
-            Compliance Levels
-          </Text>
-          <View style={styles.levelGrid}>
-            <AccessibilityBadge level="A" size="large" />
-            <AccessibilityBadge level="AA" size="large" />
-            <AccessibilityBadge level="AAA" size="large" />
-          </View>
-        </View>
-
-        <View style={styles.featuresContainer}>
-          <Text style={styles.sectionTitle} accessibilityRole="header">
-            Features
-          </Text>
-          {features.map((feature, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.featureCard}
-              accessibilityRole="button"
-              accessibilityLabel={`${feature.title}: ${feature.description}`}
-              onPress={() => {
-                if (feature.title === 'Component Examples') {
-                  router.push('/components');
-                } else if (feature.title === 'WCAG Compliance') {
-                  router.push('/guidelines');
-                }
-              }}
-            >
-              <View style={[styles.iconContainer, { backgroundColor: `${feature.color}15` }]}>
-                <feature.icon size={24} color={feature.color} />
-              </View>
-              <View style={styles.featureContent}>
-                <Text style={styles.featureTitle}>{feature.title}</Text>
-                <Text style={styles.featureDescription}>{feature.description}</Text>
-              </View>
-            </TouchableOpacity>
+      <View style={styles.levelContainer}>
+        <ThemedText style={styles.sectionTitle} accessibilityRole="header">
+          {t('accessibility.complianceLevels')}
+        </ThemedText>
+        <View style={styles.levelGrid}>
+          {Object.keys(ACCESSIBILITY_LEVEL_CONFIG).map((level) => (
+            <AccessibilityBadge key={level} level={level as AccessibilityLevel} size="large" />
           ))}
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+
+      <View style={styles.featuresContainer}>
+        <ThemedText style={styles.sectionTitle} accessibilityRole="header">
+          {t('accessibility.features')}
+        </ThemedText>
+        {ACCESSIBILITY_FEATURES.map((feature, index) => (
+          <Card
+            title={t(`accessibility.feature.${feature.key}.title`)}
+            description={t(`accessibility.feature.${feature.key}.description`)}
+            index={index}
+            icon={feature.icon}
+            iconColor={feature.color}
+            containerStyle={{ marginVertical: 8 }}
+            accessibilityLabel={`${t(`accessibility.feature.${feature.key}.title`)}: ${t(`accessibility.feature.${feature.key}.description`)}`}
+            onPress={() => {
+              if (feature.title === 'Component Examples') {
+                router.push('/components');
+              } else if (feature.title === 'WCAG Compliance') {
+                router.push('/guidelines');
+              }
+            }}
+          />
+        ))}
+      </View>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f9fafb',
-  },
   scrollView: {
     flex: 1,
   },
@@ -101,13 +65,7 @@ const styles = StyleSheet.create({
     padding: 24,
     alignItems: 'center',
   },
-  title: {
-    fontSize: 32,
-    fontFamily: 'Inter-Bold',
-    color: '#111827',
-    textAlign: 'center',
-    marginBottom: 8,
-  },
+
   subtitle: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',

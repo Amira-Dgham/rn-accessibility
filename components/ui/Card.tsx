@@ -1,266 +1,291 @@
-import AccessibilityBadge from '@/Badge';
-import {
-  CircleAlert as AlertCircle,
-  CircleCheck as CheckCircle,
-  ChevronRight,
-} from 'lucide-react-native';
+import { ChevronRight, LucideIcon } from 'lucide-react-native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 
-export interface BaseCardProps {
+// Icon component interface (you can replace with your preferred icon library)
+interface IconProps {
+  name: string;
+  size?: number;
+  color?: string;
+}
+
+// Card variant types
+export type CardVariant = 'default' | 'accessibility' | 'settings' | 'interactive';
+
+// Badge configuration
+interface Badge {
+  text: string;
+  color?: string;
+  backgroundColor?: string;
+}
+
+// Card props interface
+export interface CardProps {
+  // Content
   title: string;
+  subtitle?: string;
   description?: string;
+  badge?: Badge;
+  index: number;
+
+  // Visual elements
+  icon?: LucideIcon;
+  iconColor?: string;
+  iconBackgroundColor?: string;
+  variant?: CardVariant;
+
+  // Interaction
   onPress?: () => void;
+  disabled?: boolean;
+  showChevron?: boolean;
+
+  // Layout
+  containerStyle?: ViewStyle;
+  contentStyle?: ViewStyle;
+
+  // Accessibility
   accessibilityLabel?: string;
   accessibilityHint?: string;
-  style?: ViewStyle;
+  testID?: string;
 }
 
-export interface FeatureCardProps extends BaseCardProps {
-  variant: 'feature';
-  icon: React.ComponentType<{ size: number; color: string }>;
-  color: string;
-}
+const Card: React.FC<CardProps> = ({
+  title,
+  subtitle,
+  description,
+  index,
+  badge,
+  icon,
+  iconColor,
+  iconBackgroundColor,
+  variant = 'default',
+  onPress,
+  disabled = false,
+  showChevron = false,
+  containerStyle,
+  contentStyle,
+  accessibilityLabel,
+  accessibilityHint,
+  testID,
+}) => {
+  const isInteractive = !!onPress && !disabled;
 
-export interface ComponentCardProps extends BaseCardProps {
-  variant: 'component';
-  implemented?: boolean;
-  level?: 'A' | 'AA' | 'AAA';
-  requirements?: string[];
-  badge?: React.ReactNode;
-}
+  const getVariantStyles = () => {
+    switch (variant) {
+      case 'accessibility':
+        return {
+          container: styles.accessibilityCard,
+          iconContainer: [
+            styles.iconContainer,
+            { backgroundColor: iconBackgroundColor || '#E8F4FF' },
+          ],
+          icon: { color: iconColor || '#2196F3' },
+        };
+      case 'settings':
+        return {
+          container: styles.settingsCard,
+          iconContainer: [
+            styles.iconContainer,
+            { backgroundColor: iconBackgroundColor || '#F5F5F5' },
+          ],
+          icon: { color: iconColor || '#666' },
+        };
+      case 'interactive':
+        return {
+          container: styles.interactiveCard,
+          iconContainer: [
+            styles.iconContainer,
+            { backgroundColor: iconBackgroundColor || '#E8F8F0' },
+          ],
+          icon: { color: iconColor || '#4CAF50' },
+        };
+      default:
+        return {
+          container: styles.defaultCard,
+          iconContainer: [
+            styles.iconContainer,
+            { backgroundColor: iconBackgroundColor || '#F0F0F0' },
+          ],
+          icon: { color: iconColor || '#666' },
+        };
+    }
+  };
 
-export interface InfoCardProps extends BaseCardProps {
-  variant: 'info';
-  content: string;
-}
+  const variantStyles = getVariantStyles();
 
-export type UniversalCardProps = FeatureCardProps | ComponentCardProps | InfoCardProps;
-
-export default function UniversalCard(props: UniversalCardProps) {
-  const { title, description, onPress, accessibilityLabel, accessibilityHint, style } = props;
-
-  // Render feature card variant
-  const renderFeatureCard = (props: FeatureCardProps) => (
-    <TouchableOpacity
-      style={[styles.card, styles.featureCard, style]}
-      accessibilityRole="button"
-      accessibilityLabel={accessibilityLabel || `${title}: ${description}`}
-      accessibilityHint={accessibilityHint}
-      onPress={onPress}
-    >
-      <View style={[styles.iconContainer, { backgroundColor: `${props.color}15` }]}>
-        <props.icon size={24} color={props.color} />
-      </View>
-      <View style={styles.featureContent}>
-        <Text style={styles.featureTitle}>{title}</Text>
-        {description && <Text style={styles.featureDescription}>{description}</Text>}
-      </View>
-      <ChevronRight size={20} color="#6b7280" />
-    </TouchableOpacity>
-  );
-
-  // Render component card variant
-  const renderComponentCard = (props: ComponentCardProps) => (
-    <TouchableOpacity
-      style={[styles.card, styles.componentCard, style]}
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityLabel={
-        accessibilityLabel ||
-        `${title}. ${description}. ${props.implemented ? 'Implemented' : 'Not implemented'}`
-      }
-      accessibilityHint={accessibilityHint || 'Tap to view component details and examples'}
-    >
-      <View style={styles.header}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.componentTitle}>{title}</Text>
-          {props.level && <AccessibilityBadge level={props.level} size="small" />}
-          {props.badge}
-        </View>
-        <View style={styles.statusContainer}>
-          {props.implemented !== undefined && (
-            <>
-              {props.implemented ? (
-                <CheckCircle size={20} color="#059669" />
-              ) : (
-                <AlertCircle size={20} color="#dc2626" />
-              )}
-            </>
-          )}
-          {onPress && <ChevronRight size={20} color="#6b7280" />}
-        </View>
-      </View>
-
-      {description && <Text style={styles.componentDescription}>{description}</Text>}
-
-      {props.requirements && props.requirements.length > 0 && (
-        <View style={styles.requirements}>
-          <Text style={styles.requirementsTitle}>Key Requirements:</Text>
-          {props.requirements.slice(0, 2).map((req, index) => (
-            <Text key={index} style={styles.requirement}>
-              • {req}
-            </Text>
-          ))}
-          {props.requirements.length > 2 && (
-            <Text style={styles.moreRequirements}>+{props.requirements.length - 2} more</Text>
-          )}
+  const CardContent = () => (
+    <View style={[styles.card, variantStyles.container, containerStyle]}>
+      {/* Icon Section */}
+      {icon && (
+        <View style={[styles.iconContainer, { backgroundColor: `${iconColor}15` }]}>
+          {React.createElement(icon, { size: 24, color: iconColor })}
         </View>
       )}
-    </TouchableOpacity>
-  );
 
-  // Render info card variant
-  const renderInfoCard = (props: InfoCardProps) => (
-    <View style={[styles.card, styles.infoCard, style]}>
-      <Text style={styles.infoTitle}>{title}</Text>
-      <Text style={styles.infoText}>{props.content}</Text>
+      {/* Content Section */}
+      <View style={[styles.content, contentStyle]}>
+        {/* Header with title and badge */}
+        <View style={styles.header}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title} numberOfLines={2}>
+              {title}
+            </Text>
+            {badge && (
+              <View style={[styles.badge, { backgroundColor: badge.backgroundColor || '#FFF3CD' }]}>
+                <Text style={[styles.badgeText, { color: badge.color || '#856404' }]}>
+                  {badge.text}
+                </Text>
+              </View>
+            )}
+          </View>
+        </View>
+
+        {/* Subtitle */}
+        {subtitle && (
+          <Text style={styles.subtitle} numberOfLines={1}>
+            {subtitle}
+          </Text>
+        )}
+
+        {/* Description */}
+        {description && (
+          <Text style={styles.description} numberOfLines={3}>
+            {description}
+          </Text>
+        )}
+      </View>
+
+      {/* Chevron for interactive cards */}
+      {(showChevron || isInteractive) && <ChevronRight size={16} color="#999" />}
     </View>
   );
 
-  // Return appropriate variant
-  switch (props.variant) {
-    case 'feature':
-      return renderFeatureCard(props as FeatureCardProps);
-    case 'component':
-      return renderComponentCard(props as ComponentCardProps);
-    case 'info':
-      return renderInfoCard(props as InfoCardProps);
-    default:
-      return null;
+  // Render as TouchableOpacity if interactive, otherwise as View
+  if (isInteractive) {
+    return (
+      <TouchableOpacity
+        key={index}
+        onPress={onPress}
+        disabled={disabled}
+        style={[styles.touchable, disabled && styles.disabled]}
+        accessibilityLabel={accessibilityLabel || title}
+        accessibilityHint={accessibilityHint}
+        accessibilityRole="button"
+        testID={testID}
+      >
+        <CardContent />
+      </TouchableOpacity>
+    );
   }
-}
+
+  return (
+    <View style={styles.touchable} accessibilityLabel={accessibilityLabel || title} testID={testID}>
+      <CardContent />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  // Base card styles
+  touchable: {
+    marginVertical: 4,
+  },
   card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    marginVertical: 6,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 16,
     marginHorizontal: 16,
+    borderRadius: 12,
+    backgroundColor: '#FFFFFF',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: 2,
     elevation: 2,
   },
-
-  // Feature card styles
-  featureCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    gap: 12,
+  // Variant styles
+  defaultCard: {
+    borderLeftWidth: 0,
+  },
+  accessibilityCard: {
+    borderLeftWidth: 4,
+    borderLeftColor: '#2196F3',
+  },
+  settingsCard: {
+    backgroundColor: '#FAFAFA',
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+  },
+  interactiveCard: {
+    borderLeftWidth: 4,
+    borderLeftColor: '#4CAF50',
   },
   iconContainer: {
     width: 48,
     height: 48,
-    borderRadius: 24,
-    justifyContent: 'center',
+    borderRadius: 12,
     alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 16,
   },
-  featureContent: {
+  iconPlaceholder: {
+    borderRadius: 2,
+  },
+  content: {
     flex: 1,
-  },
-  featureTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#111827',
-    marginBottom: 4,
-  },
-  featureDescription: {
-    fontSize: 14,
-    color: '#6b7280',
-    lineHeight: 20,
-  },
-
-  // Component card styles
-  componentCard: {
-    padding: 16,
+    justifyContent: 'center',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   titleContainer: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
     flexWrap: 'wrap',
   },
-  componentTitle: {
-    fontSize: 18,
+  title: {
+    fontSize: 16,
     fontWeight: '600',
-    color: '#111827',
-  },
-  statusContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  componentDescription: {
-    fontSize: 14,
-    color: '#6b7280',
-    lineHeight: 20,
-    marginBottom: 12,
-  },
-  requirements: {
-    gap: 4,
-  },
-  requirementsTitle: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#374151',
-    marginBottom: 4,
-  },
-  requirement: {
-    fontSize: 12,
-    color: '#6b7280',
-    lineHeight: 16,
-  },
-  moreRequirements: {
-    fontSize: 12,
-    color: '#9ca3af',
-    fontStyle: 'italic',
-  },
-
-  // Info card styles
-  infoCard: {
-    padding: 20,
-  },
-  infoTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#111827',
-    marginBottom: 12,
-  },
-  infoText: {
-    fontSize: 14,
-    color: '#6b7280',
+    color: '#1A1A1A',
     lineHeight: 22,
+    marginRight: 8,
   },
-
-  // Badge styles
   badge: {
     paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
+    paddingVertical: 2,
+    borderRadius: 4,
     alignSelf: 'flex-start',
   },
-  badgeSmall: {
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 8,
-  },
   badgeText: {
-    color: '#ffffff',
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '500',
+    textTransform: 'uppercase',
   },
-  badgeTextSmall: {
-    fontSize: 10,
+  subtitle: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#666666',
+    marginBottom: 4,
+    lineHeight: 18,
+  },
+  description: {
+    fontSize: 14,
+    color: '#999999',
+    lineHeight: 20,
+  },
+  chevronContainer: {
+    justifyContent: 'center',
+    marginLeft: 8,
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });
+
+export default Card;
