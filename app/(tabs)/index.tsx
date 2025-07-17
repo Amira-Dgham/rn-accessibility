@@ -46,10 +46,8 @@ export default function HomeScreen() {
             icon={feature.icon}
             containerStyle={{ marginVertical: 8 }}
             onPress={() => {
-              if (feature.title === 'Component Examples') {
-                router.push('/components');
-              } else if (feature.title === 'WCAG Compliance') {
-                router.push('/guidelines');
+              if (feature.route) {
+                router.push(feature.route);
               }
             }}
           />

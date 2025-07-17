@@ -6,15 +6,15 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 import { ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { StoreProvider } from '@/context/StoreContext';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
-import { CustomDarkTheme, CustomLightTheme } from '@/theme/navigationTheme';
+import { useColorScheme } from '@/hooks/useColorScheme';
+import RootStack from '@/navigation/RootStack';
+import { CustomDarkTheme, CustomLightTheme } from '@/theme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete
 SplashScreen.preventAutoHideAsync();
@@ -53,14 +53,7 @@ export default function RootLayout() {
   return (
     <StoreProvider>
       <ThemeProvider value={navigationTheme}>
-        <Stack>
-          {/* Main tab navigation */}
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-
-          {/* Fallback screen for unmatched routes */}
-          <Stack.Screen name="+not-found" />
-        </Stack>
-
+        <RootStack />
         {/* Set the status bar style based on the color scheme */}
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </ThemeProvider>

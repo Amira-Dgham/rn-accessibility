@@ -1,10 +1,9 @@
-// @/hooks/useTheme.ts
-import { Theme, type ColorScheme, type ThemeType } from '@/theme';
-import { useColorScheme } from './useColorScheme.web';
+import { Theme, type ColorScheme } from '@/theme';
+import { useColorScheme } from './useColorScheme';
 
 export function useTheme() {
   const colorScheme: ColorScheme = useColorScheme() ?? 'light';
-  const theme: ThemeType = Theme[colorScheme];
+  const theme = Theme[colorScheme];
 
   return {
     theme,

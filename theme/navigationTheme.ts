@@ -1,4 +1,3 @@
-// @/theme/navigationTheme.ts
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Colors } from './colors';
 import { FontFamilies } from './typography';

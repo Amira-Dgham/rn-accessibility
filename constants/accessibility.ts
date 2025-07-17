@@ -1,7 +1,7 @@
 // src/constants/accessibility.ts
 
 import { AccessibilityLevelConfig } from '@/models';
-import { AccessibilityLevel } from '@/types/accessibility';
+import { AccessibilityFeature, AccessibilityLevel } from '@/types/accessibility';
 import { Shield, Target, Users, Zap } from 'lucide-react-native';
 
 export const ACCESSIBILITY_LEVEL_CONFIG: Record<AccessibilityLevel, AccessibilityLevelConfig> = {
@@ -26,29 +26,33 @@ export const ACCESSIBILITY_LEVEL_CONFIG: Record<AccessibilityLevel, Accessibilit
         contrastRatio: 0,
     },
 };
-export const ACCESSIBILITY_FEATURES = [
+export const ACCESSIBILITY_FEATURES: AccessibilityFeature[] = [
     {
         key: 'wcagCompliance',
         icon: Shield,
-        title: 'WCAG Compliance', // Keep for fallback
+        title: 'WCAG Compliance',
         description: 'Learn and implement WCAG 2.1 guidelines across all levels',
+        route: '/guidelines',
     },
     {
         key: 'componentsSamples',
         icon: Target,
         title: 'Components Samples',
         description: 'Interactive examples of accessible UI components',
+        route: '/components',
     },
     {
         key: 'userTesting',
         icon: Users,
         title: 'User Testing',
         description: 'Tools and guidelines for accessibility user testing',
+        route: null,
     },
     {
         key: 'quickChecks',
         icon: Zap,
         title: 'Quick Checks',
         description: 'Rapid accessibility auditing and validation tools',
+        route: null,
     },
 ];
