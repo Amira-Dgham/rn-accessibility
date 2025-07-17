@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { BADGE_SIZES } from '@/constants/badge';
+import { useTheme } from '@/hooks/useTheme';
 import { AccessibilityLevel } from '@/types/accessibility';
 import { ThemedText } from './ThemedText';
 
@@ -16,10 +17,11 @@ interface AccessibilityBadgeProps {
 export const Badge: React.FC<AccessibilityBadgeProps> = ({ level, size = 'medium', onPress }) => {
   const config = ACCESSIBILITY_LEVEL_CONFIG[level];
   const styles = createStyles(size);
+  const { colors } = useTheme();
 
-  const badgeStyle = [styles.badge, { backgroundColor: config.backgroundColor }];
+  const badgeStyle = [styles.badge, { backgroundColor: colors.purpleBackground }];
 
-  const textStyle = [styles.text, { color: config.color }];
+  const textStyle = [styles.text, { color: colors.purpleText }];
 
   const accessibilityProps = {
     accessibilityRole: 'text' as const,
@@ -50,6 +52,7 @@ export const createStyles = (size: BadgeSize) => {
       paddingHorizontal: sizeConfig.padding,
       paddingVertical: sizeConfig.paddingVertical,
       alignSelf: 'flex-start',
+      minWidth: 60,
     },
     text: {
       textAlign: 'center' as const,

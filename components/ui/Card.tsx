@@ -1,16 +1,9 @@
+import { useGlobalStyles } from '@/hooks/useGlobalStyle';
+import { useTheme } from '@/hooks/useTheme';
 import { ChevronRight, LucideIcon } from 'lucide-react-native';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-
-// Icon component interface (you can replace with your preferred icon library)
-interface IconProps {
-  name: string;
-  size?: number;
-  color?: string;
-}
-
-// Card variant types
-export type CardVariant = 'default' | 'accessibility' | 'settings' | 'interactive';
+import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { ThemedText } from '../ThemedText';
 
 // Badge configuration
 interface Badge {
@@ -30,9 +23,6 @@ export interface CardProps {
 
   // Visual elements
   icon?: LucideIcon;
-  iconColor?: string;
-  iconBackgroundColor?: string;
-  variant?: CardVariant;
 
   // Interaction
   onPress?: () => void;
@@ -42,11 +32,6 @@ export interface CardProps {
   // Layout
   containerStyle?: ViewStyle;
   contentStyle?: ViewStyle;
-
-  // Accessibility
-  accessibilityLabel?: string;
-  accessibilityHint?: string;
-  testID?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -56,69 +41,32 @@ export const Card: React.FC<CardProps> = ({
   index,
   badge,
   icon,
-  iconColor,
-  iconBackgroundColor,
-  variant = 'default',
   onPress,
   disabled = false,
   showChevron = false,
   containerStyle,
   contentStyle,
-  accessibilityLabel,
-  accessibilityHint,
-  testID,
 }) => {
   const isInteractive = !!onPress && !disabled;
+  const { colors } = useTheme();
+  const globalStyle = useGlobalStyles();
 
   const getVariantStyles = () => {
-    switch (variant) {
-      case 'accessibility':
-        return {
-          container: styles.accessibilityCard,
-          iconContainer: [
-            styles.iconContainer,
-            { backgroundColor: iconBackgroundColor || '#E8F4FF' },
-          ],
-          icon: { color: iconColor || '#2196F3' },
-        };
-      case 'settings':
-        return {
-          container: styles.settingsCard,
-          iconContainer: [
-            styles.iconContainer,
-            { backgroundColor: iconBackgroundColor || '#F5F5F5' },
-          ],
-          icon: { color: iconColor || '#666' },
-        };
-      case 'interactive':
-        return {
-          container: styles.interactiveCard,
-          iconContainer: [
-            styles.iconContainer,
-            { backgroundColor: iconBackgroundColor || '#E8F8F0' },
-          ],
-          icon: { color: iconColor || '#4CAF50' },
-        };
-      default:
-        return {
-          container: styles.defaultCard,
-          iconContainer: [
-            styles.iconContainer,
-            { backgroundColor: iconBackgroundColor || '#F0F0F0' },
-          ],
-          icon: { color: iconColor || '#666' },
-        };
-    }
+    return {
+      container: styles.defaultCard,
+      iconContainer: [styles.iconContainer, { backgroundColor: colors.purpleBackground }],
+      icon: { color: colors.purple },
+    };
   };
 
   const variantStyles = getVariantStyles();
 
   const CardContent = () => (
-    <View style={[styles.card, variantStyles.container, containerStyle]}>
+    <View style={[globalStyle.card, variantStyles.container, containerStyle]}>
       {/* Icon Section */}
       {icon && (
-        <View style={[styles.iconContainer, { backgroundColor: `${iconColor}15` }]}>
-          {React.createElement(icon, { size: 24, color: iconColor })}
+        <View style={[styles.iconContainer, { backgroundColor: colors.purpleBackground }]}>
+          {React.createElement(icon, { size: 24, color: colors.purple })}
         </View>
       )}
 
@@ -127,36 +75,32 @@ export const Card: React.FC<CardProps> = ({
         {/* Header with title and badge */}
         <View style={styles.header}>
           <View style={styles.titleContainer}>
-            <Text style={styles.title} numberOfLines={2}>
+            <ThemedText variant="bodyMedium" numberOfLines={2}>
               {title}
-            </Text>
+            </ThemedText>
             {badge && (
-              <View style={[styles.badge, { backgroundColor: badge.backgroundColor || '#FFF3CD' }]}>
-                <Text style={[styles.badgeText, { color: badge.color || '#856404' }]}>
+              <View style={[styles.badge, { backgroundColor: badge.backgroundColor }]}>
+                <ThemedText style={[styles.badgeText, { color: badge.color }]}>
                   {badge.text}
-                </Text>
+                </ThemedText>
               </View>
             )}
           </View>
         </View>
 
         {/* Subtitle */}
-        {subtitle && (
-          <Text style={styles.subtitle} numberOfLines={1}>
-            {subtitle}
-          </Text>
-        )}
+        {subtitle && <ThemedText numberOfLines={1}>{subtitle}</ThemedText>}
 
         {/* Description */}
         {description && (
-          <Text style={styles.description} numberOfLines={3}>
+          <ThemedText variant="caption" color={colors.gray} numberOfLines={3}>
             {description}
-          </Text>
+          </ThemedText>
         )}
       </View>
 
       {/* Chevron for interactive cards */}
-      {(showChevron || isInteractive) && <ChevronRight size={16} color="#999" />}
+      {(showChevron || isInteractive) && <ChevronRight size={16} color={colors.gray} />}
     </View>
   );
 
@@ -168,10 +112,6 @@ export const Card: React.FC<CardProps> = ({
         onPress={onPress}
         disabled={disabled}
         style={[styles.touchable, disabled && styles.disabled]}
-        accessibilityLabel={accessibilityLabel || title}
-        accessibilityHint={accessibilityHint}
-        accessibilityRole="button"
-        testID={testID}
       >
         <CardContent />
       </TouchableOpacity>
@@ -179,7 +119,7 @@ export const Card: React.FC<CardProps> = ({
   }
 
   return (
-    <View style={styles.touchable} accessibilityLabel={accessibilityLabel || title} testID={testID}>
+    <View style={styles.touchable}>
       <CardContent />
     </View>
   );
@@ -189,22 +129,7 @@ const styles = StyleSheet.create({
   touchable: {
     marginVertical: 4,
   },
-  card: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    padding: 16,
-    marginHorizontal: 16,
-    borderRadius: 12,
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
+
   // Variant styles
   defaultCard: {
     borderLeftWidth: 0,

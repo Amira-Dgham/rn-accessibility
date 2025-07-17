@@ -35,16 +35,16 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.paddingContainer}>
-        <ThemedText accessibilityRole="header">{t('accessibility.features')}</ThemedText>
+        <ThemedText variant="h4" accessibilityRole="header">
+          {t('accessibility.features')}
+        </ThemedText>
         {ACCESSIBILITY_FEATURES.map((feature, index) => (
           <Card
             title={t(`accessibility.feature.${feature.key}.title`)}
             description={t(`accessibility.feature.${feature.key}.description`)}
             index={index}
             icon={feature.icon}
-            iconColor={feature.color}
             containerStyle={{ marginVertical: 8 }}
-            accessibilityLabel={`${t(`accessibility.feature.${feature.key}.title`)}: ${t(`accessibility.feature.${feature.key}.description`)}`}
             onPress={() => {
               if (feature.title === 'Component Examples') {
                 router.push('/components');
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+    marginTop: 20,
   },
   paddingContainer: {
     padding: 24,
