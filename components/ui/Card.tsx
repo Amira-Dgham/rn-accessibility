@@ -49,7 +49,7 @@ export interface CardProps {
   testID?: string;
 }
 
-const Card: React.FC<CardProps> = ({
+export const Card: React.FC<CardProps> = ({
   title,
   subtitle,
   description,

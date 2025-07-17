@@ -26,6 +26,9 @@ export const Colors = {
 
     blue: '#1e40af',
     blueBackground: '#eff6ff',
+
+    gray: '#6B7280',
+
   },
   dark: {
     text: '#ECEDEE',
@@ -49,5 +52,7 @@ export const Colors = {
 
     blue: '#60a5fa',
     blueBackground: '#1e293b',
+
+    gray: '#9CA3AF',
   },
 };
