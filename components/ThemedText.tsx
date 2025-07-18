@@ -1,60 +1,72 @@
-import { StyleSheet, Text, type TextProps } from 'react-native';
+import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from '@/constants';
+import { useTheme } from '@/hooks/useTheme';
+import { TypographyKeys } from '@/theme';
+import { AccessibilityLevel } from '@/types/accessibility';
+import { getContrastRatio, meetsAccessibilityLevel } from '@/utils/accessibilityChecker';
+import React from 'react';
+import { Text as RNText, TextProps as RNTextProps, TextStyle } from 'react-native';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
-
-export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
-};
-
-export function ThemedText({
-  style,
-  lightColor,
-  darkColor,
-  type = 'default',
-  ...rest
-}: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
-  return (
-    <Text
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+// Extended TextProps interface
+export interface CustomTextProps extends Omit<RNTextProps, 'style'> {
+  variant?: TypographyKeys;
+  color?: string;
+  backgroundColor?: string;
+  accessibilityLevel?: AccessibilityLevel;
+  style?: TextStyle | TextStyle[];
+  testID?: string;
 }
 
-const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: '#0a7ea4',
-  },
-});
+export const ThemedText: React.FC<CustomTextProps> = ({
+  variant = 'body',
+  color,
+  backgroundColor,
+  accessibilityLevel = AccessibilityLevel.AAA,
+  style,
+  children,
+  testID,
+  ...props
+}) => {
+  const { theme, colors } = useTheme();
+  // Get typography styles from theme
+  const typographyStyle = theme.typography[variant];
+
+  // Use theme colors as defaults
+  const textColor = color || colors.text;
+  const bgColor = backgroundColor || colors.background;
+
+  // Check accessibility compliance
+  const isAccessible = meetsAccessibilityLevel(
+    textColor,
+    bgColor,
+    accessibilityLevel,
+    typographyStyle.fontSize ?? 14,
+  );
+
+  // Log warning in development if accessibility requirements aren't met
+  if (__DEV__ && !isAccessible && accessibilityLevel !== AccessibilityLevel.NONE) {
+    const contrastRatio = getContrastRatio(textColor, bgColor);
+    console.warn(
+      `Text accessibility warning: Contrast ratio ${contrastRatio.toFixed(2)} does not meet ${accessibilityLevel} standards for variant "${variant}". ` +
+        `Required: ${ACCESSIBILITY_LEVEL_BASE_CONFIG[accessibilityLevel].contrastRatio}, Current: ${contrastRatio.toFixed(2)}`,
+    );
+  }
+
+  // Combine styles
+  const combinedStyle: TextStyle = {
+    ...typographyStyle,
+    color: textColor,
+    ...(Array.isArray(style) ? Object.assign({}, ...style) : style),
+  };
+
+  return (
+    <RNText
+      style={combinedStyle}
+      testID={testID || `text-${variant}`}
+      accessible={true}
+      accessibilityRole="text"
+      {...props}
+    >
+      {children}
+    </RNText>
+  );
+};

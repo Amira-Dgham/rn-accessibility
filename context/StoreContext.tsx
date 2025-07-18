@@ -1,13 +1,14 @@
-import rootStore, { IRootStore } from '@/stores/RootStore';
+import { RootStore, rootStore } from '@/stores/RootStore';
 import { observer } from 'mobx-react-lite';
+import { Instance } from 'mobx-state-tree';
 import React, { createContext, ReactNode, useContext } from 'react';
 
 // Create the context
-const StoreContext = createContext<IRootStore | null>(null);
+const StoreContext = createContext<Instance<typeof RootStore> | null>(null);
 
 interface StoreProviderProps {
   children: ReactNode;
-  store?: IRootStore;
+  store?: Instance<typeof RootStore>;
 }
 
 // Store Provider Component
@@ -18,7 +19,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = observer(
 );
 
 // Hook to use the store context
-export const useStore = (): IRootStore => {
+export const useStore = (): Instance<typeof RootStore> => {
   const store = useContext(StoreContext);
   if (!store) {
     throw new Error('useStore must be used within a StoreProvider');

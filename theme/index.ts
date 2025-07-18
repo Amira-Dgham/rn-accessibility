@@ -1,6 +1,5 @@
-// @/theme/index.ts
-import { Colors } from './colors';
-import { FontFamilies, FontSizes, Typography } from './typography';
+import { Colors, type ColorKeys } from './colors';
+import { FontFamilies, FontSizes, Typography, type TypographyKeys } from './typography';
 
 export const Theme = {
   light: {
@@ -21,5 +20,7 @@ export type ThemeType = typeof Theme.light;
 export type ColorScheme = keyof typeof Theme;
 
 // Re-export everything for convenience
-export type { TypographyKeys } from './typography';
+export { CustomDarkTheme, CustomLightTheme } from './navigationTheme';
 export { Colors, FontFamilies, FontSizes, Typography };
+export type { ColorKeys, TypographyKeys };
+
