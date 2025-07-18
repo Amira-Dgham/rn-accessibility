@@ -1,5 +1,5 @@
 // Make sure AccessibilityLevel is exported as an enum or object, not just a type
-import { ACCESSIBILITY_LEVEL_CONFIG } from "@/constants";
+import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from "@/constants";
 import { AccessibilityLevel } from "@/types/accessibility";
 
 
@@ -53,7 +53,7 @@ export const meetsAccessibilityLevel = (
     if (level === AccessibilityLevel.NONE) return true;
 
     const contrastRatio = getContrastRatio(textColor, backgroundColor);
-    const requiredRatio = ACCESSIBILITY_LEVEL_CONFIG[level].contrastRatio ?? 4.5;
+    const requiredRatio = ACCESSIBILITY_LEVEL_BASE_CONFIG[level].contrastRatio ?? 4.5;
 
     // Large text (18pt+ or 14pt+ bold) has lower requirements
     const isLargeText = fontSize >= 18 || fontSize >= 14;

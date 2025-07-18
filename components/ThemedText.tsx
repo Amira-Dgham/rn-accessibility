@@ -1,4 +1,4 @@
-import { ACCESSIBILITY_LEVEL_CONFIG } from '@/constants';
+import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from '@/constants';
 import { useTheme } from '@/hooks/useTheme';
 import { TypographyKeys } from '@/theme';
 import { AccessibilityLevel } from '@/types/accessibility';
@@ -27,7 +27,6 @@ export const ThemedText: React.FC<CustomTextProps> = ({
   ...props
 }) => {
   const { theme, colors } = useTheme();
-
   // Get typography styles from theme
   const typographyStyle = theme.typography[variant];
 
@@ -48,7 +47,7 @@ export const ThemedText: React.FC<CustomTextProps> = ({
     const contrastRatio = getContrastRatio(textColor, bgColor);
     console.warn(
       `Text accessibility warning: Contrast ratio ${contrastRatio.toFixed(2)} does not meet ${accessibilityLevel} standards for variant "${variant}". ` +
-        `Required: ${ACCESSIBILITY_LEVEL_CONFIG[accessibilityLevel].contrastRatio}, Current: ${contrastRatio.toFixed(2)}`,
+        `Required: ${ACCESSIBILITY_LEVEL_BASE_CONFIG[accessibilityLevel].contrastRatio}, Current: ${contrastRatio.toFixed(2)}`,
     );
   }
 

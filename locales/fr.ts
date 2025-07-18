@@ -19,7 +19,7 @@ export const fr = {
   screens: {
     home: {
       title: 'Guide d\'Accessibilité',
-      subtitle: 'Maîtrisez l\'accessibilité numérique avec des exemples complets et des directives',
+      subtitle: 'Maîtrisez l\'accessibilité numérique avec des exemples et directives complets',
       button: 'Commencer',
       greeting: 'Bonjour, {{name}} !',
     },
@@ -32,13 +32,31 @@ export const fr = {
     },
     profile: {
       title: 'Profil',
-      editProfile: 'Modifier le profil',
+      editProfile: 'Modifier le Profil',
       logout: 'Déconnexion',
     },
   },
   accessibility: {
     complianceLevels: 'Niveaux de Conformité',
     features: 'Fonctionnalités',
+    levels: {
+      A: {
+        name: 'A',
+        description: 'Niveau minimum de conformité',
+      },
+      AA: {
+        name: 'AA',
+        description: 'Niveau standard de conformité',
+      },
+      AAA: {
+        name: 'AAA',
+        description: 'Niveau amélioré de conformité',
+      },
+      none: {
+        name: 'Aucun',
+        description: 'Aucune exigence d\'accessibilité',
+      },
+    },
     feature: {
       wcagCompliance: {
         title: 'Conformité WCAG',
@@ -46,7 +64,7 @@ export const fr = {
       },
       componentsSamples: {
         title: 'Exemples de Composants',
-        description: 'Exemples interactifs de composants UI accessibles',
+        description: 'Exemples interactifs de composants d\'interface accessibles',
       },
       userTesting: {
         title: 'Tests Utilisateur',
@@ -60,7 +78,7 @@ export const fr = {
   },
   errors: {
     networkError: 'Erreur de connexion réseau',
-    unknownError: 'Une erreur inconnue est survenue',
+    unknownError: 'Une erreur inconnue s\'est produite',
     validationError: 'Veuillez vérifier votre saisie',
   },
 };

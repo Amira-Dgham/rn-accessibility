@@ -1,50 +1,49 @@
 import { Badge, ThemedText, ThemedView } from '@/components';
 import { Card } from '@/components/ui';
-import { ACCESSIBILITY_FEATURES, ACCESSIBILITY_LEVEL_CONFIG } from '@/constants/accessibility';
+import { useAccessibility } from '@/hooks/useAccessibility';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useTheme } from '@/hooks/useTheme';
-import { AccessibilityLevel } from '@/types/accessibility';
 import { router } from 'expo-router';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export default function HomeScreen() {
+const HomeScreen = observer(() => {
   const { t } = useLanguage();
   const { colors } = useTheme();
-
+  const { levels, features } = useAccessibility();
+  console.log(levels);
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
+      {/* Header */}
       <View style={styles.header}>
-        <ThemedText variant="h2" accessibilityRole="header">
-          {t('screens.home.title')}
-        </ThemedText>
+        <ThemedText variant="h2">{t('screens.home.title')}</ThemedText>
         <ThemedText variant="body" color={colors.gray}>
           {t('screens.home.subtitle')}
         </ThemedText>
       </View>
 
+      {/* Compliance Levels */}
       <View style={styles.paddingContainer}>
-        <ThemedText variant="h4" accessibilityRole="header">
-          {t('accessibility.complianceLevels')}
-        </ThemedText>
+        <ThemedText variant="h4">{t('accessibility.complianceLevels')}</ThemedText>
         <View style={styles.levelGrid}>
-          {Object.keys(ACCESSIBILITY_LEVEL_CONFIG).map((level) => (
-            <Badge key={level} level={level as AccessibilityLevel} size="large" />
+          {levels.map((level) => (
+            <Badge key={level.key} level={level.key} size="large" />
           ))}
         </View>
       </View>
 
+      {/* Features */}
       <View style={styles.paddingContainer}>
-        <ThemedText variant="h4" accessibilityRole="header">
-          {t('accessibility.features')}
-        </ThemedText>
-        {ACCESSIBILITY_FEATURES.map((feature, index) => (
+        <ThemedText variant="h4">{t('accessibility.features')}</ThemedText>
+        {features.map((feature, index) => (
           <Card
-            title={t(`accessibility.feature.${feature.key}.title`)}
-            description={t(`accessibility.feature.${feature.key}.description`)}
-            index={index}
-            icon={feature.icon}
             containerStyle={{ marginVertical: 8 }}
+            key={feature.key}
+            index={index}
+            title={feature.title}
+            description={feature.description}
+            icon={feature.icon}
             onPress={() => {
               if (feature.route) {
                 router.push(feature.route);
@@ -55,7 +54,9 @@ export default function HomeScreen() {
       </View>
     </ThemedView>
   );
-}
+});
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   header: {

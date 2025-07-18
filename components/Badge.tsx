@@ -1,4 +1,3 @@
-import { ACCESSIBILITY_LEVEL_CONFIG } from '@/constants';
 import { BadgeSize } from '@/types/accessibility';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -15,7 +14,6 @@ interface AccessibilityBadgeProps {
 }
 
 export const Badge: React.FC<AccessibilityBadgeProps> = ({ level, size = 'medium', onPress }) => {
-  const config = ACCESSIBILITY_LEVEL_CONFIG[level];
   const styles = createStyles(size);
   const { colors } = useTheme();
 
@@ -23,22 +21,13 @@ export const Badge: React.FC<AccessibilityBadgeProps> = ({ level, size = 'medium
 
   const textStyle = [styles.text, { color: colors.purpleText }];
 
-  const accessibilityProps = {
-    accessibilityRole: 'text' as const,
-    accessibilityLabel: `Accessibility ${config.name}: ${config.description}`,
-    ...(onPress && {
-      accessibilityRole: 'button' as const,
-      accessibilityHint: 'Tap for more information about this accessibility level',
-    }),
-  };
-
   const ViewComponent = onPress
     ? (props: any) => <View {...props} key={level} onTouchEnd={onPress} />
     : View;
 
   return (
-    <ViewComponent style={badgeStyle} {...accessibilityProps}>
-      <ThemedText style={textStyle}>{config.name}</ThemedText>
+    <ViewComponent style={badgeStyle}>
+      <ThemedText style={textStyle}>{level}</ThemedText>
     </ViewComponent>
   );
 };
