@@ -15,6 +15,7 @@ import { StoreProvider } from '@/context/StoreContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import RootStack from '@/navigation/RootStack';
 import { CustomDarkTheme, CustomLightTheme } from '@/theme';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete
 SplashScreen.preventAutoHideAsync();
@@ -53,9 +54,11 @@ export default function RootLayout() {
   return (
     <StoreProvider>
       <ThemeProvider value={navigationTheme}>
-        <RootStack />
-        {/* Set the status bar style based on the color scheme */}
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        <KeyboardProvider>
+          <RootStack />
+          {/* Set the status bar style based on the color scheme */}
+          <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        </KeyboardProvider>
       </ThemeProvider>
     </StoreProvider>
   );

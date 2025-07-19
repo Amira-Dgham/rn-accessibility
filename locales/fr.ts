@@ -23,6 +23,10 @@ export const fr = {
       button: 'Commencer',
       greeting: 'Bonjour, {{name}} !',
     },
+    components: {
+      title: "Composants d'accessibilité",
+      subtitle: "Découvrez toutes les fonctionnalités et les composants d'accessibilité disponibles"
+    },
     settings: {
       title: 'Paramètres',
       language: 'Langue',

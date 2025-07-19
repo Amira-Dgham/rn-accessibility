@@ -20,8 +20,10 @@ export const en = {
     home: {
       title: 'Accessibility Guide',
       subtitle: 'Master digital accessibility with comprehensive examples and guidelines',
-      button: 'Get Started',
-      greeting: 'Hello, {{name}}!',
+    },
+    components: {
+      title: "Accessibility Components",
+      subtitle: "Explore all available accessibility components and features",
     },
     settings: {
       title: 'Settings',
