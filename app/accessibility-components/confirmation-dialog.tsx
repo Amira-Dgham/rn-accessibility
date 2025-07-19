@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const checkboxs: FC = () => {
+const confirmationDialog: FC = () => {
   return (
     <View>
-      <Text>checkboxs</Text>
+      <Text>confirmation-diolog</Text>
     </View>
   );
 };
 
-export default checkboxs;
+export default confirmationDialog;
 
 const styles = StyleSheet.create({});

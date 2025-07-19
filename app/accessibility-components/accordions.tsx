@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Alerts: FC = () => {
+const Accordions: FC = () => {
   return (
     <View>
-      <Text>A</Text>
+      <Text>Accordions</Text>
     </View>
   );
 };
 
-export default Alerts;
+export default Accordions;
 
 const styles = StyleSheet.create({});

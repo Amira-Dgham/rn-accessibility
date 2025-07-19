@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const confirmationDiolog: FC = () => {
+const TextInputs: FC = () => {
   return (
     <View>
-      <Text>confirmation-diolog</Text>
+      <Text>text-inputs</Text>
     </View>
   );
 };
 
-export default confirmationDiolog;
+export default TextInputs;
 
 const styles = StyleSheet.create({});

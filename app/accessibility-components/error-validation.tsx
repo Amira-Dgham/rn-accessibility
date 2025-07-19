@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Accordions: FC = () => {
+const ErrorValidation: FC = () => {
   return (
     <View>
-      <Text>A</Text>
+      <Text>error-validation</Text>
     </View>
   );
 };
 
-export default Accordions;
+export default ErrorValidation;
 
 const styles = StyleSheet.create({});
