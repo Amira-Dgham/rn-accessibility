@@ -23,4 +23,3 @@ export type ColorScheme = keyof typeof Theme;
 export { CustomDarkTheme, CustomLightTheme } from './navigationTheme';
 export { Colors, FontFamilies, FontSizes, Typography };
 export type { ColorKeys, TypographyKeys };
-

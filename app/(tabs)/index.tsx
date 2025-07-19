@@ -12,7 +12,7 @@ const HomeScreen = observer(() => {
   const { t } = useLanguage();
   const { colors } = useTheme();
   const { levels, features } = useAccessibility();
-  console.log(levels);
+
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
       {/* Header */}

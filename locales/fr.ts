@@ -18,8 +18,8 @@ export const fr = {
   },
   screens: {
     home: {
-      title: 'Guide d\'Accessibilité',
-      subtitle: 'Maîtrisez l\'accessibilité numérique avec des exemples et directives complets',
+      title: "Guide d'Accessibilité",
+      subtitle: "Maîtrisez l'accessibilité numérique avec des exemples et directives complets",
       button: 'Commencer',
       greeting: 'Bonjour, {{name}} !',
     },
@@ -54,7 +54,7 @@ export const fr = {
       },
       none: {
         name: 'Aucun',
-        description: 'Aucune exigence d\'accessibilité',
+        description: "Aucune exigence d'accessibilité",
       },
     },
     feature: {
@@ -64,21 +64,21 @@ export const fr = {
       },
       componentsSamples: {
         title: 'Exemples de Composants',
-        description: 'Exemples interactifs de composants d\'interface accessibles',
+        description: "Exemples interactifs de composants d'interface accessibles",
       },
       userTesting: {
         title: 'Tests Utilisateur',
-        description: 'Outils et directives pour les tests d\'accessibilité utilisateur',
+        description: "Outils et directives pour les tests d'accessibilité utilisateur",
       },
       quickChecks: {
         title: 'Vérifications Rapides',
-        description: 'Outils d\'audit et de validation d\'accessibilité rapides',
+        description: "Outils d'audit et de validation d'accessibilité rapides",
       },
     },
   },
   errors: {
     networkError: 'Erreur de connexion réseau',
-    unknownError: 'Une erreur inconnue s\'est produite',
+    unknownError: "Une erreur inconnue s'est produite",
     validationError: 'Veuillez vérifier votre saisie',
   },
 };
