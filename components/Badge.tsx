@@ -1,10 +1,9 @@
-import { BadgeSize } from '@/types/accessibility';
+import { BadgeSize, AccessibilityLevel } from '@/types/accessibility';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { BADGE_SIZES } from '@/constants/badge';
 import { useTheme } from '@/hooks/useTheme';
-import { AccessibilityLevel } from '@/types/accessibility';
 import { ThemedText } from './ThemedText';
 
 interface AccessibilityBadgeProps {
