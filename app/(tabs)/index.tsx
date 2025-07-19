@@ -1,8 +1,8 @@
 import { Badge, ThemedText, ThemedView } from '@/components';
+import Header from '@/components/Header';
 import { Card } from '@/components/ui';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useTheme } from '@/hooks/useTheme';
 import { router } from 'expo-router';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
@@ -10,18 +10,12 @@ import { StyleSheet, View } from 'react-native';
 
 const HomeScreen = observer(() => {
   const { t } = useLanguage();
-  const { colors } = useTheme();
   const { levels, features } = useAccessibility();
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
       {/* Header */}
-      <View style={styles.header}>
-        <ThemedText variant="h2">{t('screens.home.title')}</ThemedText>
-        <ThemedText variant="body" color={colors.gray}>
-          {t('screens.home.subtitle')}
-        </ThemedText>
-      </View>
+      <Header title={t('screens.home.title')} subtitle={t('screens.home.subtitle')} />
 
       {/* Compliance Levels */}
       <View style={styles.paddingContainer}>
@@ -59,10 +53,6 @@ const HomeScreen = observer(() => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  header: {
-    padding: 24,
-    alignItems: 'center',
-  },
   levelGrid: {
     flexDirection: 'row',
     justifyContent: 'space-around',

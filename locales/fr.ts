@@ -16,12 +16,19 @@ export const fr = {
     guidelines: 'Directives',
     settings: 'Paramètres',
   },
+  list: {
+    empty: 'la liste est vide',
+  },
   screens: {
     home: {
       title: "Guide d'Accessibilité",
       subtitle: "Maîtrisez l'accessibilité numérique avec des exemples et directives complets",
       button: 'Commencer',
       greeting: 'Bonjour, {{name}} !',
+    },
+    components: {
+      title: "Composants d'accessibilité",
+      subtitle: "Découvrez toutes les fonctionnalités et les composants d'accessibilité disponibles"
     },
     settings: {
       title: 'Paramètres',

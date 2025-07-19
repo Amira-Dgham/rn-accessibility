@@ -8,3 +8,8 @@ export const AccessibilityLevel = {
 export type AccessibilityLevel = (typeof AccessibilityLevel)[keyof typeof AccessibilityLevel];
 
 export type BadgeSize = 'small' | 'medium' | 'large';
+
+export type AccessibilityComponent = {
+  title: string;
+  route: string;
+};
