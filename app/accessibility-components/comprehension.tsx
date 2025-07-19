@@ -2,16 +2,16 @@ import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import React, { FC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const checkboxes: FC = () => {
+const Comprehension: FC = () => {
   useHeaderTitle();
 
   return (
     <View>
-      <Text>checkboxs</Text>
+      <Text>comprehension</Text>
     </View>
   );
 };
 
-export default checkboxes;
+export default Comprehension;
 
 const styles = StyleSheet.create({});

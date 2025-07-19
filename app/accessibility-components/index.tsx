@@ -4,7 +4,7 @@ export { default as Buttons } from './buttons';
 export { default as Cards } from './cards';
 export { default as Charts } from './charts';
 export { default as Checkboxes } from './checkboxes';
-export { default as Compreension } from './compreension';
+export { default as Compreension } from './comprehension';
 export { default as ConfirmationDialog } from './confirmation-dialog';
 export { default as DataTable } from './data-table';
 export { default as DateTimePicker } from './data-time-picker';
