@@ -16,6 +16,9 @@ export const fr = {
     guidelines: 'Directives',
     settings: 'Paramètres',
   },
+  list: {
+    empty: 'la liste est vide',
+  },
   screens: {
     home: {
       title: "Guide d'Accessibilité",

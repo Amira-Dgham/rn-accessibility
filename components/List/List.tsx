@@ -1,19 +1,14 @@
-import { useTheme } from '@/hooks/useTheme';
+import { ThemedText } from '@/components/ThemedText';
+import { ListItemDataProps } from '@/types/ui';
 import { LegendList } from '@legendapp/list';
-import { ChevronRight } from 'lucide-react-native';
 import React from 'react';
-import { StyleSheet, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { ThemedText } from './ThemedText';
-// Types
-export interface ListItem {
-  title: string;
-  route: string;
-  [key: string]: any;
-}
+import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
+import ListItem from './ListItem';
 
-interface CustomListProps {
-  data: ListItem[];
-  onItemPress: (route: string, item: ListItem) => void;
+interface ListProps {
+  data: ListItemDataProps[];
+  t: (key: string) => string;
+  onItemPress: (route: string, item: ListItemDataProps) => void;
   renderHeader?: React.ReactNode;
   renderFooter?: React.ReactNode;
   showSeparator?: boolean;
@@ -47,70 +42,10 @@ interface CustomListProps {
   progressViewOffset?: number;
   overScrollMode?: 'auto' | 'always' | 'never';
 }
-
-// Custom Item Component
-interface CustomItemProps {
-  item: ListItem;
-  index: number;
-  onPress: (route: string, item: ListItem) => void;
-  showBadges?: boolean;
-  alternatingColors?: boolean;
-  itemContainerStyle?: ViewStyle;
-  itemTextStyle?: TextStyle;
-}
-
-const CustomItem: React.FC<CustomItemProps> = ({
-  item,
-  index,
-  onPress,
-  showBadges = true,
-  alternatingColors = true,
-  itemContainerStyle,
-  itemTextStyle,
-}) => {
-  const isEven = index % 2 === 0;
-  const { colors } = useTheme();
-  return (
-    <TouchableOpacity
-      style={[
-        styles.itemContainer,
-        {
-          backgroundColor: alternatingColors
-            ? isEven
-              ? colors.background
-              : colors.blueBackground
-            : colors.background,
-        },
-        itemContainerStyle,
-      ]}
-      onPress={() => onPress(item.route, item)}
-      activeOpacity={0.7}
-    >
-      <View style={styles.itemContent}>
-        <ThemedText style={[itemTextStyle || {}]}>{item.title}</ThemedText>
-        {showBadges && <ChevronRight color={colors.gray} size={20} />}
-      </View>
-    </TouchableOpacity>
-  );
-};
-
-// Item Separator Component
-const ItemSeparator: React.FC<{ leadingItem: ListItem }> = () => <View style={styles.separator} />;
-
-// Empty Component
-interface CustomEmptyProps {
-  emptyText?: string;
-}
-
-const CustomEmpty: React.FC<CustomEmptyProps> = ({ emptyText = 'No items available' }) => (
-  <View style={styles.emptyContainer}>
-    <ThemedText>{emptyText}</ThemedText>
-  </View>
-);
-
 // Main Custom List Component
-const List: React.FC<CustomListProps> = ({
+const List: React.FC<ListProps> = ({
   data,
+  t,
   onItemPress,
   renderHeader,
   renderFooter,
@@ -125,14 +60,14 @@ const List: React.FC<CustomListProps> = ({
   onEndReached,
   onRefresh,
   refreshing = false,
-  emptyText = 'No items available',
+  emptyText = t('list.empty'),
   containerStyle,
   itemContainerStyle,
   itemTextStyle,
   overScrollMode = 'auto',
 }) => {
-  const renderItem = ({ item, index }: { item: ListItem; index: number }) => (
-    <CustomItem
+  const renderItem = ({ item, index }: { item: ListItemDataProps; index: number }) => (
+    <ListItem
       item={item}
       index={index}
       onPress={onItemPress}
@@ -143,7 +78,18 @@ const List: React.FC<CustomListProps> = ({
     />
   );
 
-  const keyExtractor = (item: ListItem, index: number): string => `${item.title}-${index}`;
+  const CustomEmpty: React.FC<{ emptyText: string }> = ({ emptyText = t('list.empty') }) => (
+    <View style={styles.emptyContainer}>
+      <ThemedText>{emptyText}</ThemedText>
+    </View>
+  );
+
+  // Item Separator Component
+  const ItemSeparator: React.FC<{ leadingItem: ListItemDataProps }> = () => (
+    <View style={styles.separator} />
+  );
+
+  const keyExtractor = (item: ListItemDataProps, index: number): string => `${item.title}-${index}`;
 
   return (
     <View style={[containerStyle]}>
@@ -152,6 +98,7 @@ const List: React.FC<CustomListProps> = ({
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         contentContainerStyle={styles.listContent}
+        estimatedItemSize={data.length}
         showsVerticalScrollIndicator={showScrollIndicator}
         showsHorizontalScrollIndicator={showScrollIndicator}
         ListHeaderComponent={
@@ -174,35 +121,16 @@ const List: React.FC<CustomListProps> = ({
         onEndReachedThreshold={onEndReachedThreshold}
         onEndReached={onEndReached}
         ListEmptyComponent={<CustomEmpty emptyText={emptyText} />}
-        style={styles.list}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  list: {
-    flex: 1,
-  },
   listContent: {
     paddingHorizontal: 16,
     paddingTop: 8,
     paddingBottom: 20,
-  },
-  itemContainer: {
-    borderRadius: 12,
-    marginVertical: 4,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
-  },
-  itemContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
   },
   separator: {
     height: 1,

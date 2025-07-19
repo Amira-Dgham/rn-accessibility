@@ -16,6 +16,9 @@ export const en = {
     guidelines: 'Guidelines',
     settings: 'Settings',
   },
+  list: {
+    empty: 'List is empty',
+  },
   screens: {
     home: {
       title: 'Accessibility Guide',
