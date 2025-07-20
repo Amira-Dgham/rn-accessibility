@@ -1,15 +1,17 @@
 import { LanguageStore } from '@/stores';
+import { PreferencesStore } from '@/stores/PreferencesStore';
 import { flow, types } from 'mobx-state-tree';
 
 // Root Store Model
 export const RootStore = types
   .model('RootStore', {
     languageStore: types.optional(LanguageStore, {}),
+    preferencesStore: types.optional(PreferencesStore, {}),
   })
   .views((self) => ({
     // Global computed values can go here
     get isAppReady() {
-      return self.languageStore.isInitialized;
+      return self.languageStore.isInitialized && self.preferencesStore.isInitialized;
     },
   }))
   .actions((self) => ({
@@ -20,6 +22,9 @@ export const RootStore = types
 
         // Initialize language store
         yield self.languageStore.initialize();
+
+        // Initialize preferences store
+        yield self.preferencesStore.initialize();
 
         console.log('Root store initialized successfully');
       } catch (error) {
@@ -35,6 +40,7 @@ export const RootStore = types
 
         // Reset individual stores
         self.languageStore.resetToDefault();
+        self.preferencesStore.resetToDefaults();
 
         console.log('Root store reset successfully');
       } catch (error) {
@@ -70,5 +76,6 @@ rootStore.initialize().catch((error) => {
 
 // Export individual stores for convenience
 export const languageStore = rootStore.languageStore;
+export const preferencesStore = rootStore.preferencesStore;
 
 export default rootStore;

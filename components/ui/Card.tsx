@@ -4,6 +4,7 @@ import { ChevronRight, LucideIcon } from 'lucide-react-native';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { ThemedText } from '../ThemedText';
+import Switch, { SwitchProps } from './Switch';
 
 // Badge configuration
 interface Badge {
@@ -29,6 +30,9 @@ export interface CardProps {
   disabled?: boolean;
   showChevron?: boolean;
 
+  // Switch support
+  switch?: SwitchProps;
+
   // Layout
   containerStyle?: ViewStyle;
   contentStyle?: ViewStyle;
@@ -44,6 +48,7 @@ export const Card: React.FC<CardProps> = ({
   onPress,
   disabled = false,
   showChevron = false,
+  switch: switchProps,
   containerStyle,
   contentStyle,
 }) => {
@@ -99,8 +104,12 @@ export const Card: React.FC<CardProps> = ({
         )}
       </View>
 
-      {/* Chevron for interactive cards */}
-      {(showChevron || isInteractive) && <ChevronRight size={16} color={colors.gray} />}
+      {/* Switch or Chevron */}
+      {switchProps ? (
+        <Switch {...switchProps} disabled={switchProps.disabled || disabled} />
+      ) : showChevron || isInteractive ? (
+        <ChevronRight size={16} color={colors.gray} />
+      ) : null}
     </View>
   );
 
@@ -134,19 +143,7 @@ const styles = StyleSheet.create({
   defaultCard: {
     borderLeftWidth: 0,
   },
-  accessibilityCard: {
-    borderLeftWidth: 4,
-    borderLeftColor: '#2196F3',
-  },
-  settingsCard: {
-    backgroundColor: '#FAFAFA',
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-  },
-  interactiveCard: {
-    borderLeftWidth: 4,
-    borderLeftColor: '#4CAF50',
-  },
+
   iconContainer: {
     width: 48,
     height: 48,
@@ -154,9 +151,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 16,
-  },
-  iconPlaceholder: {
-    borderRadius: 2,
   },
   content: {
     flex: 1,
@@ -174,13 +168,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  title: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#1A1A1A',
-    lineHeight: 22,
-    marginRight: 8,
-  },
+
   badge: {
     paddingHorizontal: 8,
     paddingVertical: 2,
@@ -191,22 +179,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     textTransform: 'uppercase',
-  },
-  subtitle: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#666666',
-    marginBottom: 4,
-    lineHeight: 18,
-  },
-  description: {
-    fontSize: 14,
-    color: '#999999',
-    lineHeight: 20,
-  },
-  chevronContainer: {
-    justifyContent: 'center',
-    marginLeft: 8,
   },
   disabled: {
     opacity: 0.5,

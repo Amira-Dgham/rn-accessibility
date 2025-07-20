@@ -31,11 +31,8 @@ export const fr = {
       subtitle: "Découvrez toutes les fonctionnalités et les composants d'accessibilité disponibles"
     },
     settings: {
-      title: 'Paramètres',
-      language: 'Langue',
-      notifications: 'Notifications',
-      theme: 'Thème',
-      account: 'Compte',
+      title: 'paramètres',
+      subtitle: "Configurez vos paramètres d'accessibilité",
     },
     profile: {
       title: 'Profil',
@@ -82,6 +79,42 @@ export const fr = {
         description: "Outils d'audit et de validation d'accessibilité rapides",
       },
     },
+    preferences: {
+      title: "Préférences",
+      description: "Personnalisez l'accessibilité et l'expérience de l'application",
+      fontSize: {
+        title: "Taille du texte",
+        description: "Ajustez la taille du texte affiché dans l'application"
+      },
+      theme: {
+        title: "Thème",
+        description: "Passez du mode clair au mode sombre"
+      },
+      contrast: {
+        title: "Mode contraste élevé",
+        description: "Activez un schéma de couleurs à contraste élevé pour une meilleure visibilité"
+      },
+      reduceMotion: {
+        title: "Réduire les animations",
+        description: "Réduisez les effets de mouvement et les animations"
+      },
+      screenReader: {
+        title: "Lecteur d'écran",
+        description: "Améliore la compatibilité avec les lecteurs d'écran"
+      },
+      language: {
+        title: "Langue",
+        description: "Choisissez la langue de l'application"
+      },
+      textToSpeech: {
+        title: "Synthèse vocale",
+        description: "Activez la lecture vocale du contenu sélectionné"
+      },
+      haptics: {
+        title: "Retour haptique",
+        description: "Activer ou désactiver les vibrations"
+      },
+    }
   },
   errors: {
     networkError: 'Erreur de connexion réseau',

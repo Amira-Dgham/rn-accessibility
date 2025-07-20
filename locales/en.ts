@@ -25,15 +25,12 @@ export const en = {
       subtitle: 'Master digital accessibility with comprehensive examples and guidelines',
     },
     components: {
-      title: "Accessibility Components",
-      subtitle: "Explore all available accessibility components and features",
+      title: 'Accessibility Components',
+      subtitle: 'Explore all available accessibility components and features',
     },
     settings: {
       title: 'Settings',
-      language: 'Language',
-      notifications: 'Notifications',
-      theme: 'Theme',
-      account: 'Account',
+      subtitle: 'Customize your accessibility preferences',
     },
     profile: {
       title: 'Profile',
@@ -60,6 +57,50 @@ export const en = {
       quickChecks: {
         title: 'Quick Checks',
         description: 'Rapid accessibility auditing and validation tools',
+      },
+    },
+    preferences: {
+      title: 'Preferences',
+      description: 'Customize your accessibility and app experience',
+      fontSize: {
+        title: 'Text Size',
+        description: 'Adjust the size of the text displayed in the app',
+      },
+      theme: {
+        title: 'Theme',
+        description: 'Switch between light and dark mode',
+      },
+      contrast: {
+        title: 'High Contrast Mode',
+        description: 'Enable a higher contrast color scheme for better visibility',
+      },
+      reduceMotion: {
+        title: 'Reduce Motion',
+        description: 'Minimize animations and motion effects',
+      },
+      screenReader: {
+        title: 'Screen Reader',
+        description: 'Enhance compatibility with screen readers',
+      },
+      language: {
+        title: 'Language',
+        description: 'Choose the language of the app',
+      },
+      textToSpeech: {
+        title: 'Text to Speech',
+        description: 'Enable speech for selected content',
+      },
+      haptics: {
+        title: 'Haptic Feedback',
+        description: 'Enable or disable vibration feedback',
+      },
+      customColors: {
+        title: 'Color Customization',
+        description: 'Personalize text and background colors',
+      },
+      simpleNavigation: {
+        title: 'Simplified Navigation',
+        description: 'Use a simplified layout for easier navigation',
       },
     },
   },
