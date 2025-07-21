@@ -11,5 +11,8 @@
     "typescript",
     "javascriptreact",
     "typescriptreact"
-  ]
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }

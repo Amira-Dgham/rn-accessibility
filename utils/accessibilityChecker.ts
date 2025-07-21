@@ -65,3 +65,4 @@ export const meetsAccessibilityLevel = (
 
   return contrastRatio >= adjustedRequiredRatio;
 };
+

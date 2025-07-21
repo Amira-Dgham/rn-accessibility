@@ -1,5 +1,6 @@
 import { STORAGE_KEYS } from '@/constants/storage';
 import { storageService } from '@/services/StorageService';
+import { Colors } from '@/theme';
 import { flow, Instance, types } from 'mobx-state-tree';
 
 // Define the preference types
@@ -26,8 +27,8 @@ export const PreferencesStore = types
         isSimpleNavigation: types.optional(types.boolean, false),
 
         // Custom colors (you can expand this based on your needs)
-        customTextColor: types.optional(types.string, '#000000'),
-        customBackgroundColor: types.optional(types.string, '#FFFFFF'),
+        customTextColor: types.optional(types.string, Colors.light.text),
+        customBackgroundColor: types.optional(types.string, Colors.light.background),
 
         isInitialized: types.optional(types.boolean, false),
     })
@@ -40,7 +41,7 @@ export const PreferencesStore = types
                     title: 'accessibility.preferences.fontSize.title',
                     description: 'accessibility.preferences.fontSize.description',
                     type: 'slider',
-                    route: '/settings/font-size',
+                    route: '/settings/font-size-customization',
                 },
                 {
                     key: 'theme',
@@ -71,7 +72,7 @@ export const PreferencesStore = types
                     title: 'accessibility.preferences.language.title',
                     description: 'accessibility.preferences.language.description',
                     type: 'select',
-                    route: '/settings/language',
+                    route: '/settings/language-customization',
                 },
                 {
                     key: 'textToSpeech',
@@ -90,7 +91,7 @@ export const PreferencesStore = types
                     title: 'accessibility.preferences.customColors.title',
                     description: 'accessibility.preferences.customColors.description',
                     type: 'select',
-                    route: '/settings/colors',
+                    route: '/settings/colors-customization',
                 },
                 {
                     key: 'simpleNavigation',
@@ -180,8 +181,8 @@ export const PreferencesStore = types
                     self.isTextToSpeechEnabled = loadValue('isTextToSpeechEnabled', false);
                     self.isHapticsEnabled = loadValue('isHapticsEnabled', true);
                     self.isSimpleNavigation = loadValue('isSimpleNavigation', false);
-                    self.customTextColor = loadValue('customTextColor', '#000000');
-                    self.customBackgroundColor = loadValue('customBackgroundColor', '#FFFFFF');
+                    self.customTextColor = loadValue('customTextColor', Colors.light.text);
+                    self.customBackgroundColor = loadValue('customBackgroundColor', Colors.light.background);
 
                     self.isInitialized = true;
                     console.log('Preferences store initialized successfully');
@@ -283,8 +284,8 @@ export const PreferencesStore = types
                 this.setTextToSpeech(false);
                 this.setHaptics(true);
                 this.setSimpleNavigation(false);
-                this.setCustomTextColor('#000000');
-                this.setCustomBackgroundColor('#FFFFFF');
+                this.setCustomTextColor(Colors.light.text);
+                this.setCustomBackgroundColor(Colors.light.background);
             },
 
             // Bulk update preferences (useful for importing settings)

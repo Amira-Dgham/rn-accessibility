@@ -31,12 +31,18 @@ export const en = {
     settings: {
       title: 'Settings',
       subtitle: 'Customize your accessibility preferences',
+      fontSize: {
+        title: 'Font Size',
+        description: 'Adjust the size of the text displayed in the app',
+        reset: 'Reset to Default'
+      },
     },
     profile: {
       title: 'Profile',
       editProfile: 'Edit Profile',
       logout: 'Logout',
     },
+    
   },
   accessibility: {
     complianceLevels: 'Compliance Levels',

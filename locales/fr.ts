@@ -33,6 +33,11 @@ export const fr = {
     settings: {
       title: 'paramètres',
       subtitle: "Configurez vos paramètres d'accessibilité",
+      fontSize: {
+        title: 'Taille du texte',
+        description: 'Ajustez la taille du texte affiché dans l\'application',
+        reset: 'Réinitialiser'
+      },
     },
     profile: {
       title: 'Profil',

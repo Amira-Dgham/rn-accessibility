@@ -1,5 +1,5 @@
 import { useTheme } from '@/hooks/useTheme';
-import { SliderComponent } from '@react-native-community/slider';
+import SliderComponent from '@react-native-community/slider';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -17,7 +17,7 @@ interface CustomSliderProps {
   showButtons?: boolean;
 }
 
-const Slider: React.FC<CustomSliderProps> = ({
+export const Slider: React.FC<CustomSliderProps> = ({
   title,
   value,
   minValue,
@@ -67,5 +67,3 @@ const styles = StyleSheet.create({
     height: 40,
   },
 });
-
-export default Slider;
