@@ -2,8 +2,7 @@
 export const STORAGE_KEYS = {
   LANGUAGE: 'selected_language',
   THEME: 'selected_theme',
-  USER_PREFERENCES: 'user_preferences',
-  ONBOARDING_COMPLETED: 'onboarding_completed',
+  PREFERENCES: 'preferences',
 } as const;
 
 export const AVAILABLE_LANGUAGES = [
