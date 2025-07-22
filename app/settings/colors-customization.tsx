@@ -3,10 +3,11 @@ import Header from '@/components/Header';
 import { ColorPicker } from '@/components/ui';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const ColorsCustomization = () => {
+const ColorsCustomization = observer(() => {
   const {
     customTextColor,
     customBackgroundColor,
@@ -48,7 +49,7 @@ const ColorsCustomization = () => {
       </Button>
     </ThemedView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   reset: {

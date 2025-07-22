@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ReanimatedColorPicker, { BrightnessSlider, HueSlider, Panel1, Preview, SaturationSlider } from 'reanimated-color-picker';
 
@@ -36,13 +36,21 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, label
         onChange(hex);
     };
 
-    // Calculate contrast ratio if both colors provided
-    let contrastRatio: number | null = null;
-    if (contrastWithColor) {
-        try {
-            contrastRatio = getContrastRatio(value, contrastWithColor);
-        } catch { }
-    }
+    // State for contrast ratio
+    const [contrastRatio, setContrastRatio] = useState<number | null>(null);
+
+    // Recalculate contrast ratio whenever value or contrastWithColor changes
+    useEffect(() => {
+        if (contrastWithColor) {
+            try {
+                setContrastRatio(getContrastRatio(value, contrastWithColor));
+            } catch {
+                setContrastRatio(null);
+            }
+        } else {
+            setContrastRatio(null);
+        }
+    }, [value, contrastWithColor]);
 
     return (
         <View style={styles.container} accessible accessibilityLabel={accessibilityLabel || label} accessibilityRole="adjustable">
