@@ -38,6 +38,13 @@ export const fr = {
         description: 'Ajustez la taille du texte affiché dans l\'application',
         reset: 'Réinitialiser'
       },
+      colors: {
+        title: 'Couleurs',
+        description: "Choisissez les couleurs de fond et de texte pour une meilleure lisibilité. Ciblez un rapport de contraste d'au moins 4.5 pour le texte normal (WCAG AA).",
+        reset: 'Réinitialiser',
+        background: 'Couleur de fond',
+        text: 'Couleur de texte',
+      },
     },
     profile: {
       title: 'Profil',

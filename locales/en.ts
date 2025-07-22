@@ -36,6 +36,13 @@ export const en = {
         description: 'Adjust the size of the text displayed in the app',
         reset: 'Reset to Default'
       },
+      colors: {
+        title: 'Colors',
+        description: "Choose background and text colors for best readability. Aim for a contrast ratio of at least 4.5 for normal text (WCAG AA).",
+        reset: 'Reset to Default',
+        background: 'Background Color',
+        text: 'Text Color',
+      },
     },
     profile: {
       title: 'Profile',
