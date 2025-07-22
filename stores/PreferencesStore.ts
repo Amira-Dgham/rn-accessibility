@@ -288,6 +288,22 @@ export const PreferencesStore = types
                 this.setCustomBackgroundColor(Colors.light.background);
             },
 
+            // Reset only theme preferences (colors)
+            resetThemePreferences() {
+                this.setCustomTextColor(Colors.light.text);
+                this.setCustomBackgroundColor(Colors.light.background);
+            },
+
+            // Reset only font preferences
+            resetFontPreferences() {
+                this.setFontSize(16);
+            },
+
+            // Placeholder: Reset only language preferences (actual language reset is in LanguageStore)
+            resetLanguagePreferences() {
+                // This function is a placeholder. Actual language reset should be called on LanguageStore.
+            },
+
             // Bulk update preferences (useful for importing settings)
             updatePreferences(preferences: Partial<{
                 fontSize: number;

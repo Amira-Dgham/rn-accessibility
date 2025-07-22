@@ -38,6 +38,16 @@ export const fr = {
         description: 'Ajustez la taille du texte affiché dans l\'application',
         reset: 'Réinitialiser'
       },
+      colors: {
+        title: 'Personnalisation des couleurs',
+        description: 'Ajustez les couleurs de fond et du texte pour l’accessibilité.',
+        background: 'Couleur de fond',
+        text: 'Couleur du texte',
+        reset: 'Réinitialiser',
+        contrastLabel: 'Rapport de contraste',
+        contrastGood: '(Bon)',
+        contrastLow: '(Faible)',
+      },
     },
     profile: {
       title: 'Profil',

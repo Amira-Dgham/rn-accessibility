@@ -40,6 +40,8 @@ export const ACCESSIBILITY_FEATURES_BASE: {
     },
   ];
 
+export const MIN_CONTRAST_RATIO = 4.5;
+
 export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
   { title: 'Accordions', route: '/accessibility-components/accordions' },
   { title: 'Alerts', route: '/accessibility-components/alerts' },

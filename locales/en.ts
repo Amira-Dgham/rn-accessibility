@@ -36,6 +36,16 @@ export const en = {
         description: 'Adjust the size of the text displayed in the app',
         reset: 'Reset to Default'
       },
+      colors: {
+        title: 'Color Customization',
+        description: 'Adjust background and text colors for accessibility.',
+        background: 'Background Color',
+        text: 'Text Color',
+        reset: 'Reset to Default',
+        contrastLabel: 'Contrast Ratio',
+        contrastGood: '(Good)',
+        contrastLow: '(Low)',
+      },
     },
     profile: {
       title: 'Profile',
