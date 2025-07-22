@@ -39,11 +39,14 @@ export const fr = {
         reset: 'Réinitialiser'
       },
       colors: {
-        title: 'Couleurs',
-        description: "Choisissez les couleurs de fond et de texte pour une meilleure lisibilité. Ciblez un rapport de contraste d'au moins 4.5 pour le texte normal (WCAG AA).",
-        reset: 'Réinitialiser',
+        title: 'Personnalisation des couleurs',
+        description: 'Ajustez les couleurs de fond et du texte pour l’accessibilité.',
         background: 'Couleur de fond',
-        text: 'Couleur de texte',
+        text: 'Couleur du texte',
+        reset: 'Réinitialiser',
+        contrastLabel: 'Rapport de contraste',
+        contrastGood: '(Bon)',
+        contrastLow: '(Faible)',
       },
     },
     profile: {

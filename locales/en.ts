@@ -37,11 +37,14 @@ export const en = {
         reset: 'Reset to Default'
       },
       colors: {
-        title: 'Colors',
-        description: "Choose background and text colors for best readability. Aim for a contrast ratio of at least 4.5 for normal text (WCAG AA).",
-        reset: 'Reset to Default',
+        title: 'Color Customization',
+        description: 'Adjust background and text colors for accessibility.',
         background: 'Background Color',
         text: 'Text Color',
+        reset: 'Reset to Default',
+        contrastLabel: 'Contrast Ratio',
+        contrastGood: '(Good)',
+        contrastLow: '(Low)',
       },
     },
     profile: {
