@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, containerStyle }) => {
     <View style={[styles.header, containerStyle]}>
       <ThemedText variant="h2">{title}</ThemedText>
       {subtitle && (
-        <ThemedText variant="body" color={colors.gray}>
+        <ThemedText variant="body" color={colors.gray} style={{ textAlign: 'center' }}>
           {subtitle}
         </ThemedText>
       )}
@@ -28,7 +28,6 @@ export default Header;
 
 const styles = StyleSheet.create({
   header: {
-    padding: 24,
     alignItems: 'center',
   },
 });

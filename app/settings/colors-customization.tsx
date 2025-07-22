@@ -1,6 +1,7 @@
 import { Button, ThemedView } from '@/components';
 import Header from '@/components/Header';
 import { ColorPicker } from '@/components/ui';
+import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
 import { observer } from 'mobx-react-lite';
@@ -17,6 +18,7 @@ const ColorsCustomization = observer(() => {
   } = usePreferences();
 
   const { t } = useLanguage();
+  useHeaderTitle(t('screens.settings.colors.title'));
 
   // Only reset color, font size, and languages
   const handleReset = () => {
