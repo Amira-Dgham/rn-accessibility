@@ -72,7 +72,7 @@ export const PreferencesStore = types
                     title: 'accessibility.preferences.language.title',
                     description: 'accessibility.preferences.language.description',
                     type: 'select',
-                    route: '/settings/language-customization',
+                    route: '/settings/langugue-customization',
                 },
                 {
                     key: 'textToSpeech',
@@ -298,12 +298,6 @@ export const PreferencesStore = types
             resetFontPreferences() {
                 this.setFontSize(16);
             },
-
-            // Placeholder: Reset only language preferences (actual language reset is in LanguageStore)
-            resetLanguagePreferences() {
-                // This function is a placeholder. Actual language reset should be called on LanguageStore.
-            },
-
             // Bulk update preferences (useful for importing settings)
             updatePreferences(preferences: Partial<{
                 fontSize: number;

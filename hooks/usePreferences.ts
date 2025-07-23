@@ -45,9 +45,7 @@ export const usePreferences = () => {
         handleSwitchToggle: store.handleSwitchToggle,
         resetToDefaults: store.resetToDefaults,
         updatePreferences: store.updatePreferences,
-        // New individual reset actions
         resetThemePreferences: store.resetThemePreferences,
         resetFontPreferences: store.resetFontPreferences,
-        resetLanguagePreferences: store.resetLanguagePreferences,
     };
 };

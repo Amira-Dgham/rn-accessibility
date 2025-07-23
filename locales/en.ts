@@ -46,6 +46,11 @@ export const en = {
         contrastGood: '(Good)',
         contrastLow: '(Low)',
       },
+      language: {
+        title: 'Language Customization',
+        description: 'Switch between available languages for the app.',
+        selectLabel: 'Select Language',
+      },
     },
     profile: {
       title: 'Profile',
