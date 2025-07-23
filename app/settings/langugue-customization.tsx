@@ -1,5 +1,6 @@
 import { ThemedText, ThemedView } from '@/components';
 import Dropdown from '@/components/ui/Dropdown';
+import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { SupportedLanguage } from '@/locales';
 import { observer } from 'mobx-react-lite';
@@ -8,6 +9,7 @@ import { StyleSheet, View } from 'react-native';
 
 const LanguageCustomization = observer(() => {
   const { t, currentLanguage, availableLanguages, changeLanguage } = useLanguage();
+  useHeaderTitle(t('screens.settings.language.title'));
 
   const items = availableLanguages.map((lang) => ({
     label: lang.name,
