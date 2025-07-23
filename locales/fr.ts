@@ -48,6 +48,11 @@ export const fr = {
         contrastGood: '(Bon)',
         contrastLow: '(Faible)',
       },
+      language: {
+        title: 'Personnalisation de la langue',
+        description: 'Basculez entre les langues disponibles pour l’application.',
+        selectLabel: 'Choisir la langue',
+      },
     },
     profile: {
       title: 'Profil',
