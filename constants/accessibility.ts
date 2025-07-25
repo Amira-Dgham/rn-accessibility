@@ -1,4 +1,8 @@
-import { AccessibilityComponent, AccessibilityLevel, AccessibilityTool } from '@/types/accessibility';
+import {
+  AccessibilityComponent,
+  AccessibilityLevel,
+  AccessibilityTool,
+} from '@/types/accessibility';
 import { FeatureRoute } from '@/types/navigation';
 import { Code, LucideIcon, Shield, Target, Users } from 'lucide-react-native';
 
@@ -18,23 +22,22 @@ export const ACCESSIBILITY_FEATURES_BASE: {
   icon: LucideIcon;
   route: FeatureRoute;
 }[] = [
-    {
-      key: 'wcagCompliance',
-      icon: Shield,
-      route: '/guidelines',
-    },
-    {
-      key: 'componentsSamples',
-      icon: Target,
-      route: '/components',
-    },
-    {
-      key: 'userTesting',
-      icon: Users,
-      route: '/accessibility-testing/accessibility-testing',
-    },
-  
-  ];
+  {
+    key: 'wcagCompliance',
+    icon: Shield,
+    route: '/guidelines',
+  },
+  {
+    key: 'componentsSamples',
+    icon: Target,
+    route: '/components',
+  },
+  {
+    key: 'userTesting',
+    icon: Users,
+    route: '/accessibility-testing/accessibility-testing',
+  },
+];
 
 export const MIN_CONTRAST_RATIO = 4.5;
 
@@ -122,7 +125,7 @@ export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [
     localeKey: 'jestTestingLibraryAxe',
     url: 'https://www.npmjs.com/package/jest-axe',
   },
- 
+
   {
     id: 'switch-access-switch-control',
     icon: Code,
@@ -159,8 +162,4 @@ export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [
     localeKey: 'reactNativeEslintLibrary',
     url: 'https://www.npmjs.com/package/eslint-plugin-react-native-a11y',
   },
-  
 ];
-
-
-

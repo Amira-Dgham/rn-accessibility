@@ -4,7 +4,7 @@ import { Pressable, PressableProps, StyleProp, Text, TextStyle, ViewStyle } from
 
 // Button style presets
 const PRESETS = ['default', 'filled', 'reversed'] as const;
-type Presets = typeof PRESETS[number];
+type Presets = (typeof PRESETS)[number];
 
 export interface ButtonAccessoryProps {
   style: StyleProp<any>;
@@ -131,11 +131,19 @@ export function Button(props: ButtonProps) {
       {({ pressed }) => (
         <>
           {LeftAccessory && (
-            <LeftAccessory style={{ marginRight: 8 }} pressableState={{ pressed }} disabled={disabled} />
+            <LeftAccessory
+              style={{ marginRight: 8 }}
+              pressableState={{ pressed }}
+              disabled={disabled}
+            />
           )}
           <Text style={getTextStyle(pressed)}>{children}</Text>
           {RightAccessory && (
-            <RightAccessory style={{ marginLeft: 8 }} pressableState={{ pressed }} disabled={disabled} />
+            <RightAccessory
+              style={{ marginLeft: 8 }}
+              pressableState={{ pressed }}
+              disabled={disabled}
+            />
           )}
         </>
       )}

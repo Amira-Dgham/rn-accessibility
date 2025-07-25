@@ -29,6 +29,6 @@ export default Header;
 const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
-    margin: 20
+    margin: 20,
   },
 });

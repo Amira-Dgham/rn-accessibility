@@ -27,7 +27,10 @@ const ColorsCustomization = observer(() => {
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
-      <Header title={t('screens.settings.colors.title')} subtitle={t('screens.settings.colors.description')} />
+      <Header
+        title={t('screens.settings.colors.title')}
+        subtitle={t('screens.settings.colors.description')}
+      />
       {/* Background Color Picker */}
       <ColorPicker
         value={customBackgroundColor}
@@ -42,11 +45,7 @@ const ColorsCustomization = observer(() => {
         label={t('screens.settings.colors.text')}
         contrastWithColor={customBackgroundColor}
       />
-      <Button
-        preset='filled'
-        onPress={handleReset}
-        style={styles.reset}
-      >
+      <Button preset="filled" onPress={handleReset} style={styles.reset}>
         {t('screens.settings.colors.reset')}
       </Button>
     </ThemedView>

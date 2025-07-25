@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react-native";
+import { LucideIcon } from 'lucide-react-native';
 
 export const AccessibilityLevel = {
   A: 'A',

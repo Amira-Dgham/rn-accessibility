@@ -41,67 +41,68 @@ export const createFontSizes = (userFontSize: number) => {
 };
 
 // Function to create typography styles based on scaled font sizes
-export const createTypography = (fontSizes: ReturnType<typeof createFontSizes>) => ({
-  // Headings
-  h1: {
-    fontSize: fontSizes['4xl'],
-    fontFamily: FontFamilies.bold,
-    fontWeight: '700' as const,
-    lineHeight: fontSizes['4xl'] * LineHeights.tight,
-  } as TextStyle,
+export const createTypography = (fontSizes: ReturnType<typeof createFontSizes>) =>
+  ({
+    // Headings
+    h1: {
+      fontSize: fontSizes['4xl'],
+      fontFamily: FontFamilies.bold,
+      fontWeight: '700' as const,
+      lineHeight: fontSizes['4xl'] * LineHeights.tight,
+    } as TextStyle,
 
-  h2: {
-    fontSize: fontSizes['3xl'],
-    fontFamily: FontFamilies.bold,
-    fontWeight: '700' as const,
-    lineHeight: fontSizes['3xl'] * LineHeights.tight,
-  } as TextStyle,
+    h2: {
+      fontSize: fontSizes['3xl'],
+      fontFamily: FontFamilies.bold,
+      fontWeight: '700' as const,
+      lineHeight: fontSizes['3xl'] * LineHeights.tight,
+    } as TextStyle,
 
-  h3: {
-    fontSize: fontSizes['2xl'],
-    fontFamily: FontFamilies.semiBold,
-    fontWeight: '600' as const,
-    lineHeight: fontSizes['2xl'] * LineHeights.tight,
-  } as TextStyle,
+    h3: {
+      fontSize: fontSizes['2xl'],
+      fontFamily: FontFamilies.semiBold,
+      fontWeight: '600' as const,
+      lineHeight: fontSizes['2xl'] * LineHeights.tight,
+    } as TextStyle,
 
-  h4: {
-    fontSize: fontSizes.xl,
-    fontFamily: FontFamilies.semiBold,
-    fontWeight: '600' as const,
-    lineHeight: fontSizes.xl * LineHeights.normal,
-  } as TextStyle,
+    h4: {
+      fontSize: fontSizes.xl,
+      fontFamily: FontFamilies.semiBold,
+      fontWeight: '600' as const,
+      lineHeight: fontSizes.xl * LineHeights.normal,
+    } as TextStyle,
 
-  // Body text
-  body: {
-    fontSize: fontSizes.base,
-    fontFamily: FontFamilies.regular,
-    fontWeight: '400' as const,
-    lineHeight: fontSizes.base * LineHeights.normal,
-  } as TextStyle,
+    // Body text
+    body: {
+      fontSize: fontSizes.base,
+      fontFamily: FontFamilies.regular,
+      fontWeight: '400' as const,
+      lineHeight: fontSizes.base * LineHeights.normal,
+    } as TextStyle,
 
-  bodyMedium: {
-    fontSize: fontSizes.base,
-    fontFamily: FontFamilies.medium,
-    fontWeight: '500' as const,
-    lineHeight: fontSizes.base * LineHeights.normal,
-  } as TextStyle,
+    bodyMedium: {
+      fontSize: fontSizes.base,
+      fontFamily: FontFamilies.medium,
+      fontWeight: '500' as const,
+      lineHeight: fontSizes.base * LineHeights.normal,
+    } as TextStyle,
 
-  // Small text
-  caption: {
-    fontSize: fontSizes.sm,
-    fontFamily: FontFamilies.regular,
-    fontWeight: '400' as const,
-    lineHeight: fontSizes.sm * LineHeights.normal,
-  } as TextStyle,
+    // Small text
+    caption: {
+      fontSize: fontSizes.sm,
+      fontFamily: FontFamilies.regular,
+      fontWeight: '400' as const,
+      lineHeight: fontSizes.sm * LineHeights.normal,
+    } as TextStyle,
 
-  // Tab bar
-  tabBar: {
-    fontSize: fontSizes.xs,
-    fontFamily: FontFamilies.semiBold,
-    fontWeight: '600' as const,
-    lineHeight: fontSizes.xs * LineHeights.normal,
-  } as TextStyle,
-} as const);
+    // Tab bar
+    tabBar: {
+      fontSize: fontSizes.xs,
+      fontFamily: FontFamilies.semiBold,
+      fontWeight: '600' as const,
+      lineHeight: fontSizes.xs * LineHeights.normal,
+    } as TextStyle,
+  }) as const;
 
 // Default typography (for backwards compatibility)
 export const Typography = createTypography(createFontSizes(BaseFontSizes.base));

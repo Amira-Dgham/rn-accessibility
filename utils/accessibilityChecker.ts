@@ -42,7 +42,6 @@ export const getContrastRatio = (color1: string, color2: string): number => {
   }
 };
 
-
 // Check if color meets accessibility requirements
 export const meetsAccessibilityLevel = (
   textColor: string,
@@ -66,4 +65,3 @@ export const meetsAccessibilityLevel = (
 
   return contrastRatio >= adjustedRequiredRatio;
 };
-

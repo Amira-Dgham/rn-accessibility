@@ -28,15 +28,16 @@ export const fr = {
     },
     components: {
       title: "Composants d'accessibilité",
-      subtitle: "Découvrez toutes les fonctionnalités et les composants d'accessibilité disponibles"
+      subtitle:
+        "Découvrez toutes les fonctionnalités et les composants d'accessibilité disponibles",
     },
     settings: {
       title: 'paramètres',
       subtitle: "Configurez vos paramètres d'accessibilité",
       fontSize: {
         title: 'Taille du texte',
-        description: 'Ajustez la taille du texte affiché dans l\'application',
-        reset: 'Réinitialiser'
+        description: "Ajustez la taille du texte affiché dans l'application",
+        reset: 'Réinitialiser',
       },
       colors: {
         title: 'Personnalisation des couleurs',
@@ -64,17 +65,25 @@ export const fr = {
       subtitle: 'Questions clés, principes et ressources pour un développement accessible.',
       essentials: {
         title: 'Essentiels pour les développeurs',
-        intro: 'Posez-vous ces questions pour garantir l’accessibilité de votre application. Chaque point fait référence à un principe clé ou à une directive WCAG.',
+        intro:
+          'Posez-vous ces questions pour garantir l’accessibilité de votre application. Chaque point fait référence à un principe clé ou à une directive WCAG.',
         questions: {
-          semanticMarkup: 'Balisage sémantique : Tous les éléments ont-ils le balisage sémantique approprié ?',
-          inputLabels: 'Étiquettes de saisie : Chaque champ et groupe de champs a-t-il une étiquette descriptive ?',
-          focus: 'Focus : Un indicateur est-il visible lors du focus clavier, et l’ordre de tabulation est-il logique ?',
-          keyboard: 'Clavier : Tous les éléments interactifs sont-ils accessibles et activables au clavier ?',
+          semanticMarkup:
+            'Balisage sémantique : Tous les éléments ont-ils le balisage sémantique approprié ?',
+          inputLabels:
+            'Étiquettes de saisie : Chaque champ et groupe de champs a-t-il une étiquette descriptive ?',
+          focus:
+            'Focus : Un indicateur est-il visible lors du focus clavier, et l’ordre de tabulation est-il logique ?',
+          keyboard:
+            'Clavier : Tous les éléments interactifs sont-ils accessibles et activables au clavier ?',
           names: 'Noms : Tous les contrôles interactifs ont-ils un nom accessible et descriptif ?',
-          roles: 'Rôles : Tous les widgets personnalisés ont-ils le bon rôle (ex : lien, bouton, onglet) ?',
-          dynamicUpdates: 'Mises à jour dynamiques : Toutes les mises à jour (y compris les erreurs) sont-elles annoncées aux technologies d’assistance ?',
+          roles:
+            'Rôles : Tous les widgets personnalisés ont-ils le bon rôle (ex : lien, bouton, onglet) ?',
+          dynamicUpdates:
+            'Mises à jour dynamiques : Toutes les mises à jour (y compris les erreurs) sont-elles annoncées aux technologies d’assistance ?',
           colors: 'Couleurs : Le contraste des couleurs est-il suffisant ?',
-          layouts: 'Mises en page : Les mises en page s’adaptent-elles à différentes largeurs de fenêtre et tailles de texte ?',
+          layouts:
+            'Mises en page : Les mises en page s’adaptent-elles à différentes largeurs de fenêtre et tailles de texte ?',
           images: 'Images : Les images et icônes ont-elles un texte alternatif approprié ?',
         },
         explanations: {
@@ -106,7 +115,8 @@ export const fr = {
           requiredFieldsNoColor: 'Indiquer les champs obligatoires sans se fier à la couleur',
           currentPageNoColor: 'Indiquer la page courante sans se fier à la couleur',
           textResizing: 'Permettre le redimensionnement du texte',
-          iconInfo: 'Fournir des informations sur les icônes aux utilisateurs de technologies d’assistance',
+          iconInfo:
+            'Fournir des informations sur les icônes aux utilisateurs de technologies d’assistance',
           altText: 'Fournir un texte alternatif utile',
         },
         resources: {
@@ -119,16 +129,21 @@ export const fr = {
         },
       },
       successCriteria: {
-        description: 'C’est ici que les choses deviennent concrètes. Les critères de succès sont les points de contrôle qui vous indiquent comment rendre votre site plus inclusif. Ils sont divisés en trois niveaux :',
+        description:
+          'C’est ici que les choses deviennent concrètes. Les critères de succès sont les points de contrôle qui vous indiquent comment rendre votre site plus inclusif. Ils sont divisés en trois niveaux :',
         levelA: 'A (essentiels de base)',
         levelAA: 'AA (l’exigence légale dans la plupart des pays)',
         levelAAA: 'AAA (l’excellence ultime).',
       },
       principles: {
-        perceivable: 'Perceptible : Les informations et composants de l’interface doivent être présentés de façon perceptible par tous.',
-        operable: 'Opérable : Les composants de l’interface et la navigation doivent être utilisables.',
-        understandable: 'Compréhensible : Les informations et le fonctionnement de l’interface doivent être compréhensibles.',
-        robust: 'Robuste : Le contenu doit être suffisamment robuste pour être interprété de manière fiable par une grande variété d’agents utilisateurs, y compris les technologies d’assistance.',
+        perceivable:
+          'Perceptible : Les informations et composants de l’interface doivent être présentés de façon perceptible par tous.',
+        operable:
+          'Opérable : Les composants de l’interface et la navigation doivent être utilisables.',
+        understandable:
+          'Compréhensible : Les informations et le fonctionnement de l’interface doivent être compréhensibles.',
+        robust:
+          'Robuste : Le contenu doit être suffisamment robuste pour être interprété de manière fiable par une grande variété d’agents utilisateurs, y compris les technologies d’assistance.',
       },
       sections: {
         successCriteria: 'Critères de succès en accessibilité',
@@ -172,42 +187,42 @@ export const fr = {
         title: 'Tests Utilisateur',
         description: "Outils et directives pour les tests d'accessibilité utilisateur",
       },
-    
     },
     preferences: {
-      title: "Préférences",
+      title: 'Préférences',
       description: "Personnalisez l'accessibilité et l'expérience de l'application",
       fontSize: {
-        title: "Taille du texte",
-        description: "Ajustez la taille du texte affiché dans l'application"
+        title: 'Taille du texte',
+        description: "Ajustez la taille du texte affiché dans l'application",
       },
       theme: {
-        title: "Thème",
-        description: "Passez du mode clair au mode sombre"
+        title: 'Thème',
+        description: 'Passez du mode clair au mode sombre',
       },
       contrast: {
-        title: "Mode contraste élevé",
-        description: "Activez un schéma de couleurs à contraste élevé pour une meilleure visibilité"
+        title: 'Mode contraste élevé',
+        description:
+          'Activez un schéma de couleurs à contraste élevé pour une meilleure visibilité',
       },
       reduceMotion: {
-        title: "Réduire les animations",
-        description: "Réduisez les effets de mouvement et les animations"
+        title: 'Réduire les animations',
+        description: 'Réduisez les effets de mouvement et les animations',
       },
       screenReader: {
         title: "Lecteur d'écran",
-        description: "Améliore la compatibilité avec les lecteurs d'écran"
+        description: "Améliore la compatibilité avec les lecteurs d'écran",
       },
       language: {
-        title: "Langue",
-        description: "Choisissez la langue de l'application"
+        title: 'Langue',
+        description: "Choisissez la langue de l'application",
       },
       textToSpeech: {
-        title: "Synthèse vocale",
-        description: "Activez la lecture vocale du contenu sélectionné"
+        title: 'Synthèse vocale',
+        description: 'Activez la lecture vocale du contenu sélectionné',
       },
       haptics: {
-        title: "Retour haptique",
-        description: "Activer ou désactiver les vibrations"
+        title: 'Retour haptique',
+        description: 'Activer ou désactiver les vibrations',
       },
     },
     tools: {
@@ -322,5 +337,4 @@ export const fr = {
     unknownError: "Une erreur inconnue s'est produite",
     validationError: 'Veuillez vérifier votre saisie',
   },
-
 };
