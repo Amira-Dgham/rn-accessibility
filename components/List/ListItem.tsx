@@ -23,7 +23,7 @@ const ListItem: React.FC<ListItemProps> = ({
           backgroundColor: alternatingColors
             ? isEven
               ? colors.background
-              : colors.blueBackground
+              : colors.purpleBackground
             : colors.background,
         },
         itemContainerStyle,

@@ -1,6 +1,6 @@
-import { AccessibilityComponent, AccessibilityLevel } from '@/types/accessibility';
+import { AccessibilityComponent, AccessibilityLevel, AccessibilityTool } from '@/types/accessibility';
 import { FeatureRoute } from '@/types/navigation';
-import { LucideIcon, Shield, Target, Users, Zap } from 'lucide-react-native';
+import { Code, LucideIcon, Shield, Target, Users } from 'lucide-react-native';
 
 // Base configuration (static data that doesn't need translation)
 export const ACCESSIBILITY_LEVEL_BASE_CONFIG: Record<
@@ -31,13 +31,9 @@ export const ACCESSIBILITY_FEATURES_BASE: {
     {
       key: 'userTesting',
       icon: Users,
-      route: null,
+      route: '/accessibility-testing/accessibility-testing',
     },
-    {
-      key: 'quickChecks',
-      icon: Zap,
-      route: null,
-    },
+  
   ];
 
 export const MIN_CONTRAST_RATIO = 4.5;
@@ -82,3 +78,89 @@ export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
   { title: 'Language', route: '/accessibility-components/language' },
   { title: 'Comprehension', route: '/accessibility-components/comprehension' },
 ];
+
+export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [
+  {
+    id: 'accessibility-inspector-xcode',
+    icon: Code,
+    localeKey: 'accessibilityInspectorXcode',
+    url: 'https://developer.apple.com/documentation/accessibility/accessibility_inspector',
+  },
+  {
+    id: 'accessibility-scanner-android',
+    icon: Code,
+    localeKey: 'accessibilityScannerAndroid',
+    url: 'https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.auditor',
+  },
+  {
+    id: 'voiceover-ios',
+    icon: Code,
+    localeKey: 'voiceoverIos',
+    url: 'https://support.apple.com/guide/iphone/turn-on-and-practice-voiceover-iph3e2e415f/ios',
+  },
+  {
+    id: 'talkback-android',
+    icon: Code,
+    localeKey: 'talkbackAndroid',
+    url: 'https://support.google.com/accessibility/android/answer/6007100?hl=en',
+  },
+  {
+    id: 'native-accessibility-engine',
+    icon: Code,
+    localeKey: 'nativeAccessibilityEngine',
+    url: 'https://github.com/GoogleChromeLabs/native-accessibility-engine',
+  },
+  {
+    id: 'axe-devtools-react-native',
+    icon: Code,
+    localeKey: 'axeDevtoolsReactNative',
+    url: 'https://www.deque.com/axe/devtools/mobile-accessibility/?utm_campaign=devtools',
+  },
+  {
+    id: 'jest-testing-library-axe',
+    icon: Code,
+    localeKey: 'jestTestingLibraryAxe',
+    url: 'https://www.npmjs.com/package/jest-axe',
+  },
+ 
+  {
+    id: 'switch-access-switch-control',
+    icon: Code,
+    localeKey: 'switchAccessSwitchControl',
+    url: 'https://support.google.com/accessibility/android/answer/6122836?hl=en',
+  },
+  {
+    id: 'zoom-screen-magnifier',
+    icon: Code,
+    localeKey: 'zoomScreenMagnifier',
+    url: 'https://support.apple.com/en-us/HT210434',
+  },
+  {
+    id: 'reduce-motion',
+    icon: Code,
+    localeKey: 'reduceMotion',
+    url: 'https://support.apple.com/guide/iphone/reduce-screen-motion-iph3e2e43f/ios',
+  },
+  {
+    id: 'transcriptions-captions',
+    icon: Code,
+    localeKey: 'transcriptionsCaptions',
+    url: 'https://www.w3.org/WAI/media/av/captions/transcripts/',
+  },
+  {
+    id: 'color-contrast-analyzer',
+    icon: Code,
+    localeKey: 'colorContrastAnalyzer',
+    url: 'https://www.tpgi.com/color-contrast-checker/',
+  },
+  {
+    id: 'react-native-eslint-library',
+    icon: Code,
+    localeKey: 'reactNativeEslintLibrary',
+    url: 'https://www.npmjs.com/package/eslint-plugin-react-native-a11y',
+  },
+  
+];
+
+
+

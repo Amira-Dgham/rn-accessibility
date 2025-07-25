@@ -38,4 +38,13 @@ export const RESOURCES = [
         label: 'screens.guidelines.essentials.resources.w3c',
         url: 'https://www.w3.org/WAI/standards-guidelines/wcag/docs/',
     },
+    {
+        label: 'screens.guidelines.essentials.resources.medium',
+        url: 'https://medium.com/@dghamamira15/digital-accessibility-a-complete-guide-to-inclusive-design-47daa8240519',
+    },
+    {
+        label: 'screens.guidelines.essentials.resources.medium2',
+        url: 'https://medium.com/@dghamamira15/introduction-441c0f6c3fd3',
+    },
+    
 ];
