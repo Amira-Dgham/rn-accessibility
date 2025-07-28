@@ -1,5 +1,5 @@
 import { ThemedText } from '@/components/ThemedText';
-import { ListItemDataProps } from '@/types/ui';
+import { ListItemDataProps } from '@/types/ui.types';
 import { LegendList } from '@legendapp/list';
 import React from 'react';
 import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';

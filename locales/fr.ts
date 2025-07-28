@@ -331,6 +331,31 @@ export const fr = {
         free: 'Gratuit',
       },
     },
+    components: {
+      examples: 'Exemples',
+      requirements: 'Exigences',
+      accordions: {
+        title: 'Accordéons',
+        description: 'Les accordéons sont des sections de contenu pliables qui aident à organiser les informations de manière hiérarchique.',
+        requirements: {
+          A: {
+            '1': 'Instructions claires',
+            '2': 'Suggestions d\'erreur',
+            '3': 'Aide contextuelle',
+          },
+          AA: {
+            '1': 'Attributs ARIA appropriés (aria-expanded, aria-controls)',
+            '2': 'Support de la navigation au clavier',
+            '3': 'Annonces pour les lecteurs d\'écran',
+          },
+          AAA: {
+            '1': 'Indicateurs visuels clairs',
+            '2': 'Gestion du focus',
+            '3': 'Rapports de contraste améliorés',
+          },
+        },
+      },
+    },
   },
   errors: {
     networkError: 'Erreur de connexion réseau',

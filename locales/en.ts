@@ -144,6 +144,24 @@ export const en = {
   accessibility: {
     complianceLevels: 'Compliance Levels',
     features: 'Features',
+    levels: {
+      A: {
+        name: 'A',
+        description: 'Basic accessibility requirements',
+      },
+      AA: {
+        name: 'AA',
+        description: 'Enhanced accessibility requirements',
+      },
+      AAA: {
+        name: 'AAA',
+        description: 'Highest accessibility requirements',
+      },
+      none: {
+        name: 'None',
+        description: 'No specific requirements',
+      },
+    },
     feature: {
       wcagCompliance: {
         title: 'WCAG Compliance',
@@ -306,6 +324,32 @@ export const en = {
         guidelines: 'WCAG',
         usage: 'Transcriptions / Captions',
         free: 'Free',
+      },
+    },
+
+    components: {
+      examples: 'Examples',
+      requirements: 'Requirements',
+      accordions: {
+        title: 'Accordions',
+        description: 'Accordions are collapsible content sections that help organize information hierarchically.',
+        requirements: {
+          A: {
+            '1': 'Clear instructions',
+            '2': 'Error suggestions',
+            '3': 'Context help',
+          },
+          AA: {
+            '1': 'Proper ARIA attributes (aria-expanded, aria-controls)',
+            '2': 'Keyboard navigation support',
+            '3': 'Screen reader announcements',
+          },
+          AAA: {
+            '1': 'Clear visual indicators',
+            '2': 'Focus management',
+            '3': 'Enhanced contrast ratios',
+          },
+        },
       },
     },
   },

@@ -1,6 +1,6 @@
 // Make sure AccessibilityLevel is exported as an enum or object, not just a type
 import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from '@/constants';
-import { AccessibilityLevel } from '@/types/accessibility';
+import { AccessibilityLevel } from '@/types/accessibility.types';
 
 // Utility function to calculate luminance
 export const getLuminance = (hex: string): number => {

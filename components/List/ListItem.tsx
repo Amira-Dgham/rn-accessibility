@@ -1,5 +1,5 @@
 import { useTheme } from '@/hooks/useTheme';
-import { ListItemProps } from '@/types/ui';
+import { ListItemProps } from '@/types/ui.types';
 import { ChevronRight } from 'lucide-react-native';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedText } from '../ThemedText';

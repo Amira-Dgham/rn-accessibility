@@ -4,7 +4,7 @@ import { ACCESSIBILITY_TESTING_TOOLS } from '@/constants/accessibility';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { translations } from '@/locales';
-import { AccessibilityTool } from '@/types/accessibility';
+import { AccessibilityTool } from '@/types/accessibility.types';
 import { Linking } from 'react-native';
 
 const AccessibilityTesting = () => {
