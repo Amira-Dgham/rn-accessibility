@@ -34,12 +34,19 @@ const FontSizeCustomization = observer(() => {
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
       {/* Header section with title and description */}
-      <Header title={t('screens.settings.fontSize.title')} subtitle={t('screens.settings.fontSize.description')} />
+      <Header
+        title={t('screens.settings.fontSize.title')}
+        subtitle={t('screens.settings.fontSize.description')}
+      />
 
       {/* Slider label and current value */}
       <View style={styles.sliderHeader}>
-        <ThemedText color={colors.purple} variant="body">{t('screens.settings.fontSize.title')}</ThemedText>
-        <ThemedText color={colors.purple} variant="body">{fontSize}px</ThemedText>
+        <ThemedText color={colors.purple} variant="body">
+          {t('screens.settings.fontSize.title')}
+        </ThemedText>
+        <ThemedText color={colors.purple} variant="body">
+          {fontSize}px
+        </ThemedText>
       </View>
 
       {/* Font size slider */}
@@ -56,16 +63,22 @@ const FontSizeCustomization = observer(() => {
 
       {/* Range labels for slider */}
       <View style={styles.rangeLabels}>
-        <ThemedText variant="body" color={colors.gray}>Small (12px)</ThemedText>
-        <ThemedText variant="body" color={colors.gray}>Large (24px)</ThemedText>
+        <ThemedText variant="body" color={colors.gray}>
+          Small (12px)
+        </ThemedText>
+        <ThemedText variant="body" color={colors.gray}>
+          Large (24px)
+        </ThemedText>
       </View>
 
       {/* Display the current font size label */}
-      <ThemedText variant="body" style={styles.sizeLabel} color={colors.purple}>{getFontSizeLabel(fontSize)}</ThemedText>
+      <ThemedText variant="body" style={styles.sizeLabel} color={colors.purple}>
+        {getFontSizeLabel(fontSize)}
+      </ThemedText>
 
       {/* Reset button to restore default font size */}
       <Button
-        preset='filled'
+        preset="filled"
         onPress={() => setFontSize(16)}
         style={styles.resetButton}
         textStyle={styles.resetButtonText}
@@ -83,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 20,
-    margin: 20
+    margin: 20,
   },
   sizeLabel: {
     textAlign: 'center',

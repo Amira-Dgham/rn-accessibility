@@ -1,6 +1,11 @@
-import { AccessibilityComponent, AccessibilityLevel, AccessibilityTool } from '@/types/accessibility';
-import { FeatureRoute } from '@/types/navigation';
+import {
+  AccessibilityComponent,
+  AccessibilityLevel,
+  AccessibilityTool,
+} from '@/types/accessibility.types';
 import { Code, LucideIcon, Shield, Target, Users } from 'lucide-react-native';
+
+import { FeatureRoute } from '@/types/navigation.types';
 
 // Base configuration (static data that doesn't need translation)
 export const ACCESSIBILITY_LEVEL_BASE_CONFIG: Record<
@@ -33,13 +38,33 @@ export const ACCESSIBILITY_FEATURES_BASE: {
       icon: Users,
       route: '/accessibility-testing/accessibility-testing',
     },
-  
   ];
 
 export const MIN_CONTRAST_RATIO = 4.5;
 
 export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
-  { title: 'Accordions', route: '/accessibility-components/accordions' },
+  {
+    title: 'Accordions',
+    route: '/accessibility-components/accordions',
+    description: 'accessibility.components.accordions.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.accordions.requirements.A.1',
+        '2': 'accessibility.components.accordions.requirements.A.2',
+        '3': 'accessibility.components.accordions.requirements.A.3',
+      },
+      AA: {
+        '1': 'accessibility.components.accordions.requirements.AA.1',
+        '2': 'accessibility.components.accordions.requirements.AA.2',
+        '3': 'accessibility.components.accordions.requirements.AA.3',
+      },
+      AAA: {
+        '1': 'accessibility.components.accordions.requirements.AAA.1',
+        '2': 'accessibility.components.accordions.requirements.AAA.2',
+        '3': 'accessibility.components.accordions.requirements.AAA.3',
+      },
+    },
+  },
   { title: 'Alerts', route: '/accessibility-components/alerts' },
   { title: 'Buttons', route: '/accessibility-components/buttons' },
   { title: 'Cards', route: '/accessibility-components/cards' },
@@ -122,7 +147,7 @@ export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [
     localeKey: 'jestTestingLibraryAxe',
     url: 'https://www.npmjs.com/package/jest-axe',
   },
- 
+
   {
     id: 'switch-access-switch-control',
     icon: Code,
@@ -159,8 +184,4 @@ export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [
     localeKey: 'reactNativeEslintLibrary',
     url: 'https://www.npmjs.com/package/eslint-plugin-react-native-a11y',
   },
-  
 ];
-
-
-

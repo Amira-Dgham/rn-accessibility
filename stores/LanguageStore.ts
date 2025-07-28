@@ -1,7 +1,7 @@
 import { AVAILABLE_LANGUAGES, STORAGE_KEYS } from '@/constants/storage';
 import { SupportedLanguage, TranslationNestedKey } from '@/locales';
 import { storageService } from '@/services/StorageService';
-import { LanguageOption } from '@/types/languageOption';
+import { LanguageOption } from '@/types/languageOption.types';
 import {
   getPreferredSupportedLanguage,
   getTranslationFromLanguage as getTranslationFromLang,

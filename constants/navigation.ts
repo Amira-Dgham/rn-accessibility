@@ -1,4 +1,4 @@
-import type { TabScreenName } from '@/types/navigation';
+import type { TabScreenName } from '@/types/navigation.types';
 import { BookOpen, Home, Layers, Settings } from 'lucide-react-native';
 
 // Mapping route names to their corresponding icons

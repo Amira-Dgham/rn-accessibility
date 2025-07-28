@@ -15,7 +15,7 @@ export default function TabLayout(): JSX.Element {
   const { t } = useLanguage();
 
   return (
-    <Tabs screenOptions={getTabBarOptions(colors as typeof Colors['light'], typography)}>
+    <Tabs screenOptions={getTabBarOptions(colors as (typeof Colors)['light'], typography)}>
       {SCREENS.map((name) => {
         const Icon = SCREEN_ICONS[name];
 

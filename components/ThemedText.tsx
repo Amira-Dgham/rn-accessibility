@@ -1,7 +1,7 @@
 import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from '@/constants';
 import { useTheme } from '@/hooks/useTheme';
 import { TypographyKeys } from '@/theme';
-import { AccessibilityLevel } from '@/types/accessibility';
+import { AccessibilityLevel } from '@/types/accessibility.types';
 import { getContrastRatio, meetsAccessibilityLevel } from '@/utils/accessibilityChecker';
 import React from 'react';
 import { Text as RNText, TextProps as RNTextProps, TextStyle } from 'react-native';

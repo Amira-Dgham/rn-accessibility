@@ -34,7 +34,7 @@ export const en = {
       fontSize: {
         title: 'Font Size',
         description: 'Adjust the size of the text displayed in the app',
-        reset: 'Reset to Default'
+        reset: 'Reset to Default',
       },
       colors: {
         title: 'Color Customization',
@@ -57,15 +57,21 @@ export const en = {
       subtitle: 'Key questions, principles, and resources for accessible development.',
       essentials: {
         title: 'Essentials for Developers',
-        intro: 'Ask yourself these questions to ensure your app is accessible. Each point links to a key accessibility principle or WCAG guideline.',
+        intro:
+          'Ask yourself these questions to ensure your app is accessible. Each point links to a key accessibility principle or WCAG guideline.',
         questions: {
           semanticMarkup: 'Semantic Markup: Do all elements have the correct semantic markup?',
-          inputLabels: 'Input Labels: Are there descriptive labels marking each input element, and labels for input groups?',
-          focus: 'Focus: Is there an indicator when interactive elements have keyboard focus, and does its order follow a logical sequence?',
-          keyboard: 'Keyboard: Can all interactive elements be selected and activated using the keyboard?',
+          inputLabels:
+            'Input Labels: Are there descriptive labels marking each input element, and labels for input groups?',
+          focus:
+            'Focus: Is there an indicator when interactive elements have keyboard focus, and does its order follow a logical sequence?',
+          keyboard:
+            'Keyboard: Can all interactive elements be selected and activated using the keyboard?',
           names: 'Names: Do all interactive controls have an accessible descriptive name?',
-          roles: 'Roles: Do all custom controls and widgets have the correct role (e.g., link, button, tab panel)?',
-          dynamicUpdates: 'Dynamic Updates: Are all dynamic updates, including error messages, conveyed to assistive technology?',
+          roles:
+            'Roles: Do all custom controls and widgets have the correct role (e.g., link, button, tab panel)?',
+          dynamicUpdates:
+            'Dynamic Updates: Are all dynamic updates, including error messages, conveyed to assistive technology?',
           colors: 'Colors: Does the design provide sufficient color contrast?',
           layouts: 'Layouts: Do page layouts adapt to different window widths and text sizes?',
           images: 'Images: Do images and icons have the appropriate text alternative?',
@@ -112,16 +118,20 @@ export const en = {
         },
       },
       successCriteria: {
-        description: 'This is where things get specific. Success criteria are the checkpoints that tell you how to make your site more inclusive. They’re divided into three levels:',
+        description:
+          'This is where things get specific. Success criteria are the checkpoints that tell you how to make your site more inclusive. They’re divided into three levels:',
         levelA: 'A (bare essentials)',
         levelAA: 'AA (the legal requirement in most places)',
         levelAAA: 'AAA (reaching for the stars).',
       },
       principles: {
-        perceivable: 'Perceivable: Information and user interface components must be presentable to users in ways they can perceive.',
+        perceivable:
+          'Perceivable: Information and user interface components must be presentable to users in ways they can perceive.',
         operable: 'Operable: User interface components and navigation must be operable.',
-        understandable: 'Understandable: Information and the operation of user interface must be understandable.',
-        robust: 'Robust: Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies.',
+        understandable:
+          'Understandable: Information and the operation of user interface must be understandable.',
+        robust:
+          'Robust: Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies.',
       },
       sections: {
         successCriteria: 'Accessibility Success Criteria',
@@ -134,6 +144,24 @@ export const en = {
   accessibility: {
     complianceLevels: 'Compliance Levels',
     features: 'Features',
+    levels: {
+      A: {
+        name: 'A',
+        description: 'Basic accessibility requirements',
+      },
+      AA: {
+        name: 'AA',
+        description: 'Enhanced accessibility requirements',
+      },
+      AAA: {
+        name: 'AAA',
+        description: 'Highest accessibility requirements',
+      },
+      none: {
+        name: 'None',
+        description: 'No specific requirements',
+      },
+    },
     feature: {
       wcagCompliance: {
         title: 'WCAG Compliance',
@@ -147,7 +175,6 @@ export const en = {
         title: 'Accessibility Testing Tools',
         description: 'Tools and guidelines for accessibility user testing',
       },
-    
     },
     preferences: {
       title: 'Preferences',
@@ -299,8 +326,34 @@ export const en = {
         free: 'Free',
       },
     },
+
+    components: {
+      examples: 'Examples',
+      requirements: 'Requirements',
+      accordions: {
+        title: 'Accordions',
+        description: 'Accordions are collapsible content sections that help organize information hierarchically.',
+        requirements: {
+          A: {
+            '1': 'Clear instructions',
+            '2': 'Error suggestions',
+            '3': 'Context help',
+          },
+          AA: {
+            '1': 'Proper ARIA attributes (aria-expanded, aria-controls)',
+            '2': 'Keyboard navigation support',
+            '3': 'Screen reader announcements',
+          },
+          AAA: {
+            '1': 'Clear visual indicators',
+            '2': 'Focus management',
+            '3': 'Enhanced contrast ratios',
+          },
+        },
+      },
+    },
   },
- 
+
   errors: {
     networkError: 'Network connection error',
     unknownError: 'An unknown error occurred',

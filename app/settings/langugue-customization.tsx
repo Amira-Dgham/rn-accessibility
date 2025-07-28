@@ -23,9 +23,15 @@ const LanguageCustomization = observer(() => {
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
       <View style={styles.container}>
-        <ThemedText variant="h4" style={styles.header}>{t('screens.settings.language.title')}</ThemedText>
-        <ThemedText variant="body" style={styles.description}>{t('screens.settings.language.description')}</ThemedText>
-        <ThemedText variant="bodyMedium" style={styles.label}>{t('screens.settings.language.selectLabel')}</ThemedText>
+        <ThemedText variant="h4" style={styles.header}>
+          {t('screens.settings.language.title')}
+        </ThemedText>
+        <ThemedText variant="body" style={styles.description}>
+          {t('screens.settings.language.description')}
+        </ThemedText>
+        <ThemedText variant="bodyMedium" style={styles.label}>
+          {t('screens.settings.language.selectLabel')}
+        </ThemedText>
         <Dropdown
           selectedValue={currentLanguage}
           onValueChange={handleChangeLanguage}

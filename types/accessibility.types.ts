@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react-native";
+import { LucideIcon } from 'lucide-react-native';
 
 export const AccessibilityLevel = {
   A: 'A',
@@ -11,9 +11,20 @@ export type AccessibilityLevel = (typeof AccessibilityLevel)[keyof typeof Access
 
 export type BadgeSize = 'small' | 'medium' | 'large';
 
+export type ComponentRequirement = {
+  id: string;
+  text: string;
+};
+
 export type AccessibilityComponent = {
   title: string;
   route: string;
+  description?: string;
+  requirements?: {
+    A?: Record<string, string>;
+    AA?: Record<string, string>;
+    AAA?: Record<string, string>;
+  };
 };
 
 export type AccessibilityTool = {

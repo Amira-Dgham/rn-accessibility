@@ -3,7 +3,7 @@ import {
   ACCESSIBILITY_LEVEL_BASE_CONFIG,
 } from '@/constants/accessibility';
 import { useLanguageStore } from '@/context/StoreContext';
-import { AccessibilityLevel } from '@/types/accessibility';
+import { AccessibilityLevel } from '@/types/accessibility.types';
 
 export const useAccessibility = () => {
   const languageStore = useLanguageStore();

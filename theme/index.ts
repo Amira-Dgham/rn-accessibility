@@ -1,5 +1,11 @@
 import { Colors, type ColorKeys } from './colors';
-import { BaseFontSizes, createFontSizes, createTypography, FontFamilies, type TypographyKeys } from './typography';
+import {
+  BaseFontSizes,
+  createFontSizes,
+  createTypography,
+  FontFamilies,
+  type TypographyKeys,
+} from './typography';
 
 // Function to create theme with dynamic typography
 export const createTheme = (userFontSize: number) => {
@@ -32,4 +38,3 @@ export type ColorScheme = keyof typeof Theme;
 export { CustomDarkTheme, CustomLightTheme } from './navigationTheme';
 export { BaseFontSizes, Colors, createFontSizes, createTypography, FontFamilies };
 export type { ColorKeys, TypographyKeys };
-
