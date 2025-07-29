@@ -1,11 +1,11 @@
-import { ThemedView } from '@/components';
-import { Card } from '@/components/ui/Card';
+import { Card, ThemedView } from '@/components';
+
 import { ACCESSIBILITY_TESTING_TOOLS } from '@/constants/accessibility';
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import { useLanguage } from '@/hooks/useLanguage';
-import { translations } from '@/locales';
 import { AccessibilityTool } from '@/types/accessibility.types';
 import { Linking } from 'react-native';
+import { translations } from '@/locales';
+import { useHeaderTitle } from '@/hooks/useHeaderTitle';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const AccessibilityTesting = () => {
   const { currentLanguage, t } = useLanguage();

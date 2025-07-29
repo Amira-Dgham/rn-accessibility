@@ -1,10 +1,11 @@
+import { ChevronRight, LucideIcon } from 'lucide-react-native';
+import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
+import Switch, { SwitchProps } from '../ui/Switch';
+
+import React from 'react';
+import { ThemedText } from '../ThemedText';
 import { useGlobalStyles } from '@/hooks/useGlobalStyle';
 import { useTheme } from '@/hooks/useTheme';
-import { ChevronRight, LucideIcon } from 'lucide-react-native';
-import React from 'react';
-import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { ThemedText } from '../ThemedText';
-import Switch, { SwitchProps } from './Switch';
 
 // Badge configuration
 interface Badge {

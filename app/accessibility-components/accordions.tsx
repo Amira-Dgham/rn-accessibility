@@ -1,15 +1,14 @@
+import { Card, ThemedView } from '@/components';
 import React, { FC, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { ACCESSIBILITY_COMPONENTS } from '@/constants';
 import { Badge } from '@/components/Badge';
-import { Card } from '@/components/ui/Card';
 import { ChildComponentProps } from '@/types/ui.types';
 import { ComponentRequirement } from '@/types/accessibility.types';
 import { Info } from 'lucide-react-native';
-import LevelCard from '@/components/Card/CardComponents';
+import LevelCard from '@/components/Card/LevelComponentCard';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -29,7 +28,6 @@ const Accordions: FC = () => {
 
     const level = levels.find((l) => l.key === selectedLevel);
     if (!level) return null;
-    console.log('amira', level);
     return {
       name: level.name,
       description: level.description,

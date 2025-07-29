@@ -1,12 +1,12 @@
-import { Badge, ThemedText, ThemedView } from '@/components';
+import { Badge, Card, ThemedText, ThemedView } from '@/components';
+import { StyleSheet, View } from 'react-native';
+
 import Header from '@/components/Header';
-import { Card } from '@/components/ui';
+import React from 'react';
+import { observer } from 'mobx-react-lite';
+import { router } from 'expo-router';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useLanguage } from '@/hooks/useLanguage';
-import { router } from 'expo-router';
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
 const HomeScreen = observer(() => {
   const { t } = useLanguage();
