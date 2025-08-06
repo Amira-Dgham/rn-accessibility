@@ -1,8 +1,9 @@
-import { useTheme } from '@/hooks/useTheme';
 import { ChevronDown, ChevronUp } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { StyleSheet, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
+
 import { ThemedText } from './ThemedText';
+import { useTheme } from '@/hooks/useTheme';
 
 interface AccordionProps {
   title: string;
