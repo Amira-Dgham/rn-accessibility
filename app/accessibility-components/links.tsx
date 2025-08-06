@@ -1,17 +1,34 @@
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ACCESSIBILITY_COMPONENTS } from '@/constants';
+import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
+import { ChildComponentProps } from '@/types/ui.types';
+import { ThemedText } from '@/components';
+import { useAccessibility } from '@/hooks/useAccessibility';
+import { useLanguage } from '@/hooks/useLanguage';
 
-const Links: FC = () => {
-  useHeaderTitle();
+const Links = () => {
+  const { t } = useLanguage();
+  const { levels } = useAccessibility();
+  const linksComponent = ACCESSIBILITY_COMPONENTS.find(
+    (comp) => comp.route === '/accessibility-components/links',
+  );
+
+  const examplesWithComponents: ChildComponentProps[] = [
+    {
+      id: '1',
+      title: 'Accessible Links',
+      description: 'Links with proper descriptions and keyboard support',
+      component: <ThemedText>Links Example</ThemedText>,
+    },
+  ];
 
   return (
-    <View>
-      <Text>Links</Text>
-    </View>
+    <AccessibilityComponentScreen
+      componentConfig={linksComponent}
+      levels={levels}
+      t={t}
+      examplesWithComponents={examplesWithComponents}
+    />
   );
 };
 
 export default Links;
-
-const styles = StyleSheet.create({});

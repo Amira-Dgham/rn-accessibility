@@ -1,17 +1,34 @@
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ACCESSIBILITY_COMPONENTS } from '@/constants';
+import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
+import { ChildComponentProps } from '@/types/ui.types';
+import { ThemedText } from '@/components';
+import { useAccessibility } from '@/hooks/useAccessibility';
+import { useLanguage } from '@/hooks/useLanguage';
 
-const RadioButton: FC = () => {
-  useHeaderTitle();
+const RadioButton = () => {
+  const { t } = useLanguage();
+  const { levels } = useAccessibility();
+  const radioButtonComponent = ACCESSIBILITY_COMPONENTS.find(
+    (comp) => comp.route === '/accessibility-components/radio-button',
+  );
+
+  const examplesWithComponents: ChildComponentProps[] = [
+    {
+      id: '1',
+      title: 'Accessible Radio Buttons',
+      description: 'Radio buttons with proper grouping and keyboard support',
+      component: <ThemedText>Radio Button Example</ThemedText>,
+    },
+  ];
 
   return (
-    <View>
-      <Text>RadioButton</Text>
-    </View>
+    <AccessibilityComponentScreen
+      componentConfig={radioButtonComponent}
+      levels={levels}
+      t={t}
+      examplesWithComponents={examplesWithComponents}
+    />
   );
 };
 
 export default RadioButton;
-
-const styles = StyleSheet.create({});

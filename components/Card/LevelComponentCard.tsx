@@ -58,7 +58,7 @@ const LevelCard: React.FC<LevelCardProps> = ({
 
     return (
         <View style={styles.container}>
-            <View style={[styles.card]}>
+            <View style={styles.card}>
                 {/* Header */}
                 <View style={[styles.header, { backgroundColor: colors.purple }]}>
                     <ThemedText style={{ color: colors.purpleBackground }}>{String(level || '')}</ThemedText>
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     card: {
         borderRadius: 12,
         shadowOffset: {
-            width: 0,
+            width: 3,
             height: 2,
         },
         shadowOpacity: 0.1,
         shadowRadius: 4,
-        elevation: 3,
+        elevation: 2,
         overflow: 'hidden',
     },
     header: {
@@ -100,6 +100,10 @@ const styles = StyleSheet.create({
     },
     content: {
         padding: 20,
+        borderWidth: 0.2,
+        borderEndStartRadius: 12,
+        borderEndEndRadius: 12,
+
     },
     section: {
         marginTop: 8,
@@ -120,9 +124,9 @@ const styles = StyleSheet.create({
     },
     exampleComponent: {
         paddingHorizontal: 12,
-        paddingBottom: 12,
+        paddingBottom: 15,
         paddingTop: 8,
-        borderTopWidth: 1,
+        marginTop: 16,
         marginBottom: 16,
         borderRadius: 8,
         overflow: 'hidden',

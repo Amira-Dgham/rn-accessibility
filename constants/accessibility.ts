@@ -65,43 +65,773 @@ export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
       },
     },
   },
-  { title: 'Alerts', route: '/accessibility-components/alerts' },
-  { title: 'Buttons', route: '/accessibility-components/buttons' },
-  { title: 'Cards', route: '/accessibility-components/cards' },
-  { title: 'Charts', route: '/accessibility-components/charts' },
-  { title: 'Checkboxes', route: '/accessibility-components/checkboxes' },
-  { title: 'ConfirmationDialog', route: '/accessibility-components/confirmation-dialog' },
-  { title: 'DataTable', route: '/accessibility-components/data-table' },
-  { title: 'DateTimePicker', route: '/accessibility-components/date-time-picker' },
-  { title: 'DeviceOrientation', route: '/accessibility-components/device-orientation' },
-  { title: 'ErrorValidation', route: '/accessibility-components/error-validation' },
+  {
+    title: 'Alerts',
+    route: '/accessibility-components/alerts',
+    description: 'accessibility.components.alerts.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.alerts.requirements.A.1',
+        '2': 'accessibility.components.alerts.requirements.A.2',
+        '3': 'accessibility.components.alerts.requirements.A.3',
+        '4': 'accessibility.components.alerts.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.alerts.requirements.AA.1',
+        '2': 'accessibility.components.alerts.requirements.AA.2',
+        '3': 'accessibility.components.alerts.requirements.AA.3',
+        '4': 'accessibility.components.alerts.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.alerts.requirements.AAA.1',
+        '2': 'accessibility.components.alerts.requirements.AAA.2',
+        '3': 'accessibility.components.alerts.requirements.AAA.3',
+        '4': 'accessibility.components.alerts.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Buttons',
+    route: '/accessibility-components/buttons',
+    description: 'accessibility.components.buttons.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.buttons.requirements.A.1',
+        '2': 'accessibility.components.buttons.requirements.A.2',
+        '3': 'accessibility.components.buttons.requirements.A.3',
+        '4': 'accessibility.components.buttons.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.buttons.requirements.AA.1',
+        '2': 'accessibility.components.buttons.requirements.AA.2',
+        '3': 'accessibility.components.buttons.requirements.AA.3',
+        '4': 'accessibility.components.buttons.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.buttons.requirements.AAA.1',
+        '2': 'accessibility.components.buttons.requirements.AAA.2',
+        '3': 'accessibility.components.buttons.requirements.AAA.3',
+        '4': 'accessibility.components.buttons.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Cards',
+    route: '/accessibility-components/cards',
+    description: 'accessibility.components.cards.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.cards.requirements.A.1',
+        '2': 'accessibility.components.cards.requirements.A.2',
+        '3': 'accessibility.components.cards.requirements.A.3',
+        '4': 'accessibility.components.cards.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.cards.requirements.AA.1',
+        '2': 'accessibility.components.cards.requirements.AA.2',
+        '3': 'accessibility.components.cards.requirements.AA.3',
+        '4': 'accessibility.components.cards.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.cards.requirements.AAA.1',
+        '2': 'accessibility.components.cards.requirements.AAA.2',
+        '3': 'accessibility.components.cards.requirements.AAA.3',
+        '4': 'accessibility.components.cards.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Charts',
+    route: '/accessibility-components/charts',
+    description: 'accessibility.components.charts.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.charts.requirements.A.1',
+        '2': 'accessibility.components.charts.requirements.A.2',
+        '3': 'accessibility.components.charts.requirements.A.3',
+        '4': 'accessibility.components.charts.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.charts.requirements.AA.1',
+        '2': 'accessibility.components.charts.requirements.AA.2',
+        '3': 'accessibility.components.charts.requirements.AA.3',
+        '4': 'accessibility.components.charts.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.charts.requirements.AAA.1',
+        '2': 'accessibility.components.charts.requirements.AAA.2',
+        '3': 'accessibility.components.charts.requirements.AAA.3',
+        '4': 'accessibility.components.charts.requirements.AAA.4',
+        '5': 'accessibility.components.charts.requirements.AAA.5',
+      },
+    },
+  },
+  {
+    title: 'Checkboxes',
+    route: '/accessibility-components/checkboxes',
+    description: 'accessibility.components.checkboxes.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.checkboxes.requirements.A.1',
+        '2': 'accessibility.components.checkboxes.requirements.A.2',
+        '3': 'accessibility.components.checkboxes.requirements.A.3',
+        '4': 'accessibility.components.checkboxes.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.checkboxes.requirements.AA.1',
+        '2': 'accessibility.components.checkboxes.requirements.AA.2',
+        '3': 'accessibility.components.checkboxes.requirements.AA.3',
+        '4': 'accessibility.components.checkboxes.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.checkboxes.requirements.AAA.1',
+        '2': 'accessibility.components.checkboxes.requirements.AAA.2',
+        '3': 'accessibility.components.checkboxes.requirements.AAA.3',
+        '4': 'accessibility.components.checkboxes.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'ConfirmationDialog',
+    route: '/accessibility-components/confirmation-dialog',
+    description: 'accessibility.components.confirmationDialog.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.confirmationDialog.requirements.A.1',
+        '2': 'accessibility.components.confirmationDialog.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.confirmationDialog.requirements.AA.1',
+        '2': 'accessibility.components.confirmationDialog.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.confirmationDialog.requirements.AAA.1',
+        '2': 'accessibility.components.confirmationDialog.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Data Table',
+    route: '/accessibility-components/data-table',
+    description: 'accessibility.components.dataTable.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.dataTable.requirements.A.1',
+        '2': 'accessibility.components.dataTable.requirements.A.2',
+        '3': 'accessibility.components.dataTable.requirements.A.3',
+        '4': 'accessibility.components.dataTable.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.dataTable.requirements.AA.1',
+        '2': 'accessibility.components.dataTable.requirements.AA.2',
+        '3': 'accessibility.components.dataTable.requirements.AA.3',
+        '4': 'accessibility.components.dataTable.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.dataTable.requirements.AAA.1',
+        '2': 'accessibility.components.dataTable.requirements.AAA.2',
+        '3': 'accessibility.components.dataTable.requirements.AAA.3',
+        '4': 'accessibility.components.dataTable.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Date & Time Picker',
+    route: '/accessibility-components/data-time-picker',
+    description: 'accessibility.components.dateTimePicker.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.dateTimePicker.requirements.A.1',
+        '2': 'accessibility.components.dateTimePicker.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.dateTimePicker.requirements.AA.1',
+        '2': 'accessibility.components.dateTimePicker.requirements.AA.2',
+        '3': 'accessibility.components.dateTimePicker.requirements.AA.3',
+        '4': 'accessibility.components.dateTimePicker.requirements.AA.4',
+        '5': 'accessibility.components.dateTimePicker.requirements.AA.5',
+      },
+      AAA: {
+        '1': 'accessibility.components.dateTimePicker.requirements.AAA.1',
+        '2': 'accessibility.components.dateTimePicker.requirements.AAA.2',
+        '3': 'accessibility.components.dateTimePicker.requirements.AAA.3',
+        '4': 'accessibility.components.dateTimePicker.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'DeviceOrientation',
+    route: '/accessibility-components/device-orientation',
+    description: 'accessibility.components.deviceOrientation.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.deviceOrientation.requirements.A.1',
+        '2': 'accessibility.components.deviceOrientation.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.deviceOrientation.requirements.AA.1',
+        '2': 'accessibility.components.deviceOrientation.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.deviceOrientation.requirements.AAA.1',
+        '2': 'accessibility.components.deviceOrientation.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Error Validation',
+    route: '/accessibility-components/error-validation',
+    description: 'accessibility.components.errorValidation.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.errorValidation.requirements.A.1',
+        '2': 'accessibility.components.errorValidation.requirements.A.2',
+        '3': 'accessibility.components.errorValidation.requirements.A.3',
+        '4': 'accessibility.components.errorValidation.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.errorValidation.requirements.AA.1',
+        '2': 'accessibility.components.errorValidation.requirements.AA.2',
+        '3': 'accessibility.components.errorValidation.requirements.AA.3',
+        '4': 'accessibility.components.errorValidation.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.errorValidation.requirements.AAA.1',
+        '2': 'accessibility.components.errorValidation.requirements.AAA.2',
+        '3': 'accessibility.components.errorValidation.requirements.AAA.3',
+        '4': 'accessibility.components.errorValidation.requirements.AAA.4',
+      },
+    },
+  },
   { title: 'EscapeAction', route: '/accessibility-components/escape-action' },
-  { title: 'FocusManagement', route: '/accessibility-components/focus-management' },
-  { title: 'GroupingControls', route: '/accessibility-components/grouping-controls' },
-  { title: 'HeadingLevel', route: '/accessibility-components/heading-level' },
-  { title: 'Images', route: '/accessibility-components/images' },
-  { title: 'LargeContentViewer', route: '/accessibility-components/large-content-viewer' },
-  { title: 'Links', route: '/accessibility-components/links' },
-  { title: 'Lists', route: '/accessibility-components/lists' },
-  { title: 'Menu', route: '/accessibility-components/menu' },
-  { title: 'Pickers', route: '/accessibility-components/pickers' },
-  { title: 'PopOvers', route: '/accessibility-components/popovers' },
-  { title: 'ProgressIndicators', route: '/accessibility-components/progress-indicators' },
-  { title: 'RadioButton', route: '/accessibility-components/radio-button' },
-  { title: 'SegmentedControl', route: '/accessibility-components/segmented-control' },
-  { title: 'Sheets', route: '/accessibility-components/sheets' },
-  { title: 'Sliders', route: '/accessibility-components/sliders' },
-  { title: 'Switches', route: '/accessibility-components/switches' },
-  { title: 'TextInput', route: '/accessibility-components/text-input' },
-  { title: 'Tabs', route: '/accessibility-components/tabs' },
-  { title: 'WebView', route: '/accessibility-components/webview' },
-  { title: 'Video', route: '/accessibility-components/video' },
-  { title: 'ReduceMotion', route: '/accessibility-components/reduce-motion' },
-  { title: 'TimeLimits', route: '/accessibility-components/time-limits' },
-  { title: 'GesturesAlternatives', route: '/accessibility-components/gestures-alternatives' },
-  { title: 'Draggable', route: '/accessibility-components/draggable' },
-  { title: 'Language', route: '/accessibility-components/language' },
-  { title: 'Comprehension', route: '/accessibility-components/comprehension' },
+  {
+    title: 'FocusManagement',
+    route: '/accessibility-components/focus-management',
+    description: 'accessibility.components.focusManagement.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.focusManagement.requirements.A.1',
+        '2': 'accessibility.components.focusManagement.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.focusManagement.requirements.AA.1',
+        '2': 'accessibility.components.focusManagement.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.focusManagement.requirements.AAA.1',
+        '2': 'accessibility.components.focusManagement.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Gestures Alternatives',
+    route: '/accessibility-components/gestures-alternatives',
+    description: 'accessibility.components.gesturesAlternatives.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.gesturesAlternatives.requirements.A.1',
+        '2': 'accessibility.components.gesturesAlternatives.requirements.A.2',
+        '3': 'accessibility.components.gesturesAlternatives.requirements.A.3',
+        '4': 'accessibility.components.gesturesAlternatives.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.gesturesAlternatives.requirements.AA.1',
+        '2': 'accessibility.components.gesturesAlternatives.requirements.AA.2',
+        '3': 'accessibility.components.gesturesAlternatives.requirements.AA.3',
+        '4': 'accessibility.components.gesturesAlternatives.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.gesturesAlternatives.requirements.AAA.1',
+        '2': 'accessibility.components.gesturesAlternatives.requirements.AAA.2',
+        '3': 'accessibility.components.gesturesAlternatives.requirements.AAA.3',
+        '4': 'accessibility.components.gesturesAlternatives.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Grouping Controls',
+    route: '/accessibility-components/grouping-controls',
+    description: 'accessibility.components.groupingControls.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.groupingControls.requirements.A.1',
+        '2': 'accessibility.components.groupingControls.requirements.A.2',
+        '3': 'accessibility.components.groupingControls.requirements.A.3',
+        '4': 'accessibility.components.groupingControls.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.groupingControls.requirements.AA.1',
+        '2': 'accessibility.components.groupingControls.requirements.AA.2',
+        '3': 'accessibility.components.groupingControls.requirements.AA.3',
+        '4': 'accessibility.components.groupingControls.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.groupingControls.requirements.AAA.1',
+        '2': 'accessibility.components.groupingControls.requirements.AAA.2',
+        '3': 'accessibility.components.groupingControls.requirements.AAA.3',
+        '4': 'accessibility.components.groupingControls.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'HeadingLevel',
+    route: '/accessibility-components/heading-level',
+    description: 'accessibility.components.headingLevel.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.headingLevel.requirements.A.1',
+        '2': 'accessibility.components.headingLevel.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.headingLevel.requirements.AA.1',
+        '2': 'accessibility.components.headingLevel.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.headingLevel.requirements.AAA.1',
+        '2': 'accessibility.components.headingLevel.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Images',
+    route: '/accessibility-components/images',
+    description: 'accessibility.components.images.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.images.requirements.A.1',
+        '2': 'accessibility.components.images.requirements.A.2',
+        '3': 'accessibility.components.images.requirements.A.3',
+        '4': 'accessibility.components.images.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.images.requirements.AA.1',
+        '2': 'accessibility.components.images.requirements.AA.2',
+        '3': 'accessibility.components.images.requirements.AA.3',
+        '4': 'accessibility.components.images.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.images.requirements.AAA.1',
+        '2': 'accessibility.components.images.requirements.AAA.2',
+        '3': 'accessibility.components.images.requirements.AAA.3',
+        '4': 'accessibility.components.images.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'LargeContentViewer',
+    route: '/accessibility-components/large-content-viewer',
+    description: 'accessibility.components.largeContentViewer.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.largeContentViewer.requirements.A.1',
+        '2': 'accessibility.components.largeContentViewer.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.largeContentViewer.requirements.AA.1',
+        '2': 'accessibility.components.largeContentViewer.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.largeContentViewer.requirements.AAA.1',
+        '2': 'accessibility.components.largeContentViewer.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Links',
+    route: '/accessibility-components/links',
+    description: 'accessibility.components.links.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.links.requirements.A.1',
+        '2': 'accessibility.components.links.requirements.A.2',
+        '3': 'accessibility.components.links.requirements.A.3',
+        '4': 'accessibility.components.links.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.links.requirements.AA.1',
+        '2': 'accessibility.components.links.requirements.AA.2',
+        '3': 'accessibility.components.links.requirements.AA.3',
+        '4': 'accessibility.components.links.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.links.requirements.AAA.1',
+        '2': 'accessibility.components.links.requirements.AAA.2',
+        '3': 'accessibility.components.links.requirements.AAA.3',
+        '4': 'accessibility.components.links.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Lists',
+    route: '/accessibility-components/lists',
+    description: 'accessibility.components.lists.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.lists.requirements.A.1',
+        '2': 'accessibility.components.lists.requirements.A.2',
+        '3': 'accessibility.components.lists.requirements.A.3',
+        '4': 'accessibility.components.lists.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.lists.requirements.AA.1',
+        '2': 'accessibility.components.lists.requirements.AA.2',
+        '3': 'accessibility.components.lists.requirements.AA.3',
+        '4': 'accessibility.components.lists.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.lists.requirements.AAA.1',
+        '2': 'accessibility.components.lists.requirements.AAA.2',
+        '3': 'accessibility.components.lists.requirements.AAA.3',
+        '4': 'accessibility.components.lists.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Menu',
+    route: '/accessibility-components/menu',
+    description: 'accessibility.components.menu.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.menu.requirements.A.1',
+        '2': 'accessibility.components.menu.requirements.A.2',
+        '3': 'accessibility.components.menu.requirements.A.3',
+        '4': 'accessibility.components.menu.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.menu.requirements.AA.1',
+        '2': 'accessibility.components.menu.requirements.AA.2',
+        '3': 'accessibility.components.menu.requirements.AA.3',
+        '4': 'accessibility.components.menu.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.menu.requirements.AAA.1',
+        '2': 'accessibility.components.menu.requirements.AAA.2',
+        '3': 'accessibility.components.menu.requirements.AAA.3',
+        '4': 'accessibility.components.menu.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Pickers',
+    route: '/accessibility-components/pickers',
+    description: 'accessibility.components.pickers.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.pickers.requirements.A.1',
+        '2': 'accessibility.components.pickers.requirements.A.2',
+        '3': 'accessibility.components.pickers.requirements.A.3',
+        '4': 'accessibility.components.pickers.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.pickers.requirements.AA.1',
+        '2': 'accessibility.components.pickers.requirements.AA.2',
+        '3': 'accessibility.components.pickers.requirements.AA.3',
+        '4': 'accessibility.components.pickers.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.pickers.requirements.AAA.1',
+        '2': 'accessibility.components.pickers.requirements.AAA.2',
+        '3': 'accessibility.components.pickers.requirements.AAA.3',
+        '4': 'accessibility.components.pickers.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'PopOvers',
+    route: '/accessibility-components/popovers',
+    description: 'accessibility.components.popovers.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.popovers.requirements.A.1',
+        '2': 'accessibility.components.popovers.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.popovers.requirements.AA.1',
+        '2': 'accessibility.components.popovers.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.popovers.requirements.AAA.1',
+        '2': 'accessibility.components.popovers.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Progress Indicators',
+    route: '/accessibility-components/progress-indicators',
+    description: 'accessibility.components.progressIndicators.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.progressIndicators.requirements.A.1',
+        '2': 'accessibility.components.progressIndicators.requirements.A.2',
+        '3': 'accessibility.components.progressIndicators.requirements.A.3',
+        '4': 'accessibility.components.progressIndicators.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.progressIndicators.requirements.AA.1',
+        '2': 'accessibility.components.progressIndicators.requirements.AA.2',
+        '3': 'accessibility.components.progressIndicators.requirements.AA.3',
+        '4': 'accessibility.components.progressIndicators.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.progressIndicators.requirements.AAA.1',
+        '2': 'accessibility.components.progressIndicators.requirements.AAA.2',
+        '3': 'accessibility.components.progressIndicators.requirements.AAA.3',
+        '4': 'accessibility.components.progressIndicators.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Radio Buttons',
+    route: '/accessibility-components/radio-button',
+    description: 'accessibility.components.radioButton.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.radioButton.requirements.A.1',
+        '2': 'accessibility.components.radioButton.requirements.A.2',
+        '3': 'accessibility.components.radioButton.requirements.A.3',
+        '4': 'accessibility.components.radioButton.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.radioButton.requirements.AA.1',
+        '2': 'accessibility.components.radioButton.requirements.AA.2',
+        '3': 'accessibility.components.radioButton.requirements.AA.3',
+        '4': 'accessibility.components.radioButton.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.radioButton.requirements.AAA.1',
+        '2': 'accessibility.components.radioButton.requirements.AAA.2',
+        '3': 'accessibility.components.radioButton.requirements.AAA.3',
+        '4': 'accessibility.components.radioButton.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Segmented Controls',
+    route: '/accessibility-components/segmented-control',
+    description: 'accessibility.components.segmentedControl.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.segmentedControl.requirements.A.1',
+        '2': 'accessibility.components.segmentedControl.requirements.A.2',
+        '3': 'accessibility.components.segmentedControl.requirements.A.3',
+        '4': 'accessibility.components.segmentedControl.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.segmentedControl.requirements.AA.1',
+        '2': 'accessibility.components.segmentedControl.requirements.AA.2',
+        '3': 'accessibility.components.segmentedControl.requirements.AA.3',
+        '4': 'accessibility.components.segmentedControl.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.segmentedControl.requirements.AAA.1',
+        '2': 'accessibility.components.segmentedControl.requirements.AAA.2',
+        '3': 'accessibility.components.segmentedControl.requirements.AAA.3',
+        '4': 'accessibility.components.segmentedControl.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Sheets',
+    route: '/accessibility-components/sheets',
+    description: 'accessibility.components.sheets.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.sheets.requirements.A.1',
+        '2': 'accessibility.components.sheets.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.sheets.requirements.AA.1',
+        '2': 'accessibility.components.sheets.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.sheets.requirements.AAA.1',
+        '2': 'accessibility.components.sheets.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Sliders',
+    route: '/accessibility-components/sliders',
+    description: 'accessibility.components.sliders.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.sliders.requirements.A.1',
+        '2': 'accessibility.components.sliders.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.sliders.requirements.AA.1',
+        '2': 'accessibility.components.sliders.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.sliders.requirements.AAA.1',
+        '2': 'accessibility.components.sliders.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Switches',
+    route: '/accessibility-components/switches',
+    description: 'accessibility.components.switches.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.switches.requirements.A.1',
+        '2': 'accessibility.components.switches.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.switches.requirements.AA.1',
+        '2': 'accessibility.components.switches.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.switches.requirements.AAA.1',
+        '2': 'accessibility.components.switches.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'TextInput',
+    route: '/accessibility-components/text-input',
+    description: 'accessibility.components.textInput.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.textInput.requirements.A.1',
+        '2': 'accessibility.components.textInput.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.textInput.requirements.AA.1',
+        '2': 'accessibility.components.textInput.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.textInput.requirements.AAA.1',
+        '2': 'accessibility.components.textInput.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Tabs',
+    route: '/accessibility-components/tabs',
+    description: 'accessibility.components.tabs.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.tabs.requirements.A.1',
+        '2': 'accessibility.components.tabs.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.tabs.requirements.AA.1',
+        '2': 'accessibility.components.tabs.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.tabs.requirements.AAA.1',
+        '2': 'accessibility.components.tabs.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'WebView',
+    route: '/accessibility-components/webview',
+    description: 'accessibility.components.webview.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.webview.requirements.A.1',
+        '2': 'accessibility.components.webview.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.webview.requirements.AA.1',
+        '2': 'accessibility.components.webview.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.webview.requirements.AAA.1',
+        '2': 'accessibility.components.webview.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Video',
+    route: '/accessibility-components/video',
+    description: 'accessibility.components.video.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.video.requirements.A.1',
+        '2': 'accessibility.components.video.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.video.requirements.AA.1',
+        '2': 'accessibility.components.video.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.video.requirements.AAA.1',
+        '2': 'accessibility.components.video.requirements.AAA.2',
+      },
+    },
+  },
+  {
+    title: 'Reduce Motion',
+    route: '/accessibility-components/reduce-motion',
+    description: 'accessibility.components.reduceMotion.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.reduceMotion.requirements.A.1',
+        '2': 'accessibility.components.reduceMotion.requirements.A.2',
+        '3': 'accessibility.components.reduceMotion.requirements.A.3',
+        '4': 'accessibility.components.reduceMotion.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.reduceMotion.requirements.AA.1',
+        '2': 'accessibility.components.reduceMotion.requirements.AA.2',
+        '3': 'accessibility.components.reduceMotion.requirements.AA.3',
+        '4': 'accessibility.components.reduceMotion.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.reduceMotion.requirements.AAA.1',
+        '2': 'accessibility.components.reduceMotion.requirements.AAA.2',
+        '3': 'accessibility.components.reduceMotion.requirements.AAA.3',
+        '4': 'accessibility.components.reduceMotion.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Time Limits',
+    route: '/accessibility-components/time-limits',
+    description: 'accessibility.components.timeLimits.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.timeLimits.requirements.A.1',
+        '2': 'accessibility.components.timeLimits.requirements.A.2',
+        '3': 'accessibility.components.timeLimits.requirements.A.3',
+        '4': 'accessibility.components.timeLimits.requirements.A.4',
+      },
+      AA: {
+        '1': 'accessibility.components.timeLimits.requirements.AA.1',
+        '2': 'accessibility.components.timeLimits.requirements.AA.2',
+        '3': 'accessibility.components.timeLimits.requirements.AA.3',
+        '4': 'accessibility.components.timeLimits.requirements.AA.4',
+      },
+      AAA: {
+        '1': 'accessibility.components.timeLimits.requirements.AAA.1',
+        '2': 'accessibility.components.timeLimits.requirements.AAA.2',
+        '3': 'accessibility.components.timeLimits.requirements.AAA.3',
+        '4': 'accessibility.components.timeLimits.requirements.AAA.4',
+      },
+    },
+  },
+  {
+    title: 'Comprehension',
+    route: '/accessibility-components/comprehension',
+    description: 'accessibility.components.comprehension.description',
+    requirements: {
+      A: {
+        '1': 'accessibility.components.comprehension.requirements.A.1',
+        '2': 'accessibility.components.comprehension.requirements.A.2',
+      },
+      AA: {
+        '1': 'accessibility.components.comprehension.requirements.AA.1',
+        '2': 'accessibility.components.comprehension.requirements.AA.2',
+      },
+      AAA: {
+        '1': 'accessibility.components.comprehension.requirements.AAA.1',
+        '2': 'accessibility.components.comprehension.requirements.AAA.2',
+      },
+    },
+  },
 ];
 
 export const ACCESSIBILITY_TESTING_TOOLS: AccessibilityTool[] = [

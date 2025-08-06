@@ -1,17 +1,34 @@
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ACCESSIBILITY_COMPONENTS } from '@/constants';
+import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
+import { ChildComponentProps } from '@/types/ui.types';
+import { ThemedText } from '@/components';
+import { useAccessibility } from '@/hooks/useAccessibility';
+import { useLanguage } from '@/hooks/useLanguage';
 
-const Lists: FC = () => {
-  useHeaderTitle();
+const Lists = () => {
+  const { t } = useLanguage();
+  const { levels } = useAccessibility();
+  const listsComponent = ACCESSIBILITY_COMPONENTS.find(
+    (comp) => comp.route === '/accessibility-components/lists',
+  );
+
+  const examplesWithComponents: ChildComponentProps[] = [
+    {
+      id: '1',
+      title: 'Accessible Lists',
+      description: 'Lists with proper semantic markup and structure',
+      component: <ThemedText>Lists Example</ThemedText>,
+    },
+  ];
 
   return (
-    <View>
-      <Text>Lists</Text>
-    </View>
+    <AccessibilityComponentScreen
+      componentConfig={listsComponent}
+      levels={levels}
+      t={t}
+      examplesWithComponents={examplesWithComponents}
+    />
   );
 };
 
 export default Lists;
-
-const styles = StyleSheet.create({});

@@ -1,17 +1,34 @@
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ACCESSIBILITY_COMPONENTS } from '@/constants';
+import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
+import { ChildComponentProps } from '@/types/ui.types';
+import { ThemedText } from '@/components';
+import { useAccessibility } from '@/hooks/useAccessibility';
+import { useLanguage } from '@/hooks/useLanguage';
 
-const DeviceOrientation: FC = () => {
-  useHeaderTitle();
+const DeviceOrientation = () => {
+  const { t } = useLanguage();
+  const { levels } = useAccessibility();
+  const deviceOrientationComponent = ACCESSIBILITY_COMPONENTS.find(
+    (comp) => comp.route === '/accessibility-components/device-orientation',
+  );
+
+  const examplesWithComponents: ChildComponentProps[] = [
+    {
+      id: '1',
+      title: 'Device Orientation Support',
+      description: 'Support for different device orientations with accessibility',
+      component: <ThemedText>Device Orientation Example</ThemedText>,
+    },
+  ];
 
   return (
-    <View>
-      <Text>device-orientation</Text>
-    </View>
+    <AccessibilityComponentScreen
+      componentConfig={deviceOrientationComponent}
+      levels={levels}
+      t={t}
+      examplesWithComponents={examplesWithComponents}
+    />
   );
 };
 
 export default DeviceOrientation;
-
-const styles = StyleSheet.create({});
