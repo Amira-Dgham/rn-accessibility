@@ -749,19 +749,25 @@ export const en = {
       },
       sliders: {
         title: 'Sliders',
-        description: 'Accessible sliders allow users to select values within a range.',
+        description: 'Accessible sliders allow users to adjust values within a range using various input methods.',
         requirements: {
           A: {
-            '1': 'Slider is operable by keyboard',
-            '2': 'Slider has clear labels and instructions',
+            '1': 'Provide text alternatives for current slider value',
+            '2': 'Support keyboard adjustment of values',
+            '3': 'Include min/max value information',
+            '4': 'Label slider purpose clearly',
           },
           AA: {
-            '1': 'Slider value is programmatically determinable',
-            '2': 'Slider provides sufficient color contrast',
+            '1': 'Support step-based navigation for precision',
+            '2': 'Provide visual and programmatic indication of current value',
+            '3': 'Announce value changes to screen readers',
+            '4': 'Include value information in slider label',
           },
           AAA: {
-            '1': 'Slider supports custom states and ARIA attributes',
-            '2': 'Slider provides detailed value context for screen readers',
+            '1': 'Support alternative input methods for value adjustment',
+            '2': 'Provide haptic feedback for value changes',
+            '3': 'Allow customization of slider appearance and behavior',
+            '4': 'Include contextual value information (e.g., "50% volume")',
           },
         },
       },
@@ -783,39 +789,51 @@ export const en = {
           },
         },
       },
-      textInput: {
-        title: 'Text Input',
-        description: 'Accessible text inputs provide clear labels and validation feedback.',
+      textInputs: {
+        title: 'Text Inputs',
+        description: 'Accessible text inputs provide clear labeling and support for various input methods.',
         requirements: {
           A: {
-            '1': 'Input has a descriptive label',
-            '2': 'Input is operable by keyboard',
+            '1': 'Associate labels with text fields',
+            '2': 'Provide descriptive placeholder text',
+            '3': 'Support keyboard interaction',
+            '4': 'Indicate required fields',
           },
           AA: {
-            '1': 'Input provides sufficient color contrast',
-            '2': 'Input announces state changes to screen readers',
+            '1': 'Provide error messages for invalid input',
+            '2': 'Ensure error messages are announced to screen readers',
+            '3': 'Support autocomplete when appropriate',
+            '4': 'Maintain visible labels during input focus',
           },
           AAA: {
-            '1': 'Input supports autocomplete and suggestions',
-            '2': 'Input provides detailed instructions and help',
+            '1': 'Provide contextual help for input fields',
+            '2': 'Remember previously entered values when appropriate',
+            '3': 'Support alternative input methods',
+            '4': 'Include input format guidance inline',
           },
         },
       },
       tabs: {
         title: 'Tabs',
-        description: 'Accessible tabs organize content into logical sections with proper navigation.',
+        description: 'Accessible tabs organize content into logical sections that are navigable by all users.',
         requirements: {
           A: {
-            '1': 'Tabs are operable by keyboard',
-            '2': 'Tabs have descriptive labels',
+            '1': 'Use proper tab/tabpanel roles',
+            '2': 'Associate tabs with their panels programmatically',
+            '3': 'Ensure keyboard navigation between tabs',
+            '4': 'Provide descriptive labels for each tab',
           },
           AA: {
-            '1': 'Active tab is clearly indicated',
-            '2': 'Tabs provide sufficient color contrast',
+            '1': 'Support arrow key navigation within tab list',
+            '2': 'Indicate current tab visually and programmatically',
+            '3': 'Announce tab changes to screen readers',
+            '4': 'Ensure tabs are visible in the viewport when activated',
           },
           AAA: {
-            '1': 'Tabs support custom states and ARIA attributes',
-            '2': 'Tabs provide detailed context for screen readers',
+            '1': 'Remember active tab between sessions',
+            '2': 'Support alternative tab selection methods',
+            '3': 'Provide contextual help for tab functionality',
+            '4': 'Allow customization of tab presentation',
           },
         },
       },
@@ -941,55 +959,204 @@ export const en = {
       },
       sheets: {
         title: 'Sheets',
-        description: 'Accessible bottom sheets with proper focus management and navigation.',
+        description: 'Accessible sheets provide modal content that is properly contained and navigable.',
         requirements: {
           A: {
-            '1': 'Sheets are operable by keyboard',
-            '2': 'Sheets have descriptive labels',
+            '1': 'Ensure sheet is keyboard accessible',
+            '2': 'Provide clear title for the sheet',
+            '3': 'Support closing sheet with ESC key',
+            '4': 'Include proper role (dialog)',
           },
           AA: {
-            '1': 'Sheets provide sufficient color contrast',
-            '2': 'Sheets announce state changes to screen readers',
+            '1': 'Trap focus within sheet when open',
+            '2': 'Announce sheet opening/closing to screen readers',
+            '3': 'Ensure sheet is positioned in the visual viewport',
+            '4': 'Provide visible close button',
           },
           AAA: {
-            '1': 'Sheets support custom states and ARIA attributes',
-            '2': 'Sheets provide detailed context for screen readers',
+            '1': 'Support customizable entry/exit animations',
+            '2': 'Remember sheet position/state between sessions',
+            '3': 'Allow multiple interaction methods for dismissal',
+            '4': 'Provide contextual help for sheet functionality',
+          },
+        },
+        webview: {
+          title: 'WebView',
+          description: 'Accessible WebViews provide access to web content within the app context.',
+          requirements: {
+            A: {
+              '1': 'Provide title describing WebView content',
+              '2': 'Ensure keyboard focus can move in and out of WebView',
+              '3': 'Provide loading state information',
+              '4': 'Include fallback for failed content loading',
+            },
+            AA: {
+              '1': 'Announce WebView loading states to screen readers',
+              '2': 'Ensure content within WebView is accessible',
+              '3': 'Provide mechanism to refresh WebView content',
+              '4': 'Support content scaling for WebView',
+            },
+            AAA: {
+              '1': 'Allow customization of WebView presentation',
+              '2': 'Provide alternative formats for WebView content',
+              '3': 'Support user preferences for WebView content',
+              '4': 'Include contextual help for WebView functionality',
+            },
+          },
+        },
+        reduceMotion: {
+          title: 'Reduce Motion',
+          description: 'Accessible motion controls allow users to customize animation and movement preferences.',
+          requirements: {
+            A: {
+              '1': 'Respect system-level reduce motion settings',
+              '2': 'Provide controls to disable non-essential animations',
+              '3': 'Ensure all functionality works without animation',
+              '4': 'Avoid auto-playing animations longer than 5 seconds',
+            },
+            AA: {
+              '1': 'Implement reduced motion alternatives for essential animations',
+              '2': 'Provide user preference settings for motion',
+              '3': 'Ensure animations don\'t flash more than 3 times per second',
+              '4': 'Support pausing/stopping of all animations',
+            },
+            AAA: {
+              '1': 'Allow fine-grained control over animation types',
+              '2': 'Remember user motion preferences across sessions',
+              '3': 'Provide alternative representations of animated content',
+              '4': 'Support customization of animation speed and intensity',
+            },
+          },
+        },
+        timeLimits: {
+          title: 'Time Limits',
+          description: 'Accessible time limits provide users with control over time-sensitive content and functionality.',
+          requirements: {
+            A: {
+              '1': 'Allow users to extend time limits where present',
+              '2': 'Provide warning before timeout occurs',
+              '3': 'Support pausing or stopping time-limited content',
+              '4': 'Ensure no functionality requires specific timing',
+            },
+            AA: {
+              '1': 'Allow users to completely disable time limits',
+              '2': 'Allow users to save progress before timeout',
+              '3': 'Provide options to extend session multiple times',
+              '4': 'Ensure content refreshes don\'t disrupt user\'s place',
+            },
+            AAA: {
+              '1': 'Allow users to set personal time preferences',
+              '2': 'Provide customizable time extension options',
+              '3': 'Auto-save user progress at regular intervals',
+              '4': 'Support resuming from previous state after timeout',
+            },
+          },
+        },
+        gesturesAlternatives: {
+          title: 'Gesture Alternatives',
+          description: 'Accessible gesture alternatives provide multiple input methods for users who cannot use touch gestures.',
+          requirements: {
+            A: {
+              '1': 'Provide button alternatives for all gesture controls',
+              '2': 'Ensure all functionality is operable via simple tap/click',
+              '3': 'Include text labels for gesture actions',
+              '4': 'Support keyboard alternatives for all gestures',
+            },
+            AA: {
+              '1': 'Implement single-point activation for complex gestures',
+              '2': 'Provide visual indicators for available gestures',
+              '3': 'Support customizable gesture sensitivity',
+              '4': 'Include haptic feedback for gesture recognition',
+            },
+            AAA: {
+              '1': 'Allow users to customize or disable gestures',
+              '2': 'Provide multiple alternative input methods',
+              '3': 'Support voice command alternatives',
+              '4': 'Include tutorials for learning available gestures',
+            },
+          },
+        },
+        draggable: {
+          title: 'Draggable',
+          description: 'Draggable elements with keyboard alternatives and proper feedback.',
+          requirements: {
+            A: {
+              '1': 'Draggable elements have keyboard alternatives',
+              '2': 'Draggable elements have descriptive labels',
+            },
+            AA: {
+              '1': 'Draggable elements provide sufficient contrast',
+              '2': 'Draggable elements announce state changes to screen readers',
+            },
+            AAA: {
+              '1': 'Draggable elements support custom input methods',
+              '2': 'Draggable elements provide detailed context for screen readers',
+            },
+          },
+        },
+        language: {
+          title: 'Language',
+          description: 'Accessible language support ensures content is understandable for users with different language needs.',
+          requirements: {
+            A: {
+              '1': 'Identify language changes within content',
+              '2': 'Avoid using language-dependent content without alternatives',
+              '3': 'Provide translations for critical instructions',
+            },
+            AA: {
+              '1': 'Support automatic language detection for user input',
+              '2': 'Provide mechanisms to change language settings',
+              '3': 'Ensure consistency in terminology across languages',
+              '4': 'Support language-appropriate formatting of numbers and dates',
+            },
+            AAA: {
+              '1': 'Provide content in the user\'s preferred language',
+              '2': 'Support multiple language preferences in order of priority',
+              '3': 'Include regional dialect variations when appropriate',
+              '4': 'Provide sign language alternatives for key content',
+            },
+          },
+        },
+        comprehension: {
+          title: 'Comprehension',
+          description: 'Support for users with comprehension difficulties and learning disabilities.',
+          requirements: {
+            A: {
+              '1': 'Content uses clear, simple language',
+              '2': 'Complex concepts have explanations',
+            },
+            AA: {
+              '1': 'Content provides sufficient contrast',
+              '2': 'Content supports multiple reading levels',
+            },
+            AAA: {
+              '1': 'Content supports custom reading preferences',
+              '2': 'Content provides detailed explanations for screen readers',
+            },
           },
         },
       },
       webview: {
         title: 'WebView',
-        description: 'Accessible web view components with proper navigation and content support.',
+        description: 'Accessible WebViews provide access to web content within the app context.',
         requirements: {
           A: {
-            '1': 'WebView content is navigable by keyboard',
-            '2': 'WebView has descriptive labels',
+            '1': 'Provide title describing WebView content',
+            '2': 'Ensure keyboard focus can move in and out of WebView',
+            '3': 'Provide loading state information',
+            '4': 'Include fallback for failed content loading',
           },
           AA: {
-            '1': 'WebView provides sufficient color contrast',
-            '2': 'WebView supports zoom and pan',
+            '1': 'Announce WebView loading states to screen readers',
+            '2': 'Ensure content within WebView is accessible',
+            '3': 'Provide mechanism to refresh WebView content',
+            '4': 'Support content scaling for WebView',
           },
           AAA: {
-            '1': 'WebView supports custom navigation patterns',
-            '2': 'WebView provides detailed context for screen readers',
-          },
-        },
-      },
-      video: {
-        title: 'Video',
-        description: 'Accessible video components with captions and audio descriptions.',
-        requirements: {
-          A: {
-            '1': 'Videos have captions or transcripts',
-            '2': 'Videos have descriptive labels',
-          },
-          AA: {
-            '1': 'Videos provide sufficient color contrast',
-            '2': 'Videos support keyboard controls',
-          },
-          AAA: {
-            '1': 'Videos support audio descriptions',
-            '2': 'Videos provide detailed context for screen readers',
+            '1': 'Allow customization of WebView presentation',
+            '2': 'Provide alternative formats for WebView content',
+            '3': 'Support user preferences for WebView content',
+            '4': 'Include contextual help for WebView functionality',
           },
         },
       },
@@ -1125,11 +1292,11 @@ export const en = {
         },
       },
     },
-  },
 
-  errors: {
-    networkError: 'Network connection error',
-    unknownError: 'An unknown error occurred',
-    validationError: 'Please check your input',
+    errors: {
+      networkError: 'Network connection error',
+      unknownError: 'An unknown error occurred',
+      validationError: 'Please check your input',
+    },
   },
-};
+}

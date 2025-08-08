@@ -22,7 +22,7 @@ const AccessibilityComponentScreen: React.FC<Props> = ({
     examplesWithComponents,
     icon = Info,
 }) => {
-    const [selectedLevel, setSelectedLevel] = useState<string>('none');
+    const [selectedLevel, setSelectedLevel] = useState<string>('A');
 
     const handleLevelPress = (level: string) => {
         setSelectedLevel(level === selectedLevel ? 'none' : level);
