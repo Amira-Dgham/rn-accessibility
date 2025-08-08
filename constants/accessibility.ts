@@ -3,6 +3,7 @@ import {
     AccessibilityLevel,
     AccessibilityTool,
 } from '@/types/accessibility.types';
+import { Accordions, Alerts } from '@/app/accessibility-components';
 import { Code, LucideIcon, Shield, Target, Users } from 'lucide-react-native';
 
 import { FeatureRoute } from '@/types/navigation.types';
@@ -47,6 +48,11 @@ export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
         title: 'Accordions',
         route: '/accessibility-components/accordions',
         description: 'accessibility.components.accordions.description',
+        examples: {
+            A: Accordions({ level: 'A' }),
+            AA: Accordions({ level: 'AA' }),
+            AAA: Accordions({ level: 'AAA' }),
+        },
         requirements: {
             A: {
                 '1': 'accessibility.components.accordions.requirements.A.1',
@@ -69,6 +75,11 @@ export const ACCESSIBILITY_COMPONENTS: AccessibilityComponent[] = [
         title: 'Alerts',
         route: '/accessibility-components/alerts',
         description: 'accessibility.components.alerts.description',
+        examples: {
+            A: Alerts({ level: 'A' }),
+            AA: Alerts({ level: 'AA' }),
+            AAA: Alerts({ level: 'AAA' }),
+        },
         requirements: {
             A: {
                 '1': 'accessibility.components.alerts.requirements.A.1',
