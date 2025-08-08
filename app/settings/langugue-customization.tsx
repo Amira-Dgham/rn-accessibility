@@ -1,11 +1,12 @@
+import { StyleSheet, View } from 'react-native';
 import { ThemedText, ThemedView } from '@/components';
+
 import Dropdown from '@/components/ui/Dropdown';
-import { useHeaderTitle } from '@/hooks/useHeaderTitle';
-import { useLanguage } from '@/hooks/useLanguage';
+import React from 'react';
 import { SupportedLanguage } from '@/locales';
 import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useHeaderTitle } from '@/hooks/useHeaderTitle';
+import { useLanguage } from '@/hooks/useLanguage';
 
 const LanguageCustomization = observer(() => {
   const { t, currentLanguage, availableLanguages, changeLanguage } = useLanguage();
@@ -21,7 +22,7 @@ const LanguageCustomization = observer(() => {
   };
 
   return (
-    <ThemedView preset="scroll" safeAreaEdges={['top']}>
+    <ThemedView preset="fixed" safeAreaEdges={['top']}>
       <View style={styles.container}>
         <ThemedText variant="h4" style={styles.header}>
           {t('screens.settings.language.title')}

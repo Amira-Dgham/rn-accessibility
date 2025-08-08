@@ -1,17 +1,23 @@
-import { ThemedView } from '@/components';
+import { ACCESSIBILITY_COMPONENTS } from '@/constants';
 import Header from '@/components/Header';
 import List from '@/components/List/List';
-import { ACCESSIBILITY_COMPONENTS } from '@/constants';
+import { ListItemDataProps } from '@/types/ui.types';
+import React from 'react';
+import { ThemedView } from '@/components';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useRouter } from 'expo-router';
-import React from 'react';
 
 const ComponentsScreen: React.FC = () => {
   const router = useRouter();
   const { t } = useLanguage();
 
-  const handleItemPress = (route: string): void => {
-    router.push(route as any);
+
+  const handleItemPress = (item: ListItemDataProps): void => {
+    console.log("amiraaaa", item.title);
+    router.push({
+      pathname: '/accessibility-components/accessibilityComponentWrapper',
+      params: { slug: item.title }
+    });
   };
 
   return (

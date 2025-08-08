@@ -1,33 +1,30 @@
-import { ACCESSIBILITY_COMPONENTS } from '@/constants';
-import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
-import { ChildComponentProps } from '@/types/ui.types';
-import { ThemedText } from '@/components';
-import { useAccessibility } from '@/hooks/useAccessibility';
-import { useLanguage } from '@/hooks/useLanguage';
+// src/examples/Accordions.tsx
+import { Accordion, ThemedText } from '@/components';
 
-const Accordions = () => {
-  const { t } = useLanguage();
-  const { levels } = useAccessibility();
-  const accordionComponent = ACCESSIBILITY_COMPONENTS.find(
-    (comp) => comp.route === '/accessibility-components/accordions',
-  );
+import React from 'react';
 
-  const examplesWithComponents: ChildComponentProps[] = [
-    {
-      id: '1',
-      title: 'Interactive Button',
-      description: 'A pressable button with visual feedback and accessibility',
-      component: <ThemedText> hello </ThemedText>,
-    },
-  ];
+interface AccordionsProps {
+  level: 'A' | 'AA' | 'AAA';
+}
 
+const Accordions: React.FC<AccordionsProps> = ({ level }) => {
+  if (level === 'A') {
+    // Simple accordion with basic toggle
+    return (
+      <Accordion title="Basic Accordion (Level A)" children={<ThemedText>Basic accordion content</ThemedText>} />
+    );
+  }
+
+  if (level === 'AA') {
+    // Accordion with improved keyboard navigation or styling
+    return (
+      <Accordion title="Enhanced Accordion (Level AA)" children={<ThemedText>Enhanced accordion content with better accessibility</ThemedText>} />
+    );
+  }
+
+  // AAA level: full ARIA roles and announcements (simulate here)
   return (
-    <AccessibilityComponentScreen
-      componentConfig={accordionComponent}
-      levels={levels}
-      t={t}
-      examplesWithComponents={examplesWithComponents}
-    />
+    <Accordion title="Full Accessibility Accordion (Level AAA)" children={<ThemedText>Full accessibility accordion with complete ARIA support</ThemedText>} />
   );
 };
 

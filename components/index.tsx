@@ -1,3 +1,4 @@
+export { Accordion } from './Accordion';
 export { Badge } from './Badge';
 export { Card, CardProps } from './Card/Card';
 export { ThemedText } from './ThemedText';

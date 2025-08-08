@@ -1,12 +1,12 @@
-import { ThemedText, ThemedView } from '@/components';
+import { Card, ThemedText, ThemedView } from '@/components';
+import { Href, router } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
+
 import Header from '@/components/Header';
-import { Card } from '@/components/ui';
+import React from 'react';
+import { observer } from 'mobx-react-lite';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
-import { Href, router } from 'expo-router';
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
 const SettingsScreen = observer(() => {
   // Get translation function
