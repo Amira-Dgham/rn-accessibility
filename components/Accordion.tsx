@@ -15,7 +15,7 @@ interface AccordionProps {
   contentStyle?: ViewStyle;
 }
 
-const Accordion: React.FC<AccordionProps> = ({
+export const Accordion: React.FC<AccordionProps> = ({
   title,
   children,
   expanded: expandedProp,
@@ -91,4 +91,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Accordion;

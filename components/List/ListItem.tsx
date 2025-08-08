@@ -1,8 +1,9 @@
-import { useTheme } from '@/hooks/useTheme';
-import { ListItemProps } from '@/types/ui.types';
-import { ChevronRight } from 'lucide-react-native';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
+
+import { ChevronRight } from 'lucide-react-native';
+import { ListItemProps } from '@/types/ui.types';
 import { ThemedText } from '../ThemedText';
+import { useTheme } from '@/hooks/useTheme';
 
 const ListItem: React.FC<ListItemProps> = ({
   item,
@@ -28,7 +29,7 @@ const ListItem: React.FC<ListItemProps> = ({
         },
         itemContainerStyle,
       ]}
-      onPress={() => onPress(item.route, item)}
+      onPress={() => onPress(item)}
       activeOpacity={0.7}
     >
       <View style={styles.itemContent}>

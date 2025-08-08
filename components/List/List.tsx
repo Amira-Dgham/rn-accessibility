@@ -1,14 +1,15 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ListItemDataProps } from '@/types/ui.types';
-import { LegendList } from '@legendapp/list';
-import React from 'react';
 import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
+
+import { LegendList } from '@legendapp/list';
 import ListItem from './ListItem';
+import { ListItemDataProps } from '@/types/ui.types';
+import React from 'react';
+import { ThemedText } from '@/components/ThemedText';
 
 interface ListProps {
   data: ListItemDataProps[];
   t: (key: string) => string;
-  onItemPress: (route: string, item: ListItemDataProps) => void;
+  onItemPress: (item: ListItemDataProps) => void;
   renderHeader?: React.ReactNode;
   renderFooter?: React.ReactNode;
   showSeparator?: boolean;

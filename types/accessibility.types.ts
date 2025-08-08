@@ -17,9 +17,15 @@ export type ComponentRequirement = {
 };
 
 export type AccessibilityComponent = {
+  [x: string]: any;
   title: string;
   route: string;
   description?: string;
+  exemples?: {
+    A?: () => React.JSX.Element;
+    AA?: () => React.JSX.Element;
+    AAA?: () => React.JSX.Element;
+  };
   requirements?: {
     A?: Record<string, string>;
     AA?: Record<string, string>;

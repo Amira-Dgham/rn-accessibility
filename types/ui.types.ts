@@ -9,7 +9,7 @@ export interface ListItemDataProps {
 export interface ListItemProps {
   item: ListItemDataProps;
   index: number;
-  onPress: (route: string, item: ListItemDataProps) => void;
+  onPress: (item: ListItemDataProps) => void;
   showBadges?: boolean;
   alternatingColors?: boolean;
   itemContainerStyle?: ViewStyle;

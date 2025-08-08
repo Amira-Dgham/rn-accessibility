@@ -13,6 +13,8 @@ interface Props {
     t: (key: string) => string;
     examplesWithComponents: ChildComponentProps[];
     icon?: React.ElementType;
+    selectedLevel?: string;
+    onLevelChange?: (level: string) => void;
 }
 
 const AccessibilityComponentScreen: React.FC<Props> = ({
@@ -21,11 +23,18 @@ const AccessibilityComponentScreen: React.FC<Props> = ({
     t,
     examplesWithComponents,
     icon = Info,
+    selectedLevel: externalSelectedLevel,
+    onLevelChange,
 }) => {
-    const [selectedLevel, setSelectedLevel] = useState<string>('A');
+    const [internalSelectedLevel, setInternalSelectedLevel] = useState<string>('A');
+
+    // Use external state if provided, otherwise use internal state
+    const selectedLevel = externalSelectedLevel !== undefined ? externalSelectedLevel : internalSelectedLevel;
+    const setSelectedLevel = onLevelChange || setInternalSelectedLevel;
 
     const handleLevelPress = (level: string) => {
-        setSelectedLevel(level === selectedLevel ? 'none' : level);
+        const newLevel = level === selectedLevel ? 'none' : level;
+        setSelectedLevel(newLevel);
     };
 
     const getSelectedLevelInfo = () => {
