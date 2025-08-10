@@ -1,11 +1,5 @@
-
 const DataTable = () => {
-
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default DataTable;

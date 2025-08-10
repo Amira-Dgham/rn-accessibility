@@ -1,7 +1,5 @@
 const TimeLimits = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default TimeLimits;

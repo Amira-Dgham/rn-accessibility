@@ -4,7 +4,7 @@ export { default as Buttons } from './buttons';
 export { default as Cards } from './cards';
 export { default as Charts } from './charts';
 export { default as Checkboxes } from './checkboxes';
-export { default as Compreension } from './comprehension';
+export { default as Comprehensive } from './comprehension';
 export { default as ConfirmationDialog } from './confirmation-dialog';
 export { default as DataTable } from './data-table';
 export { default as DateTimePicker } from './data-time-picker';
@@ -36,4 +36,3 @@ export { default as TextInputs } from './text-inputs';
 export { default as TimeLimits } from './time-limits';
 export { default as Videos } from './videos';
 export { default as WebView } from './webview';
-

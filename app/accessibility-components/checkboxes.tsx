@@ -1,12 +1,7 @@
 import React from 'react';
 
 const Checkboxes: React.FC = () => {
-
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default Checkboxes;

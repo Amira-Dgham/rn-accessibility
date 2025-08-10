@@ -1,7 +1,5 @@
 const PopOvers = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default PopOvers;

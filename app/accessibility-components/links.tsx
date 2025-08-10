@@ -1,7 +1,5 @@
 const Links = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Links;

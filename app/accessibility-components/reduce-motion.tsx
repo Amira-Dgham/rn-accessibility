@@ -1,7 +1,5 @@
 const ReduceMotion = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default ReduceMotion;

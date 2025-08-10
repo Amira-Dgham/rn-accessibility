@@ -1,7 +1,5 @@
 const Language = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Language;

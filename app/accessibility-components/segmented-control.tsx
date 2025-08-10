@@ -1,7 +1,5 @@
 const SegmentedControl = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default SegmentedControl;

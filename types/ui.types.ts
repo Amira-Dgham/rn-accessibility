@@ -15,10 +15,3 @@ export interface ListItemProps {
   itemContainerStyle?: ViewStyle;
   itemTextStyle?: TextStyle;
 }
-
-export interface ChildComponentProps {
-  id: string;
-  title: string;
-  description?: string;
-  component?: React.ReactNode;
-}

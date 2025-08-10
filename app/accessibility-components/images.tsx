@@ -1,7 +1,5 @@
 const Images = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Images;

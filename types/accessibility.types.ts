@@ -16,23 +16,13 @@ export type ComponentRequirement = {
   text: string;
 };
 
-export type AccessibilityComponent = {
-  [x: string]: any;
+export interface AccessibilityComponent {
   title: string;
   route: string;
-  description?: string;
-  exemples?: {
-    A?: () => React.JSX.Element;
-    AA?: () => React.JSX.Element;
-    AAA?: () => React.JSX.Element;
-  };
-  requirements?: {
-    A?: Record<string, string>;
-    AA?: Record<string, string>;
-    AAA?: Record<string, string>;
-  };
-};
-
+  description: string;
+  examples?: any;
+  requirements: Record<'A' | 'AA' | 'AAA', Record<string, string>>;
+}
 export type AccessibilityTool = {
   id: string;
   icon: LucideIcon;

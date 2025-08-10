@@ -1,7 +1,5 @@
 const ProgressIndicators = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default ProgressIndicators;

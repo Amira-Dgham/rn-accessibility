@@ -1,15 +1,15 @@
-import { ThemedText, ThemedView } from '@/components';
-import Accordion from '@/components/Accordion';
-import Header from '@/components/Header';
+import { Accordion, ThemedText, ThemedView } from '@/components';
 import {
   ESSENTIALS_QUESTIONS,
   PRINCIPLES,
   RESOURCES,
   SUCCESS_CRITERIA_LEVELS,
 } from '@/constants/guidelines';
-import { useLanguage } from '@/hooks/useLanguage';
-import React from 'react';
 import { Linking, StyleSheet, View } from 'react-native';
+
+import Header from '@/components/Header';
+import React from 'react';
+import { useLanguage } from '@/hooks/useLanguage';
 
 export default function GuidelinesScreen() {
   const { t } = useLanguage();
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   link: {
-    color: '#1e40af',
     textDecorationLine: 'underline',
     marginBottom: 8,
   },

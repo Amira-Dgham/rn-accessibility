@@ -1,9 +1,5 @@
-
 const DataTimePicker = () => {
-
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default DataTimePicker;

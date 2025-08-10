@@ -1,11 +1,5 @@
-
 const Charts = () => {
-
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default Charts;

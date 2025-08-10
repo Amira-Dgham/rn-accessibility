@@ -332,7 +332,8 @@ export const en = {
       requirements: 'Requirements',
       accordions: {
         title: 'Accordions',
-        description: 'Accordions are collapsible content sections that help organize information hierarchically.',
+        description:
+          'Accordions are collapsible content sections that help organize information hierarchically.',
         requirements: {
           A: {
             '1': 'Provide clear accessibility labels for the accordion header',
@@ -401,10 +402,11 @@ export const en = {
       },
       cards: {
         title: 'Cards',
-        description: 'Accessible cards group related information and are navigable by assistive technology.',
+        description:
+          'Accessible cards group related information and are navigable by assistive technology.',
         requirements: {
           A: {
-            '1': 'Make entire card tappable if it\'s interactive',
+            '1': "Make entire card tappable if it's interactive",
             '2': 'Provide descriptive accessibilityLabel',
             '3': 'Use appropriate accessibilityRole (button if tappable)',
             '4': 'Ensure proper heading hierarchy within card content',
@@ -425,11 +427,12 @@ export const en = {
       },
       charts: {
         title: 'Charts',
-        description: 'Accessible charts provide data visualization that is perceivable by all users.',
+        description:
+          'Accessible charts provide data visualization that is perceivable by all users.',
         requirements: {
           A: {
             '1': 'Provide text alternatives for chart data',
-            '2': 'Ensure chart doesn\'t rely on color alone to convey information',
+            '2': "Ensure chart doesn't rely on color alone to convey information",
             '3': 'Make chart data accessible through screen readers',
             '4': 'Use accessibilityLabel to describe chart purpose',
           },
@@ -450,7 +453,8 @@ export const en = {
       },
       checkboxes: {
         title: 'Checkboxes',
-        description: 'Accessible checkboxes are operable, clearly labeled, and provide state feedback.',
+        description:
+          'Accessible checkboxes are operable, clearly labeled, and provide state feedback.',
         requirements: {
           A: {
             '1': 'Set accessibilityRole="checkbox"',
@@ -474,7 +478,8 @@ export const en = {
       },
       confirmationDialog: {
         title: 'Confirmation Dialog',
-        description: 'Accessible confirmation dialogs provide clear choices and prevent accidental actions.',
+        description:
+          'Accessible confirmation dialogs provide clear choices and prevent accidental actions.',
         requirements: {
           A: {
             '1': 'Dialog is modal and traps focus',
@@ -492,7 +497,8 @@ export const en = {
       },
       dataTable: {
         title: 'Data Tables',
-        description: 'Accessible data tables provide structured information that is navigable and understandable by all users.',
+        description:
+          'Accessible data tables provide structured information that is navigable and understandable by all users.',
         requirements: {
           A: {
             '1': 'Use proper table markup with row/column headers',
@@ -516,7 +522,8 @@ export const en = {
       },
       dateTimePicker: {
         title: 'Date & Time Pickers',
-        description: 'Accessible date and time pickers allow users to select dates and times through various input methods.',
+        description:
+          'Accessible date and time pickers allow users to select dates and times through various input methods.',
         requirements: {
           A: {
             '1': 'Provide clear labels for date and time pickers',
@@ -532,14 +539,15 @@ export const en = {
           AAA: {
             '1': 'Support voice input for dates and times',
             '2': 'Provide relative date options (today, tomorrow, next week)',
-            '3': 'Remember user\'s preferred date format',
+            '3': "Remember user's preferred date format",
             '4': 'Include contextual calendar information (holidays, events)',
           },
         },
       },
       errorValidation: {
         title: 'Error Validation',
-        description: 'Accessible error validation provides clear feedback and guidance for correcting input errors.',
+        description:
+          'Accessible error validation provides clear feedback and guidance for correcting input errors.',
         requirements: {
           A: {
             '1': 'Identify specific errors in text form',
@@ -581,7 +589,8 @@ export const en = {
       },
       images: {
         title: 'Images',
-        description: 'Accessible images provide meaningful alternatives for users who cannot see visual content.',
+        description:
+          'Accessible images provide meaningful alternatives for users who cannot see visual content.',
         requirements: {
           A: {
             '1': 'Provide alt text for all non-decorative images',
@@ -605,7 +614,8 @@ export const en = {
       },
       links: {
         title: 'Links',
-        description: 'Accessible links are clearly identifiable and provide meaningful information about their destination.',
+        description:
+          'Accessible links are clearly identifiable and provide meaningful information about their destination.',
         requirements: {
           A: {
             '1': 'Provide descriptive link text',
@@ -629,7 +639,8 @@ export const en = {
       },
       lists: {
         title: 'Lists',
-        description: 'Accessible lists organize information in a structured way that is navigable by assistive technology.',
+        description:
+          'Accessible lists organize information in a structured way that is navigable by assistive technology.',
         requirements: {
           A: {
             '1': 'Use proper list markup (ordered/unordered)',
@@ -677,7 +688,8 @@ export const en = {
       },
       progressIndicators: {
         title: 'Progress Indicators',
-        description: 'Accessible progress indicators provide feedback on ongoing processes and operations.',
+        description:
+          'Accessible progress indicators provide feedback on ongoing processes and operations.',
         requirements: {
           A: {
             '1': 'Provide text alternatives for visual indicators',
@@ -701,7 +713,8 @@ export const en = {
       },
       radioButton: {
         title: 'Radio Buttons',
-        description: 'Accessible radio buttons allow users to select one option from a mutually exclusive group.',
+        description:
+          'Accessible radio buttons allow users to select one option from a mutually exclusive group.',
         requirements: {
           A: {
             '1': 'Group related radio buttons programmatically',
@@ -719,13 +732,14 @@ export const en = {
             '1': 'Support alternative selection methods',
             '2': 'Provide contextual examples for radio options',
             '3': 'Allow customization of radio button presentation',
-            '4': 'Remember user\'s common selections',
+            '4': "Remember user's common selections",
           },
         },
       },
       segmentedControl: {
         title: 'Segmented Controls',
-        description: 'Accessible segmented controls allow users to switch between related options or views.',
+        description:
+          'Accessible segmented controls allow users to switch between related options or views.',
         requirements: {
           A: {
             '1': 'Ensure each segment is keyboard focusable',
@@ -749,7 +763,8 @@ export const en = {
       },
       sliders: {
         title: 'Sliders',
-        description: 'Accessible sliders allow users to adjust values within a range using various input methods.',
+        description:
+          'Accessible sliders allow users to adjust values within a range using various input methods.',
         requirements: {
           A: {
             '1': 'Provide text alternatives for current slider value',
@@ -791,7 +806,8 @@ export const en = {
       },
       textInputs: {
         title: 'Text Inputs',
-        description: 'Accessible text inputs provide clear labeling and support for various input methods.',
+        description:
+          'Accessible text inputs provide clear labeling and support for various input methods.',
         requirements: {
           A: {
             '1': 'Associate labels with text fields',
@@ -815,7 +831,8 @@ export const en = {
       },
       tabs: {
         title: 'Tabs',
-        description: 'Accessible tabs organize content into logical sections that are navigable by all users.',
+        description:
+          'Accessible tabs organize content into logical sections that are navigable by all users.',
         requirements: {
           A: {
             '1': 'Use proper tab/tabpanel roles',
@@ -857,7 +874,8 @@ export const en = {
       },
       groupingControls: {
         title: 'Grouping Controls',
-        description: 'Accessible grouping controls organize related interface elements for better navigation and understanding.',
+        description:
+          'Accessible grouping controls organize related interface elements for better navigation and understanding.',
         requirements: {
           A: {
             '1': 'Group related controls visually and programmatically',
@@ -917,7 +935,8 @@ export const en = {
       },
       pickers: {
         title: 'Pickers',
-        description: 'Accessible pickers allow users to select from options using various input methods.',
+        description:
+          'Accessible pickers allow users to select from options using various input methods.',
         requirements: {
           A: {
             '1': 'Ensure all picker options are keyboard accessible',
@@ -934,7 +953,7 @@ export const en = {
           AAA: {
             '1': 'Support alternative selection methods (e.g., voice)',
             '2': 'Allow customization of option presentation',
-            '3': 'Remember user\'s common selections',
+            '3': "Remember user's common selections",
             '4': 'Provide contextual help for complex pickers',
           },
         },
@@ -959,7 +978,8 @@ export const en = {
       },
       sheets: {
         title: 'Sheets',
-        description: 'Accessible sheets provide modal content that is properly contained and navigable.',
+        description:
+          'Accessible sheets provide modal content that is properly contained and navigable.',
         requirements: {
           A: {
             '1': 'Ensure sheet is keyboard accessible',
@@ -1006,7 +1026,8 @@ export const en = {
         },
         reduceMotion: {
           title: 'Reduce Motion',
-          description: 'Accessible motion controls allow users to customize animation and movement preferences.',
+          description:
+            'Accessible motion controls allow users to customize animation and movement preferences.',
           requirements: {
             A: {
               '1': 'Respect system-level reduce motion settings',
@@ -1017,7 +1038,7 @@ export const en = {
             AA: {
               '1': 'Implement reduced motion alternatives for essential animations',
               '2': 'Provide user preference settings for motion',
-              '3': 'Ensure animations don\'t flash more than 3 times per second',
+              '3': "Ensure animations don't flash more than 3 times per second",
               '4': 'Support pausing/stopping of all animations',
             },
             AAA: {
@@ -1030,7 +1051,8 @@ export const en = {
         },
         timeLimits: {
           title: 'Time Limits',
-          description: 'Accessible time limits provide users with control over time-sensitive content and functionality.',
+          description:
+            'Accessible time limits provide users with control over time-sensitive content and functionality.',
           requirements: {
             A: {
               '1': 'Allow users to extend time limits where present',
@@ -1042,7 +1064,7 @@ export const en = {
               '1': 'Allow users to completely disable time limits',
               '2': 'Allow users to save progress before timeout',
               '3': 'Provide options to extend session multiple times',
-              '4': 'Ensure content refreshes don\'t disrupt user\'s place',
+              '4': "Ensure content refreshes don't disrupt user's place",
             },
             AAA: {
               '1': 'Allow users to set personal time preferences',
@@ -1054,7 +1076,8 @@ export const en = {
         },
         gesturesAlternatives: {
           title: 'Gesture Alternatives',
-          description: 'Accessible gesture alternatives provide multiple input methods for users who cannot use touch gestures.',
+          description:
+            'Accessible gesture alternatives provide multiple input methods for users who cannot use touch gestures.',
           requirements: {
             A: {
               '1': 'Provide button alternatives for all gesture controls',
@@ -1096,7 +1119,8 @@ export const en = {
         },
         language: {
           title: 'Language',
-          description: 'Accessible language support ensures content is understandable for users with different language needs.',
+          description:
+            'Accessible language support ensures content is understandable for users with different language needs.',
           requirements: {
             A: {
               '1': 'Identify language changes within content',
@@ -1110,7 +1134,7 @@ export const en = {
               '4': 'Support language-appropriate formatting of numbers and dates',
             },
             AAA: {
-              '1': 'Provide content in the user\'s preferred language',
+              '1': "Provide content in the user's preferred language",
               '2': 'Support multiple language preferences in order of priority',
               '3': 'Include regional dialect variations when appropriate',
               '4': 'Provide sign language alternatives for key content',
@@ -1119,7 +1143,8 @@ export const en = {
         },
         comprehension: {
           title: 'Comprehension',
-          description: 'Support for users with comprehension difficulties and learning disabilities.',
+          description:
+            'Support for users with comprehension difficulties and learning disabilities.',
           requirements: {
             A: {
               '1': 'Content uses clear, simple language',
@@ -1162,7 +1187,8 @@ export const en = {
       },
       reduceMotion: {
         title: 'Reduce Motion',
-        description: 'Accessible motion controls allow users to customize animation and movement preferences.',
+        description:
+          'Accessible motion controls allow users to customize animation and movement preferences.',
         requirements: {
           A: {
             '1': 'Respect system-level reduce motion settings',
@@ -1173,7 +1199,7 @@ export const en = {
           AA: {
             '1': 'Implement reduced motion alternatives for essential animations',
             '2': 'Provide user preference settings for motion',
-            '3': 'Ensure animations don\'t flash more than 3 times per second',
+            '3': "Ensure animations don't flash more than 3 times per second",
             '4': 'Support pausing/stopping of all animations',
           },
           AAA: {
@@ -1186,7 +1212,8 @@ export const en = {
       },
       timeLimits: {
         title: 'Time Limits',
-        description: 'Accessible time limits provide users with control over time-sensitive content and functionality.',
+        description:
+          'Accessible time limits provide users with control over time-sensitive content and functionality.',
         requirements: {
           A: {
             '1': 'Allow users to extend time limits where present',
@@ -1198,7 +1225,7 @@ export const en = {
             '1': 'Allow users to completely disable time limits',
             '2': 'Allow users to save progress before timeout',
             '3': 'Provide options to extend session multiple times',
-            '4': 'Ensure content refreshes don\'t disrupt user\'s place',
+            '4': "Ensure content refreshes don't disrupt user's place",
           },
           AAA: {
             '1': 'Allow users to set personal time preferences',
@@ -1210,7 +1237,8 @@ export const en = {
       },
       gesturesAlternatives: {
         title: 'Gesture Alternatives',
-        description: 'Accessible gesture alternatives provide multiple input methods for users who cannot use touch gestures.',
+        description:
+          'Accessible gesture alternatives provide multiple input methods for users who cannot use touch gestures.',
         requirements: {
           A: {
             '1': 'Provide button alternatives for all gesture controls',
@@ -1252,7 +1280,8 @@ export const en = {
       },
       language: {
         title: 'Language',
-        description: 'Accessible language support ensures content is understandable for users with different language needs.',
+        description:
+          'Accessible language support ensures content is understandable for users with different language needs.',
         requirements: {
           A: {
             '1': 'Identify language changes within content',
@@ -1266,7 +1295,7 @@ export const en = {
             '4': 'Support language-appropriate formatting of numbers and dates',
           },
           AAA: {
-            '1': 'Provide content in the user\'s preferred language',
+            '1': "Provide content in the user's preferred language",
             '2': 'Support multiple language preferences in order of priority',
             '3': 'Include regional dialect variations when appropriate',
             '4': 'Provide sign language alternatives for key content',
@@ -1299,4 +1328,4 @@ export const en = {
       validationError: 'Please check your input',
     },
   },
-}
+};

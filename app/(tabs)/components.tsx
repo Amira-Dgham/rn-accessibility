@@ -11,12 +11,11 @@ const ComponentsScreen: React.FC = () => {
   const router = useRouter();
   const { t } = useLanguage();
 
-
   const handleItemPress = (item: ListItemDataProps): void => {
-    console.log("amiraaaa", item.title);
+    console.log('amiraaaa', item.title);
     router.push({
       pathname: '/accessibility-components/accessibilityComponentWrapper',
-      params: { slug: item.title }
+      params: { slug: item.title },
     });
   };
 
