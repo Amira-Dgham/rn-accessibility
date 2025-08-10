@@ -1,7 +1,5 @@
 const Pickers = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Pickers;

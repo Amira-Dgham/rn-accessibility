@@ -1,7 +1,5 @@
 const GroupingControls = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default GroupingControls;

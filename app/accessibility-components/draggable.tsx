@@ -1,7 +1,5 @@
 const Draggable = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Draggable;

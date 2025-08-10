@@ -1,7 +1,5 @@
 const WebView = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default WebView;

@@ -1,7 +1,5 @@
 const Videos = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Videos;

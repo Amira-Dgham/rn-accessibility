@@ -1,11 +1,5 @@
-
 const ConfirmationDialog = () => {
-
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default ConfirmationDialog;

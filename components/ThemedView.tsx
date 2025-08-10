@@ -1,7 +1,4 @@
-import { useTheme } from '@/hooks/useTheme';
-import { useScrollToTop } from '@react-navigation/native';
-import { StatusBar, StatusBarProps, StatusBarStyle } from 'expo-status-bar';
-import { ReactNode, useRef, useState } from 'react';
+import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   KeyboardAvoidingView,
   KeyboardAvoidingViewProps,
@@ -13,8 +10,12 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { ReactNode, useRef, useState } from 'react';
+import { StatusBar, StatusBarProps, StatusBarStyle } from 'expo-status-bar';
+
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useScrollToTop } from '@react-navigation/native';
+import { useTheme } from '@/hooks/useTheme';
 
 export const DEFAULT_BOTTOM_OFFSET = 50;
 

@@ -1,10 +1,5 @@
-
 const DeviceOrientation = () => {
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default DeviceOrientation;

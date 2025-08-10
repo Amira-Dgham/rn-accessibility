@@ -1,7 +1,5 @@
 const HeadingLevel = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default HeadingLevel;

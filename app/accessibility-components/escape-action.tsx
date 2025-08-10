@@ -1,7 +1,5 @@
 const EscapeAction = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default EscapeAction;

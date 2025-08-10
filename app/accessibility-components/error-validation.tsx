@@ -1,7 +1,5 @@
 const ErrorValidation = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default ErrorValidation;

@@ -1,7 +1,5 @@
 const Sheets = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Sheets;

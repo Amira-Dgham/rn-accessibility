@@ -1,7 +1,5 @@
 const GesturesAlternatives = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default GesturesAlternatives;

@@ -1,11 +1,5 @@
-
 const Comprehension = () => {
-
-
-  return (
-    <></>
-
-  );
+  return <></>;
 };
 
 export default Comprehension;

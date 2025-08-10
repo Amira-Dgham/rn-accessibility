@@ -1,7 +1,5 @@
 const FocusManagement = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default FocusManagement;

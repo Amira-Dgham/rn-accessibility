@@ -1,7 +1,5 @@
 const LargeContentViewer = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default LargeContentViewer;
