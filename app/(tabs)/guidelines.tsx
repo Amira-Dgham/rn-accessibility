@@ -6,42 +6,59 @@ import {
   SUCCESS_CRITERIA_LEVELS,
 } from '@/constants/guidelines';
 import { Linking, StyleSheet, View } from 'react-native';
+import React, { JSX } from 'react';
 
 import Header from '@/components/Header';
-import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 
-export default function GuidelinesScreen() {
+/**
+ * GuidelinesScreen
+ * Displays accessibility guidelines including:
+ * - Success criteria levels
+ * - Principles
+ * - Essential questions
+ * - Resources (with external links)
+ */
+export default function GuidelinesScreen(): JSX.Element {
   const { t } = useLanguage();
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
+      {/* Header with title and subtitle */}
       <Header title={t('screens.guidelines.title')} subtitle={t('screens.guidelines.subtitle')} />
+
       <View style={styles.section}>
+        {/* Success Criteria Section */}
         <Accordion title={t('screens.guidelines.sections.successCriteria')}>
           <ThemedText variant="body" style={styles.item}>
             {t('screens.guidelines.successCriteria.description')}
           </ThemedText>
-          {SUCCESS_CRITERIA_LEVELS.map((item, idx) => (
-            <ThemedText key={idx} variant="body" style={styles.item}>
-              - {t(item)}
+          {SUCCESS_CRITERIA_LEVELS.map((level) => (
+            <ThemedText key={level} variant="body" style={styles.item}>
+              - {t(level)}
             </ThemedText>
           ))}
         </Accordion>
+
+        {/* Principles Section */}
         <Accordion title={t('screens.guidelines.sections.principles')}>
-          {PRINCIPLES.map((item, idx) => (
-            <ThemedText key={idx} variant="body" style={styles.item}>
-              - {t(item)}
+          {PRINCIPLES.map((principle) => (
+            <ThemedText key={principle} variant="body" style={styles.item}>
+              - {t(principle)}
             </ThemedText>
           ))}
         </Accordion>
+
+        {/* Essential Questions Section */}
         <Accordion title={t('screens.guidelines.essentials.title')}>
-          {ESSENTIALS_QUESTIONS.map((q, idx) => (
-            <ThemedText key={idx} variant="body" style={styles.item}>
-              {idx + 1}. {t(q)}
+          {ESSENTIALS_QUESTIONS.map((question, index) => (
+            <ThemedText key={question} variant="body" style={styles.item}>
+              {index + 1}. {t(question)}
             </ThemedText>
           ))}
         </Accordion>
+
+        {/* Resources Section */}
         <Accordion title={t('screens.guidelines.sections.resources')}>
           {RESOURCES.map((res) => (
             <ThemedText
@@ -59,6 +76,9 @@ export default function GuidelinesScreen() {
   );
 }
 
+// -------------------
+// Styles
+// -------------------
 const styles = StyleSheet.create({
   section: {
     padding: 24,

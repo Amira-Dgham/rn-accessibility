@@ -4,6 +4,7 @@ import {
   createFontSizes,
   createTypography,
   FontFamilies,
+  Typography,
   type TypographyKeys,
 } from './typography';
 
@@ -31,9 +32,13 @@ export const createTheme = (userFontSize: number) => {
 // Default theme (for backwards compatibility)
 export const Theme = createTheme(BaseFontSizes.base);
 
-export type ThemeType = typeof Theme.light;
 export type ColorScheme = keyof typeof Theme;
-
+export type ThemeType = {
+  colors: { [K in keyof typeof Colors.light]: string };
+  typography: typeof Typography;
+  fonts: typeof FontFamilies;
+  fontSizes: ReturnType<typeof createFontSizes>;
+};
 // Re-export everything for convenience
 export { CustomDarkTheme, CustomLightTheme } from './navigationTheme';
 export { BaseFontSizes, Colors, createFontSizes, createTypography, FontFamilies };

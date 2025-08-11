@@ -1,17 +1,25 @@
-import { createTheme, type ColorScheme } from '@/theme';
+import { createTheme, type ColorScheme, type ThemeType } from '@/theme';
 import { useMemo } from 'react';
 import { useColorScheme } from './useColorScheme';
 import { usePreferences } from './usePreferences';
 
-export const useTheme = () => {
+type UseThemeReturn = {
+  theme: ThemeType;
+  colorScheme: ColorScheme;
+  colors: ThemeType['colors'];
+  typography: ThemeType['typography'];
+  fonts: ThemeType['fonts'];
+  fontSizes: ThemeType['fontSizes'];
+};
+
+export const useTheme = (): UseThemeReturn => {
   const colorScheme: ColorScheme = useColorScheme() ?? 'light';
   const { fontSize, customTextColor, customBackgroundColor } = usePreferences();
 
-  // Use useMemo with proper dependencies to recalculate when fontSize or custom colors change
-  const theme = useMemo(() => {
+  const theme = useMemo<ThemeType>(() => {
     const dynamicTheme = createTheme(fontSize);
-    // Clone the theme to override colors
-    const themeWithCustomColors = {
+
+    return {
       ...dynamicTheme[colorScheme],
       colors: {
         ...dynamicTheme[colorScheme].colors,
@@ -19,7 +27,6 @@ export const useTheme = () => {
         background: customBackgroundColor || dynamicTheme[colorScheme].colors.background,
       },
     };
-    return themeWithCustomColors;
   }, [fontSize, colorScheme, customTextColor, customBackgroundColor]);
 
   return {
