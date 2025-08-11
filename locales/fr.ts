@@ -38,6 +38,8 @@ export const fr = {
         title: 'Taille du texte',
         description: "Ajustez la taille du texte affiché dans l'application",
         reset: 'Réinitialiser',
+        maxFont: 'Grand (24px)',
+        minFont: 'Petit (12px)'
       },
       colors: {
         title: 'Personnalisation des couleurs',

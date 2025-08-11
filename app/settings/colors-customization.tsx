@@ -1,14 +1,22 @@
 import { Button, ThemedView } from '@/components';
-import Header from '@/components/Header';
+import React, { JSX } from 'react';
+
 import { ColorPicker } from '@/components/ui';
+import Header from '@/components/Header';
+import { StyleSheet } from 'react-native';
+import { observer } from 'mobx-react-lite';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { StyleSheet } from 'react-native';
 
-const ColorsCustomization = observer(() => {
+/**
+ * ColorsCustomization
+ * Allows the user to:
+ * - Customize background color
+ * - Customize text color
+ * - Reset color-related preferences to default
+ */
+const ColorsCustomization = observer((): JSX.Element => {
   const {
     customTextColor,
     customBackgroundColor,
@@ -18,33 +26,40 @@ const ColorsCustomization = observer(() => {
   } = usePreferences();
 
   const { t } = useLanguage();
+
+  // Set the header title dynamically
   useHeaderTitle(t('screens.settings.colors.title'));
 
-  // Only reset color, font size, and languages
+  /** Reset theme-related preferences only */
   const handleReset = () => {
     resetThemePreferences();
   };
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
+      {/* ---------- Header ---------- */}
       <Header
         title={t('screens.settings.colors.title')}
         subtitle={t('screens.settings.colors.description')}
       />
-      {/* Background Color Picker */}
+
+      {/* ---------- Background Color Picker ---------- */}
       <ColorPicker
         value={customBackgroundColor}
         onChange={setCustomBackgroundColor}
         label={t('screens.settings.colors.background')}
         contrastWithColor={customTextColor}
       />
-      {/* Text Color Picker */}
+
+      {/* ---------- Text Color Picker ---------- */}
       <ColorPicker
         value={customTextColor}
         onChange={setCustomTextColor}
         label={t('screens.settings.colors.text')}
         contrastWithColor={customBackgroundColor}
       />
+
+      {/* ---------- Reset Button ---------- */}
       <Button preset="filled" onPress={handleReset} style={styles.reset}>
         {t('screens.settings.colors.reset')}
       </Button>
@@ -52,6 +67,11 @@ const ColorsCustomization = observer(() => {
   );
 });
 
+export default ColorsCustomization;
+
+// -------------------
+// Styles
+// -------------------
 const styles = StyleSheet.create({
   reset: {
     margin: 20,
@@ -59,5 +79,3 @@ const styles = StyleSheet.create({
     width: '50%',
   },
 });
-
-export default ColorsCustomization;
