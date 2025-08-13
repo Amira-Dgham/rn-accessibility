@@ -6,21 +6,29 @@ import {
   SUCCESS_CRITERIA_LEVELS,
 } from '@/constants/guidelines';
 import { Linking, StyleSheet, View } from 'react-native';
-import React, { JSX } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import Header from '@/components/Header';
 import { useLanguage } from '@/hooks/useLanguage';
 
+export type GuidelinesScreenProps = {};
+
 /**
  * GuidelinesScreen
+ *
  * Displays accessibility guidelines including:
  * - Success criteria levels
  * - Principles
  * - Essential questions
  * - Resources (with external links)
  */
-export default function GuidelinesScreen(): JSX.Element {
+const GuidelinesScreen: FC<GuidelinesScreenProps> = () => {
   const { t } = useLanguage();
+
+  // Optional: memoize link handler if needed
+  const handleLinkPress = useCallback((url: string) => {
+    Linking.openURL(url);
+  }, []);
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
@@ -65,7 +73,7 @@ export default function GuidelinesScreen(): JSX.Element {
               key={res.url}
               variant="body"
               style={styles.link}
-              onPress={() => Linking.openURL(res.url)}
+              onPress={() => handleLinkPress(res.url)}
             >
               {t(res.label)}
             </ThemedText>
@@ -74,7 +82,9 @@ export default function GuidelinesScreen(): JSX.Element {
       </View>
     </ThemedView>
   );
-}
+};
+
+export default GuidelinesScreen;
 
 // -------------------
 // Styles

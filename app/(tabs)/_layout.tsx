@@ -1,11 +1,13 @@
+import React, { FC } from 'react';
 import { SCREENS, SCREEN_ICONS, SCREEN_TITLE_KEYS } from '@/constants/navigation';
 
-import { JSX } from 'react';
 import { Platform } from 'react-native';
 import { Tabs } from 'expo-router';
 import { ThemeType } from '@/theme';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useTheme } from '@/hooks/useTheme';
+
+export type TabLayoutProps = {};
 
 /**
  * TabLayout Component
@@ -14,7 +16,7 @@ import { useTheme } from '@/hooks/useTheme';
  * It uses `expo-router`'s <Tabs> component to render each tab screen
  * dynamically from the SCREENS constant.
  */
-export default function TabLayout(): JSX.Element {
+const TabLayout: FC<TabLayoutProps> = () => {
   // Retrieve current theme colors & typography from the theme hook
   const { colors, typography } = useTheme();
 
@@ -46,7 +48,9 @@ export default function TabLayout(): JSX.Element {
       })}
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
 
 /**
  * Returns the common tab bar configuration object for all tabs.

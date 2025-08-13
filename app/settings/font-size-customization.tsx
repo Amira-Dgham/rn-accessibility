@@ -1,6 +1,6 @@
 import { Button, Slider, ThemedText, ThemedView } from '@/components';
 import { MAX_SUPPORTED_FONT, MIN_SUPPORTED_FONT } from '@/constants';
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
@@ -11,14 +11,17 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
 import { useTheme } from '@/hooks/useTheme';
 
+export type FontSizeCustomizationProps = {};
+
 /**
  * FontSizeCustomization
+ *
  * Allows the user to:
  * - Adjust the global font size using a slider
  * - See the pixel value and descriptive label of the current font size
  * - Reset to the default font size
  */
-const FontSizeCustomization = observer((): JSX.Element => {
+const FontSizeCustomization: FC<FontSizeCustomizationProps> = observer(() => {
   const { t } = useLanguage();
   const { colors, fontSizes } = useTheme();
   const { fontSize, setFontSize, resetFontPreferences } = usePreferences();

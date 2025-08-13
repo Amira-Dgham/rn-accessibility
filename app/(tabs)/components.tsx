@@ -1,4 +1,4 @@
-import { JSX, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import { ACCESSIBILITY_COMPONENTS } from '@/constants';
 import Header from '@/components/Header';
@@ -9,30 +9,31 @@ import { ThemedView } from '@/components';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useRouter } from 'expo-router';
 
-// ComponentsScreen is the main screen showing a list of accessibility components
-export default function ComponentsScreen(): JSX.Element {
-  const router = useRouter();
-  const { t } = useLanguage(); // Get translation function
+export type ComponentsScreenProps = {};
 
-  // All translations grouped in one object for clarity
+const ComponentsScreen: FC<ComponentsScreenProps> = () => {
+  const router = useRouter();
+  const { t } = useLanguage();
+
+  // Grouped translations
   const translations = {
     title: t('screens.components.title'),
     subtitle: t('screens.components.subtitle'),
     emptyList: t('list.empty'),
   };
 
-  // Handle list item press using useCallback for memoization
+  // Handle list item press
   const handleItemPress = useCallback(
     (item: ListItemDataProps): void => {
       router.push({
         pathname: PATHS.ACCESSIBILITY_COMPONENT_WRAPPER,
-        params: { slug: item.title }, // Pass the clicked item title as a route parameter
+        params: { slug: item.title },
       });
     },
     [router],
   );
 
-  // Grouped props for cleaner List component usage
+  // Grouped props for List
   const listVisualProps = {
     showSeparator: true,
     showBadges: true,
@@ -77,14 +78,16 @@ export default function ComponentsScreen(): JSX.Element {
         renderHeader={<Header title={translations.title} subtitle={translations.subtitle} />}
         t={t}
         emptyText={translations.emptyList}
-        {...listVisualProps} // Spread grouped visual props
-        {...listLayoutProps} // Spread grouped layout props
-        {...listScrollProps} // Spread grouped scroll behavior props
-        {...listPerformanceProps} // Spread grouped performance props
+        {...listVisualProps}
+        {...listLayoutProps}
+        {...listScrollProps}
+        {...listPerformanceProps}
         maintainVisibleContentPosition={{ minIndexForVisible: 0, autoscrollToTopThreshold: 10 }}
-        {...listVirtualizationProps} // Spread virtualization props
-        {...listAndroidProps} // Spread Android-specific props
+        {...listVirtualizationProps}
+        {...listAndroidProps}
       />
     </ThemedView>
   );
-}
+};
+
+export default ComponentsScreen;

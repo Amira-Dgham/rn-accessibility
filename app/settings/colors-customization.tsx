@@ -1,5 +1,5 @@
 import { Button, ThemedView } from '@/components';
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 
 import { ColorPicker } from '@/components/ui';
 import Header from '@/components/Header';
@@ -10,13 +10,20 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
 
 /**
+ * Props for ColorsCustomization
+ * Currently empty, but ready for future props (navigation, etc.)
+ */
+export type ColorsCustomizationProps = {};
+
+/**
  * ColorsCustomization
+ *
  * Allows the user to:
  * - Customize background color
  * - Customize text color
  * - Reset color-related preferences to default
  */
-const ColorsCustomization = observer((): JSX.Element => {
+const ColorsCustomization: FC<ColorsCustomizationProps> = observer(() => {
   const {
     customTextColor,
     customBackgroundColor,

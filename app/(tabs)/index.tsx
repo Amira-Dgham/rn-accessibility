@@ -1,5 +1,5 @@
 import { Badge, Card, ThemedText, ThemedView } from '@/components';
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
@@ -8,13 +8,16 @@ import { router } from 'expo-router';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useLanguage } from '@/hooks/useLanguage';
 
+export type HomeScreenProps = {};
+
 /**
  * HomeScreen
+ *
  * Displays:
  * - Accessibility compliance levels
  * - List of available accessibility features
  */
-const HomeScreen = observer((): JSX.Element => {
+const HomeScreen: FC<HomeScreenProps> = observer(() => {
   const { t } = useLanguage();
   const { levels, features } = useAccessibility();
 

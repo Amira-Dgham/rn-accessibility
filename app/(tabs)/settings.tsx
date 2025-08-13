@@ -1,6 +1,6 @@
 import { Card, ThemedText, ThemedView } from '@/components';
 import { Href, router } from 'expo-router';
-import React, { JSX } from 'react';
+import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
@@ -8,14 +8,17 @@ import { observer } from 'mobx-react-lite';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
 
+export type SettingsScreenProps = {};
+
 /**
  * SettingsScreen
+ *
  * Displays:
  * - List of preferences from the store
  * - Supports different preference types (switch, select, slider)
  * - Navigates to customization screens if applicable
  */
-const SettingsScreen = observer((): JSX.Element => {
+const SettingsScreen: FC<SettingsScreenProps> = observer(() => {
   const { t } = useLanguage();
   const { preferencesConfig, getSwitchValue, handleSwitchToggle } = usePreferences();
 
