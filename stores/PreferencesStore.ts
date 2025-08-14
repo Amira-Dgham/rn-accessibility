@@ -244,7 +244,6 @@ export const PreferencesStore = types
 
       // Generic switch handler for UI
       handleSwitchToggle(key: string, value: boolean) {
-        console.log('key', key, value)
         switch (key) {
           case 'theme':
             this.setDarkMode(value);
