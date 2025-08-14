@@ -18,8 +18,16 @@ export const useTheme = (): UseThemeReturn => {
 
   const theme = useMemo<ThemeType>(() => {
     const dynamicTheme = createTheme(fontSize);
-    return dynamicTheme[colorScheme];
-  }, [fontSize, colorScheme]);
+    const themeWithCustomColors = {
+      ...dynamicTheme[colorScheme],
+      colors: {
+        ...dynamicTheme[colorScheme].colors,
+        ...(customBackgroundColor ? { background: customBackgroundColor } : {}),
+        ...(customTextColor ? { text: customTextColor } : {}),
+      },
+    };
+    return themeWithCustomColors;
+  }, [fontSize, colorScheme, customBackgroundColor, customTextColor]);
 
   return {
     theme,

@@ -113,6 +113,10 @@ export const PreferencesStore = types
       setDarkMode(enabled: boolean) {
         self.isDarkMode = enabled;
         persistValue('isDarkMode', enabled);
+        // Reset custom colors when switching theme mode
+        const defaultColors = enabled ? Colors.dark : Colors.light;
+        this.setCustomTextColor(defaultColors.text);
+        this.setCustomBackgroundColor(defaultColors.background);
       },
 
       setHighContrast(enabled: boolean) {
