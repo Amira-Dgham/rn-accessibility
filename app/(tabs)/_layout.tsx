@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
 import { SCREENS, SCREEN_ICONS, SCREEN_TITLE_KEYS } from '@/constants/navigation';
-
-import { Platform } from 'react-native';
-import { Tabs } from 'expo-router';
-import { ThemeType } from '@/theme';
+import { useAppTheme } from '@/hooks/useAppTheme';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useTheme } from '@/hooks/useTheme';
+import { ThemeType } from '@/theme';
+import { Tabs } from 'expo-router';
+import { observer } from 'mobx-react-lite';
+import React, { FC } from 'react';
+import { Platform } from 'react-native';
 
 export type TabLayoutProps = {};
 
@@ -18,7 +18,7 @@ export type TabLayoutProps = {};
  */
 const TabLayout: FC<TabLayoutProps> = () => {
   // Retrieve current theme colors & typography from the theme hook
-  const { colors, typography } = useTheme();
+  const { colors, typography } = useAppTheme();
 
   // Retrieve translation function from the language hook
   const { t } = useLanguage();
@@ -50,7 +50,7 @@ const TabLayout: FC<TabLayoutProps> = () => {
   );
 };
 
-export default TabLayout;
+export default observer(TabLayout);
 
 /**
  * Returns the common tab bar configuration object for all tabs.

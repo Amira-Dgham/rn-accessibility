@@ -11,22 +11,25 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 
-import { KeyboardProvider } from 'react-native-keyboard-controller';
-import RootStack from '@/navigation/RootStack';
-import { StatusBar } from 'expo-status-bar';
-import { StoreProvider } from '@/context/StoreContext';
-import { ThemeProvider } from '@react-navigation/native';
+import { StoreProvider, useStore } from '@/context/StoreContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import RootStack from '@/navigation/RootStack';
+import { ThemeProvider } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete
 SplashScreen.preventAutoHideAsync();
 
 /**
- * RootLayout component sets up the theme, font loading, and navigation stack for the app.
- * It ensures that the splash screen is hidden once the assets are loaded.
+ * AppContent component that handles the main app UI and is wrapped by StoreProvider
  */
-export default function RootLayout() {
+const AppContent = observer(() => {
+  // Get the root store to check initialization status
+  const store = useStore();
+
   // Determine the current color scheme (light or dark)
   const colorScheme = useColorScheme();
 
@@ -45,8 +48,8 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, fontError]);
 
-  // Return null to prevent rendering before fonts are loaded
-  if (!fontsLoaded && !fontError) {
+  // Return null to prevent rendering before fonts are loaded or store is initialized
+  if (!fontsLoaded && !fontError || !store.isAppReady) {
     return null;
   }
 
@@ -54,14 +57,23 @@ export default function RootLayout() {
   const navigationTheme = colorScheme === 'dark' ? CustomDarkTheme : CustomLightTheme;
 
   return (
+    <ThemeProvider value={navigationTheme}>
+      <KeyboardProvider>
+        <RootStack />
+        {/* Set the status bar style based on the color scheme */}
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+      </KeyboardProvider>
+    </ThemeProvider>
+  );
+});
+
+/**
+ * RootLayout component that provides the store context to the app
+ */
+export default function RootLayout() {
+  return (
     <StoreProvider>
-      <ThemeProvider value={navigationTheme}>
-        <KeyboardProvider>
-          <RootStack />
-          {/* Set the status bar style based on the color scheme */}
-          <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-        </KeyboardProvider>
-      </ThemeProvider>
+      <AppContent />
     </StoreProvider>
   );
 }

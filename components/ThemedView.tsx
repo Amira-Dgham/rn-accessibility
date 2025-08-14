@@ -1,4 +1,5 @@
-import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StatusBar, StatusBarProps, StatusBarStyle } from 'expo-status-bar';
+import { ReactNode, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   KeyboardAvoidingViewProps,
@@ -10,12 +11,12 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { ReactNode, useRef, useState } from 'react';
-import { StatusBar, StatusBarProps, StatusBarStyle } from 'expo-status-bar';
+import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { useAppTheme } from '@/hooks/useAppTheme';
 import { useScrollToTop } from '@react-navigation/native';
-import { useTheme } from '@/hooks/useTheme';
+import { observer } from 'mobx-react-lite';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 
 export const DEFAULT_BOTTOM_OFFSET = 50;
 
@@ -211,7 +212,7 @@ function ScreenWithoutScrolling(props: ScreenProps) {
       </View>
     </View>
   );
-}
+};
 
 /**
  * Screen component with scrolling capability
@@ -256,7 +257,7 @@ function ScreenWithScrolling(props: ScreenProps) {
       {children}
     </KeyboardAwareScrollView>
   );
-}
+};
 
 /**
  * Represents a screen component that provides a consistent layout and behavior for different screen presets.
@@ -264,8 +265,8 @@ function ScreenWithScrolling(props: ScreenProps) {
  * It handles safe area insets, status bar settings, keyboard avoiding behavior, and scrollability based on the preset.
  * Integrates with your app's theme system for consistent styling.
  */
-export function ThemedView(props: ScreenProps) {
-  const { theme, colorScheme, colors } = useTheme();
+export const ThemedView = observer(function ThemedView(props: ScreenProps) {
+  const { colors, isDarkMode } = useAppTheme();
   const {
     backgroundColor,
     KeyboardAvoidingViewProps,
@@ -275,18 +276,22 @@ export function ThemedView(props: ScreenProps) {
     statusBarStyle,
   } = props;
 
+  // Ensure we get the latest insets when theme changes
   const $containerInsets = useSafeAreaInsetsStyle(safeAreaEdges);
 
   return (
     <View
       style={[
         $containerStyle,
-        { backgroundColor: backgroundColor || colors.background },
+        {
+          backgroundColor: backgroundColor || colors.background,
+        },
         $containerInsets,
       ]}
     >
       <StatusBar
-        style={statusBarStyle || (colorScheme === 'dark' ? 'light' : 'dark')}
+        style={statusBarStyle || (isDarkMode ? 'light' : 'dark')}
+        animated={true}
         {...StatusBarProps}
       />
 
@@ -305,6 +310,8 @@ export function ThemedView(props: ScreenProps) {
     </View>
   );
 }
+)
+
 
 // Styles
 const $containerStyle: ViewStyle = {

@@ -1,8 +1,9 @@
 import { ACCESSIBILITY_LEVEL_BASE_CONFIG } from '@/constants';
-import { useTheme } from '@/hooks/useTheme';
+import { useAppTheme } from '@/hooks/useAppTheme';
 import { TypographyKeys } from '@/theme';
 import { AccessibilityLevel } from '@/types/accessibility.types';
 import { getContrastRatio, meetsAccessibilityLevel } from '@/utils/accessibilityChecker';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Text as RNText, TextProps as RNTextProps, TextStyle } from 'react-native';
 
@@ -16,7 +17,7 @@ export interface CustomTextProps extends Omit<RNTextProps, 'style'> {
   testID?: string;
 }
 
-export const ThemedText: React.FC<CustomTextProps> = ({
+export const ThemedText = observer<CustomTextProps>(({
   variant = 'body',
   color,
   backgroundColor,
@@ -26,9 +27,9 @@ export const ThemedText: React.FC<CustomTextProps> = ({
   testID,
   ...props
 }) => {
-  const { theme, colors } = useTheme();
+  const { colors, typography } = useAppTheme();
   // Get typography styles from theme
-  const typographyStyle = theme.typography[variant];
+  const typographyStyle = typography[variant];
 
   // Use theme colors as defaults
   const textColor = color || colors.text;
@@ -47,7 +48,7 @@ export const ThemedText: React.FC<CustomTextProps> = ({
     const contrastRatio = getContrastRatio(textColor, bgColor);
     console.warn(
       `Text accessibility warning: Contrast ratio ${contrastRatio.toFixed(2)} does not meet ${accessibilityLevel} standards for variant "${variant}". ` +
-        `Required: ${ACCESSIBILITY_LEVEL_BASE_CONFIG[accessibilityLevel].contrastRatio}, Current: ${contrastRatio.toFixed(2)}`,
+      `Required: ${ACCESSIBILITY_LEVEL_BASE_CONFIG[accessibilityLevel].contrastRatio}, Current: ${contrastRatio.toFixed(2)}`,
     );
   }
 
@@ -69,4 +70,4 @@ export const ThemedText: React.FC<CustomTextProps> = ({
       {children}
     </RNText>
   );
-};
+});

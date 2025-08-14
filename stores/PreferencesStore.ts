@@ -1,7 +1,8 @@
+import { Instance, flow, types } from 'mobx-state-tree';
+
 import { STORAGE_KEYS } from '@/constants/storage';
 import { storageService } from '@/services/StorageService';
 import { Colors } from '@/theme';
-import { flow, Instance, types } from 'mobx-state-tree';
 
 // Define the preference types
 export interface PreferenceItem {
@@ -26,7 +27,7 @@ export const PreferencesStore = types
     isHapticsEnabled: types.optional(types.boolean, true),
     isSimpleNavigation: types.optional(types.boolean, false),
 
-    // Custom colors (you can expand this based on your needs)
+    // Theme preferences are controlled by isDarkMode only
     customTextColor: types.optional(types.string, Colors.light.text),
     customBackgroundColor: types.optional(types.string, Colors.light.background),
 
@@ -180,11 +181,7 @@ export const PreferencesStore = types
           self.isScreenReaderEnabled = loadValue('isScreenReaderEnabled', false);
           self.isTextToSpeechEnabled = loadValue('isTextToSpeechEnabled', false);
           self.isHapticsEnabled = loadValue('isHapticsEnabled', true);
-          self.isSimpleNavigation = loadValue('isSimpleNavigation', false);
-          self.customTextColor = loadValue('customTextColor', Colors.light.text);
-          self.customBackgroundColor = loadValue('customBackgroundColor', Colors.light.background);
-
-          self.isInitialized = true;
+          self.isSimpleNavigation = loadValue('isSimpleNavigation', false); self.isInitialized = true;
           console.log('Preferences store initialized successfully');
         } catch (error) {
           console.error('Error initializing preferences store:', error);
@@ -247,6 +244,7 @@ export const PreferencesStore = types
 
       // Generic switch handler for UI
       handleSwitchToggle(key: string, value: boolean) {
+        console.log('key', key, value)
         switch (key) {
           case 'theme':
             this.setDarkMode(value);

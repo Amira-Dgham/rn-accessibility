@@ -1,11 +1,11 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-
-import { ChevronRight } from 'lucide-react-native';
+import { useAppTheme } from '@/hooks/useAppTheme';
 import { ListItemProps } from '@/types/ui.types';
+import { ChevronRight } from 'lucide-react-native';
+import { observer } from 'mobx-react-lite';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedText } from '../ThemedText';
-import { useTheme } from '@/hooks/useTheme';
 
-const ListItem: React.FC<ListItemProps> = ({
+const ListItem = observer<ListItemProps>(({
   item,
   index,
   onPress,
@@ -15,7 +15,7 @@ const ListItem: React.FC<ListItemProps> = ({
   itemTextStyle,
 }) => {
   const isEven = index % 2 === 0;
-  const { colors } = useTheme();
+  const { colors } = useAppTheme();
   return (
     <TouchableOpacity
       style={[
@@ -38,7 +38,7 @@ const ListItem: React.FC<ListItemProps> = ({
       </View>
     </TouchableOpacity>
   );
-};
+});
 
 const styles = StyleSheet.create({
   itemContainer: {

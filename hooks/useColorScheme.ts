@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useColorScheme as useRNColorScheme } from 'react-native';
+import { usePreferences } from './usePreferences';
 
 /**
- * To support static rendering, this value needs to be re-calculated on the client side for web
+ * Custom hook that combines system color scheme with app theme preference
  */
 export function useColorScheme() {
   const [hasHydrated, setHasHydrated] = useState(false);
+  const { isDarkMode } = usePreferences();
 
   useEffect(() => {
     setHasHydrated(true);
   }, []);
 
-  const colorScheme = useRNColorScheme();
-
   if (hasHydrated) {
-    return colorScheme;
+    // Prioritize the app's theme preference over system theme
+    return isDarkMode ? 'dark' : 'light';
   }
 
   return 'light';
