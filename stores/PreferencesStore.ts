@@ -1,31 +1,20 @@
-import { Instance, flow, types } from 'mobx-state-tree';
-
+import { DEFAULT_PREFERENCES, PREFERENCES_CONFIG } from '@/constants/preferences';
 import { STORAGE_KEYS } from '@/constants/storage';
 import { storageService } from '@/services/StorageService';
 import { Colors } from '@/theme';
+import { Instance, flow, types } from 'mobx-state-tree';
 
-// Define the preference types
-export interface PreferenceItem {
-  key: string;
-  title: string;
-  description: string;
-  icon?: string;
-  type: 'switch' | 'select' | 'slider';
-  route?: string;
-}
-
-// Preferences Store
 export const PreferencesStore = types
   .model('PreferencesStore', {
     // Accessibility preferences
-    fontSize: types.optional(types.number, 16),
-    isDarkMode: types.optional(types.boolean, false),
-    isHighContrast: types.optional(types.boolean, false),
-    isReduceMotion: types.optional(types.boolean, false),
-    isScreenReaderEnabled: types.optional(types.boolean, false),
-    isTextToSpeechEnabled: types.optional(types.boolean, false),
-    isHapticsEnabled: types.optional(types.boolean, true),
-    isSimpleNavigation: types.optional(types.boolean, false),
+    fontSize: types.optional(types.number, DEFAULT_PREFERENCES.fontSize),
+    isDarkMode: types.optional(types.boolean, DEFAULT_PREFERENCES.isDarkMode),
+    isHighContrast: types.optional(types.boolean, DEFAULT_PREFERENCES.isHighContrast),
+    isReduceMotion: types.optional(types.boolean, DEFAULT_PREFERENCES.isReduceMotion),
+    isScreenReaderEnabled: types.optional(types.boolean, DEFAULT_PREFERENCES.isScreenReaderEnabled),
+    isTextToSpeechEnabled: types.optional(types.boolean, DEFAULT_PREFERENCES.isTextToSpeechEnabled),
+    isHapticsEnabled: types.optional(types.boolean, DEFAULT_PREFERENCES.isHapticsEnabled),
+    isSimpleNavigation: types.optional(types.boolean, DEFAULT_PREFERENCES.isSimpleNavigation),
 
     // Theme preferences are controlled by isDarkMode only
     customTextColor: types.optional(types.string, Colors.light.text),
@@ -35,72 +24,8 @@ export const PreferencesStore = types
   })
   .views((self) => ({
     // Get all preferences as an array for rendering
-    get preferencesConfig(): PreferenceItem[] {
-      return [
-        {
-          key: 'fontSize',
-          title: 'accessibility.preferences.fontSize.title',
-          description: 'accessibility.preferences.fontSize.description',
-          type: 'slider',
-          route: '/settings/font-size-customization',
-        },
-        {
-          key: 'theme',
-          title: 'accessibility.preferences.theme.title',
-          description: 'accessibility.preferences.theme.description',
-          type: 'switch',
-        },
-        {
-          key: 'contrast',
-          title: 'accessibility.preferences.contrast.title',
-          description: 'accessibility.preferences.contrast.description',
-          type: 'switch',
-        },
-        {
-          key: 'reduceMotion',
-          title: 'accessibility.preferences.reduceMotion.title',
-          description: 'accessibility.preferences.reduceMotion.description',
-          type: 'switch',
-        },
-        {
-          key: 'screenReader',
-          title: 'accessibility.preferences.screenReader.title',
-          description: 'accessibility.preferences.screenReader.description',
-          type: 'switch',
-        },
-        {
-          key: 'language',
-          title: 'accessibility.preferences.language.title',
-          description: 'accessibility.preferences.language.description',
-          type: 'select',
-          route: '/settings/langugue-customization',
-        },
-        {
-          key: 'textToSpeech',
-          title: 'accessibility.preferences.textToSpeech.title',
-          description: 'accessibility.preferences.textToSpeech.description',
-          type: 'switch',
-        },
-        {
-          key: 'haptics',
-          title: 'accessibility.preferences.haptics.title',
-          description: 'accessibility.preferences.haptics.description',
-          type: 'switch',
-        },
-        {
-          key: 'customColors',
-          title: 'accessibility.preferences.customColors.title',
-          description: 'accessibility.preferences.customColors.description',
-          type: 'select',
-          route: '/settings/colors-customization',
-        },
-        {
-          key: 'simpleNavigation',
-          title: 'accessibility.preferences.simpleNavigation.title',
-          description: 'accessibility.preferences.simpleNavigation.description',
-          type: 'switch',
-        },
-      ];
+    get preferencesConfig() {
+      return PREFERENCES_CONFIG;
     },
 
     // Helper methods to get specific preference values
@@ -173,15 +98,10 @@ export const PreferencesStore = types
         try {
           console.log('Initializing preferences store...');
 
-          // Load all preferences from storage
-          self.fontSize = loadValue('fontSize', 16);
-          self.isDarkMode = loadValue('isDarkMode', false);
-          self.isHighContrast = loadValue('isHighContrast', false);
-          self.isReduceMotion = loadValue('isReduceMotion', false);
-          self.isScreenReaderEnabled = loadValue('isScreenReaderEnabled', false);
-          self.isTextToSpeechEnabled = loadValue('isTextToSpeechEnabled', false);
-          self.isHapticsEnabled = loadValue('isHapticsEnabled', true);
-          self.isSimpleNavigation = loadValue('isSimpleNavigation', false); self.isInitialized = true;
+          // Load all preferences from storage with defaults
+          Object.entries(DEFAULT_PREFERENCES).forEach(([key, defaultValue]) => {
+            (self as any)[key] = loadValue(key, defaultValue);
+          }); self.isInitialized = true;
           console.log('Preferences store initialized successfully');
         } catch (error) {
           console.error('Error initializing preferences store:', error);
@@ -273,16 +193,8 @@ export const PreferencesStore = types
 
       // Reset all preferences to default
       resetToDefaults() {
-        this.setFontSize(16);
-        this.setDarkMode(false);
-        this.setHighContrast(false);
-        this.setReduceMotion(false);
-        this.setScreenReader(false);
-        this.setTextToSpeech(false);
-        this.setHaptics(true);
-        this.setSimpleNavigation(false);
-        this.setCustomTextColor(Colors.light.text);
-        this.setCustomBackgroundColor(Colors.light.background);
+        this.updatePreferences(DEFAULT_PREFERENCES);
+        this.resetThemePreferences();
       },
 
       // Reset only theme preferences (colors)
