@@ -102,6 +102,18 @@ export const PreferencesStore = types
           Object.entries(DEFAULT_PREFERENCES).forEach(([key, defaultValue]) => {
             (self as any)[key] = loadValue(key, defaultValue);
           });
+
+          // Load custom colors separately since they're not in DEFAULT_PREFERENCES
+          const storedCustomTextColor = loadValue('customTextColor', null);
+          const storedCustomBackgroundColor = loadValue('customBackgroundColor', null);
+
+          if (storedCustomTextColor) {
+            self.customTextColor = storedCustomTextColor;
+          }
+          if (storedCustomBackgroundColor) {
+            self.customBackgroundColor = storedCustomBackgroundColor;
+          }
+
           self.isInitialized = true;
           console.log('Preferences store initialized successfully');
         } catch (error) {
@@ -114,10 +126,17 @@ export const PreferencesStore = types
       setDarkMode(enabled: boolean) {
         self.isDarkMode = enabled;
         persistValue('isDarkMode', enabled);
-        // Reset custom colors when switching theme mode
+
+        // Only reset colors if they haven't been customized (i.e., if they match the default theme colors)
+        const currentTheme = !enabled ? Colors.dark : Colors.light; // opposite of what we're switching to
         const defaultColors = enabled ? Colors.dark : Colors.light;
-        this.setCustomTextColor(defaultColors.text);
-        this.setCustomBackgroundColor(defaultColors.background);
+
+        if (self.customTextColor === currentTheme.text) {
+          this.setCustomTextColor(defaultColors.text);
+        }
+        if (self.customBackgroundColor === currentTheme.background) {
+          this.setCustomBackgroundColor(defaultColors.background);
+        }
       },
 
       setHighContrast(enabled: boolean) {
