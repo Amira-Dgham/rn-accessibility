@@ -101,7 +101,8 @@ export const PreferencesStore = types
           // Load all preferences from storage with defaults
           Object.entries(DEFAULT_PREFERENCES).forEach(([key, defaultValue]) => {
             (self as any)[key] = loadValue(key, defaultValue);
-          }); self.isInitialized = true;
+          });
+          self.isInitialized = true;
           console.log('Preferences store initialized successfully');
         } catch (error) {
           console.error('Error initializing preferences store:', error);

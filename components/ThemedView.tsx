@@ -204,7 +204,7 @@ function useAutoPreset(props: AutoScreenProps): {
  * Screen component without scrolling capability
  */
 function ScreenWithoutScrolling(props: ScreenProps) {
-  const { style, contentContainerStyle, children, preset } = props;
+  const { style, contentContainerStyle, children, preset = 'fixed' } = props;
   return (
     <View style={[$outerStyle, style]}>
       <View style={[$innerStyle, preset === 'fixed' && $justifyFlexEnd, contentContainerStyle]}>
@@ -212,7 +212,7 @@ function ScreenWithoutScrolling(props: ScreenProps) {
       </View>
     </View>
   );
-};
+}
 
 /**
  * Screen component with scrolling capability
@@ -257,7 +257,7 @@ function ScreenWithScrolling(props: ScreenProps) {
       {children}
     </KeyboardAwareScrollView>
   );
-};
+}
 
 /**
  * Represents a screen component that provides a consistent layout and behavior for different screen presets.
@@ -309,9 +309,7 @@ export const ThemedView = observer(function ThemedView(props: ScreenProps) {
       </KeyboardAvoidingView>
     </View>
   );
-}
-)
-
+});
 
 // Styles
 const $containerStyle: ViewStyle = {

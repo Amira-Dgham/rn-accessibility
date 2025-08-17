@@ -49,7 +49,7 @@ const AppContent = observer(() => {
   }, [fontsLoaded, fontError]);
 
   // Return null to prevent rendering before fonts are loaded or store is initialized
-  if (!fontsLoaded && !fontError || !store.isAppReady) {
+  if ((!fontsLoaded && !fontError) || !store.isAppReady) {
     return null;
   }
 

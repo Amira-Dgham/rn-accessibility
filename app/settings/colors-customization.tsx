@@ -1,13 +1,13 @@
 import { Button, ThemedView } from '@/components';
 import React, { FC } from 'react';
 
-import { ColorPicker } from '@/components/ui';
 import Header from '@/components/Header';
-import { StyleSheet } from 'react-native';
-import { observer } from 'mobx-react-lite';
+import { ColorPicker } from '@/components/ui';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
+import { observer } from 'mobx-react-lite';
+import { StyleSheet } from 'react-native';
 
 /**
  * Props for ColorsCustomization

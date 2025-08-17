@@ -1,12 +1,12 @@
+import { ThemedText, ThemedView } from '@/components';
 import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ThemedText, ThemedView } from '@/components';
 
-import Dropdown from '@/components/ui/Dropdown';
-import { SupportedLanguage } from '@/locales';
-import { observer } from 'mobx-react-lite';
+import { Dropdown } from '@/components/ui';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
+import { SupportedLanguage } from '@/locales';
+import { observer } from 'mobx-react-lite';
 
 export type LanguageCustomizationProps = {};
 

@@ -9,9 +9,9 @@ export const getLuminance = (hex: string): number => {
   const fullHex =
     color.length === 3
       ? color
-        .split('')
-        .map((c) => c + c)
-        .join('')
+          .split('')
+          .map((c) => c + c)
+          .join('')
       : color;
 
   // Convert to RGB
@@ -69,7 +69,7 @@ export const meetsAccessibilityLevel = (
 // Returns a human-readable label for a given font size
 export const getFontSizeLabel = (
   size: number,
-  fontSizes: { sm: number; lg: number; xl: number }
+  fontSizes: { sm: number; lg: number; xl: number },
 ): string => {
   if (size <= fontSizes.sm) return 'Small';
   if (size <= fontSizes.lg) return 'Medium';

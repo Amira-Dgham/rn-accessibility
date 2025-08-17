@@ -36,7 +36,7 @@ export const en = {
         description: 'Adjust the size of the text displayed in the app',
         reset: 'Reset to Default',
         maxFont: 'Large (24px)',
-        minFont: 'Small (12px)'
+        minFont: 'Small (12px)',
       },
       colors: {
         title: 'Color Customization',

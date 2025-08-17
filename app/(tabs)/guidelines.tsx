@@ -5,8 +5,8 @@ import {
   RESOURCES,
   SUCCESS_CRITERIA_LEVELS,
 } from '@/constants/guidelines';
-import { Linking, StyleSheet, View } from 'react-native';
 import React, { FC, useCallback } from 'react';
+import { Linking, StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
 import { useLanguage } from '@/hooks/useLanguage';
