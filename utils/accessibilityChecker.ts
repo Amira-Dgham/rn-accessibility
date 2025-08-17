@@ -65,3 +65,14 @@ export const meetsAccessibilityLevel = (
 
   return contrastRatio >= adjustedRequiredRatio;
 };
+
+// Returns a human-readable label for a given font size
+export const getFontSizeLabel = (
+  size: number,
+  fontSizes: { sm: number; lg: number; xl: number },
+): string => {
+  if (size <= fontSizes.sm) return 'Small';
+  if (size <= fontSizes.lg) return 'Medium';
+  if (size <= fontSizes.xl) return 'Large';
+  return 'Extra Large';
+};

@@ -1,23 +1,32 @@
 import { Badge, Card, ThemedText, ThemedView } from '@/components';
+import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
-import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { router } from 'expo-router';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useLanguage } from '@/hooks/useLanguage';
 
-const HomeScreen = observer(() => {
+export type HomeScreenProps = {};
+
+/**
+ * HomeScreen
+ *
+ * Displays:
+ * - Accessibility compliance levels
+ * - List of available accessibility features
+ */
+const HomeScreen: FC<HomeScreenProps> = observer(() => {
   const { t } = useLanguage();
   const { levels, features } = useAccessibility();
 
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
-      {/* Header */}
+      {/* ---------- Header ---------- */}
       <Header title={t('screens.home.title')} subtitle={t('screens.home.subtitle')} />
 
-      {/* Compliance Levels */}
+      {/* ---------- Compliance Levels Section ---------- */}
       <View style={styles.paddingContainer}>
         <ThemedText variant="h4">{t('accessibility.complianceLevels')}</ThemedText>
         <View style={styles.levelGrid}>
@@ -27,17 +36,17 @@ const HomeScreen = observer(() => {
         </View>
       </View>
 
-      {/* Features */}
+      {/* ---------- Features Section ---------- */}
       <View style={styles.paddingContainer}>
         <ThemedText variant="h4">{t('accessibility.features')}</ThemedText>
         {features.map((feature, index) => (
           <Card
-            containerStyle={{ marginVertical: 8 }}
             key={feature.key}
             index={index}
             title={feature.title}
             description={feature.description}
             icon={feature.icon}
+            containerStyle={styles.cardContainer}
             onPress={() => {
               if (feature.route) {
                 router.push(feature.route);
@@ -52,6 +61,9 @@ const HomeScreen = observer(() => {
 
 export default HomeScreen;
 
+// -------------------
+// Styles
+// -------------------
 const styles = StyleSheet.create({
   levelGrid: {
     flexDirection: 'row',
@@ -62,5 +74,8 @@ const styles = StyleSheet.create({
   paddingContainer: {
     padding: 24,
     paddingTop: 0,
+  },
+  cardContainer: {
+    marginVertical: 8,
   },
 });

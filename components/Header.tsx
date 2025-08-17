@@ -1,4 +1,5 @@
-import { useTheme } from '@/hooks/useTheme';
+import { useAppTheme } from '@/hooks/useAppTheme';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { ThemedText } from './ThemedText';
@@ -9,8 +10,8 @@ interface HeaderProps {
   containerStyle?: ViewStyle;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, subtitle, containerStyle }) => {
-  const { colors } = useTheme();
+const Header = observer<HeaderProps>(({ title, subtitle, containerStyle }) => {
+  const { colors } = useAppTheme();
 
   return (
     <View style={[styles.header, containerStyle]}>
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle, containerStyle }) => {
       )}
     </View>
   );
-};
+});
 
 export default Header;
 

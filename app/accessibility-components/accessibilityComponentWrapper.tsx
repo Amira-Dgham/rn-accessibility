@@ -1,25 +1,40 @@
+import React, { FC, useState } from 'react';
+import { RouteProp, useRoute } from '@react-navigation/native';
+
 import { ACCESSIBILITY_COMPONENTS } from '@/constants';
 import AccessibilityComponentScreen from '@/components/AccessibilityComponentScreen';
 import { useAccessibility } from '@/hooks/useAccessibility';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
-import { useRoute } from '@react-navigation/native';
-import { useState } from 'react';
 
-const AccessibilityComponentWrapper = () => {
+export type AccessibilityComponentWrapperProps = {};
+
+/**
+ * AccessibilityComponentWrapper
+ *
+ * This screen wraps an individual accessibility component.
+ * It displays:
+ * - The component details from ACCESSIBILITY_COMPONENTS
+ * - Examples for a selected accessibility level
+ * - Allows changing the accessibility level dynamically
+ */
+const AccessibilityComponentWrapper: FC<AccessibilityComponentWrapperProps> = () => {
   const { t } = useLanguage();
   const { levels } = useAccessibility();
-  const route = useRoute();
-  const params = route.params as { slug?: string } | undefined;
-  const slug = params?.slug;
-  const [selectedLevel, setSelectedLevel] = useState<string>('A');
-  const componentConfig = ACCESSIBILITY_COMPONENTS.find((comp) => comp.title === `${slug}`);
+  const route = useRoute<RouteProp<Record<string, { slug?: string }>, string>>();
+  const slug = route.params?.slug;
 
+  const [selectedLevel, setSelectedLevel] = useState<string>('A');
+
+  const componentConfig = ACCESSIBILITY_COMPONENTS.find((comp) => comp.title === slug);
+
+  // Set the screen header dynamically based on the component title
   useHeaderTitle(slug);
 
   if (!componentConfig) {
-    return null;
+    return null; // Component not found, render nothing
   }
+
   return (
     <AccessibilityComponentScreen
       componentConfig={componentConfig}

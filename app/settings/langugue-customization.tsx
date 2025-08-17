@@ -1,17 +1,29 @@
-import { StyleSheet, View } from 'react-native';
 import { ThemedText, ThemedView } from '@/components';
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import Dropdown from '@/components/ui/Dropdown';
-import React from 'react';
-import { SupportedLanguage } from '@/locales';
-import { observer } from 'mobx-react-lite';
+import { Dropdown } from '@/components/ui';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
+import { SupportedLanguage } from '@/locales';
+import { observer } from 'mobx-react-lite';
 
-const LanguageCustomization = observer(() => {
+export type LanguageCustomizationProps = {};
+
+/**
+ * LanguageCustomization
+ *
+ * Allows the user to:
+ * - View and change the app language
+ * - Display a dropdown of available languages
+ */
+const LanguageCustomization: FC<LanguageCustomizationProps> = observer(() => {
   const { t, currentLanguage, availableLanguages, changeLanguage } = useLanguage();
+
+  // Set the screen header title dynamically
   useHeaderTitle(t('screens.settings.language.title'));
 
+  // Transform available languages into Dropdown items
   const items = availableLanguages.map((lang) => ({
     label: lang.name,
     value: lang.code,
@@ -44,6 +56,11 @@ const LanguageCustomization = observer(() => {
   );
 });
 
+export default LanguageCustomization;
+
+// -------------------
+// Styles
+// -------------------
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -66,5 +83,3 @@ const styles = StyleSheet.create({
     width: 220,
   },
 });
-
-export default LanguageCustomization;

@@ -1,45 +1,48 @@
 import { Button, Slider, ThemedText, ThemedView } from '@/components';
+import { MAX_SUPPORTED_FONT, MIN_SUPPORTED_FONT } from '@/constants';
+import React, { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+
 import Header from '@/components/Header';
+import { getFontSizeLabel } from '@/utils';
+import { observer } from 'mobx-react-lite';
 import { useHeaderTitle } from '@/hooks/useHeaderTitle';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
 import { useTheme } from '@/hooks/useTheme';
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
-const FontSizeCustomization = observer(() => {
-  // Get translation function
+export type FontSizeCustomizationProps = {};
+
+/**
+ * FontSizeCustomization
+ *
+ * Allows the user to:
+ * - Adjust the global font size using a slider
+ * - See the pixel value and descriptive label of the current font size
+ * - Reset to the default font size
+ */
+const FontSizeCustomization: FC<FontSizeCustomizationProps> = observer(() => {
   const { t } = useLanguage();
-  // Set the header title for the screen
-  useHeaderTitle(t('screens.settings.fontSize.title'));
-  // Get theme colors and font sizes
   const { colors, fontSizes } = useTheme();
-  // Get current font size and setter from preferences
-  const { fontSize, setFontSize } = usePreferences();
+  const { fontSize, setFontSize, resetFontPreferences } = usePreferences();
 
-  // Handler for slider value change
+  // Set the screen title in the header
+  useHeaderTitle(t('screens.settings.fontSize.title'));
+
+  /** Update the font size preference */
   const handleFontSizeChange = (value: number) => {
     setFontSize(value);
   };
 
-  // Helper to get a label for the current font size
-  const getFontSizeLabel = (size: number) => {
-    if (size <= fontSizes.sm) return 'Small';
-    if (size <= fontSizes.lg) return 'Medium';
-    if (size <= fontSizes.xl) return 'Large';
-    return 'Extra Large';
-  };
-
   return (
     <ThemedView preset="scroll" safeAreaEdges={['top']}>
-      {/* Header section with title and description */}
+      {/* ---------- Header ---------- */}
       <Header
         title={t('screens.settings.fontSize.title')}
         subtitle={t('screens.settings.fontSize.description')}
       />
 
-      {/* Slider label and current value */}
+      {/* ---------- Slider Header (Label + Current Size) ---------- */}
       <View style={styles.sliderHeader}>
         <ThemedText color={colors.purple} variant="body">
           {t('screens.settings.fontSize.title')}
@@ -49,47 +52,51 @@ const FontSizeCustomization = observer(() => {
         </ThemedText>
       </View>
 
-      {/* Font size slider */}
+      {/* ---------- Font Size Slider ---------- */}
       <Slider
         title="Font Size"
         value={fontSize}
-        minValue={12}
-        maxValue={24}
+        minValue={MIN_SUPPORTED_FONT}
+        maxValue={MAX_SUPPORTED_FONT}
         step={1}
         onChange={handleFontSizeChange}
         trackColor={colors.gray}
         thumbColor={colors.purple}
       />
 
-      {/* Range labels for slider */}
+      {/* ---------- Slider Range Labels ---------- */}
       <View style={styles.rangeLabels}>
         <ThemedText variant="body" color={colors.gray}>
-          Small (12px)
+          {t('screens.settings.fontSize.minFont')}
         </ThemedText>
         <ThemedText variant="body" color={colors.gray}>
-          Large (24px)
+          {t('screens.settings.fontSize.maxFont')}
         </ThemedText>
       </View>
 
-      {/* Display the current font size label */}
+      {/* ---------- Current Font Size Label ---------- */}
       <ThemedText variant="body" style={styles.sizeLabel} color={colors.purple}>
-        {getFontSizeLabel(fontSize)}
+        {getFontSizeLabel(fontSize, fontSizes)}
       </ThemedText>
 
-      {/* Reset button to restore default font size */}
+      {/* ---------- Reset Button ---------- */}
       <Button
         preset="filled"
-        onPress={() => setFontSize(16)}
+        onPress={() => resetFontPreferences()}
         style={styles.resetButton}
         textStyle={styles.resetButtonText}
       >
-        {t('screens.settings.fontSize.reset')}({fontSizes.base}px)
+        {t('screens.settings.fontSize.reset')} ({fontSizes.base}px)
       </Button>
     </ThemedView>
   );
 });
 
-// Styles for the component
+export default FontSizeCustomization;
+
+// -------------------
+// Styles
+// -------------------
 const styles = StyleSheet.create({
   sliderHeader: {
     flexDirection: 'row',
@@ -119,5 +126,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default FontSizeCustomization;

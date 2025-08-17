@@ -2,10 +2,11 @@ import { ChevronRight, LucideIcon } from 'lucide-react-native';
 import { StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
 import Switch, { SwitchProps } from '../ui/Switch';
 
+import { useAppTheme } from '@/hooks/useAppTheme';
+import { useGlobalStyles } from '@/hooks/useGlobalStyle';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ThemedText } from '../ThemedText';
-import { useGlobalStyles } from '@/hooks/useGlobalStyle';
-import { useTheme } from '@/hooks/useTheme';
 
 // Badge configuration
 interface Badge {
@@ -39,7 +40,7 @@ export interface CardProps {
   contentStyle?: ViewStyle;
 }
 
-export const Card: React.FC<CardProps> = ({
+const CardComponent: React.FC<CardProps> = ({
   title,
   subtitle,
   description,
@@ -54,7 +55,7 @@ export const Card: React.FC<CardProps> = ({
   contentStyle,
 }) => {
   const isInteractive = !!onPress && !disabled;
-  const { colors } = useTheme();
+  const { colors } = useAppTheme();
   const globalStyle = useGlobalStyles();
 
   const getVariantStyles = () => {
@@ -134,6 +135,8 @@ export const Card: React.FC<CardProps> = ({
     </View>
   );
 };
+
+export const Card = observer(CardComponent);
 
 const styles = StyleSheet.create({
   touchable: {
