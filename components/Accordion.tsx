@@ -34,7 +34,6 @@ interface AccordionProps {
   accessibilityLabel?: string;
   accessibilityHint?: string;
   testID?: string;
-  id?: string;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -45,11 +44,10 @@ export const Accordion: React.FC<AccordionProps> = ({
   style,
   titleStyle,
   contentStyle,
-  accessibilityLevel = 'A',
+  accessibilityLevel,
   accessibilityLabel,
   accessibilityHint,
   testID,
-  id,
 }) => {
   const [internalExpanded, setInternalExpanded] = useState(false);
   const expanded = expandedProp !== undefined ? expandedProp : internalExpanded;
@@ -60,12 +58,12 @@ export const Accordion: React.FC<AccordionProps> = ({
     const newExpanded = !expanded;
 
     // Configure layout animation for smoother transitions (AA and AAA levels)
-    if (accessibilityLevel !== 'A') {
+    if (accessibilityLevel !== AccessibilityLevel.A) {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     }
 
     // Animate content height for AAA level
-    if (accessibilityLevel === 'AAA') {
+    if (accessibilityLevel === AccessibilityLevel.AAA) {
       Animated.timing(animatedHeight, {
         toValue: newExpanded ? 1 : 0,
         duration: 300,
