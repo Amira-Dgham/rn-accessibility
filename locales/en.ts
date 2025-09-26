@@ -333,6 +333,11 @@ export const en = {
       examples: 'Examples',
       requirements: 'Requirements',
       accordions: {
+        exampleAccessibility: {
+          A: 'This is a basic accordion example with minimal accessibility features. It uses a button role and a simple label.',
+          AA: 'This accordion example includes enhanced accessibility: state announcements, focus indicators, and larger touch targets.',
+          AAA: 'This accordion demonstrates full accessibility: ARIA roles, live regions, custom actions, and single-expand mode.',
+        },
         title: 'Accordions',
         description:
           'Accordions are collapsible content sections that help organize information hierarchically.',
@@ -353,6 +358,16 @@ export const en = {
             '3': 'Remember expanded/collapsed states between sessions for user convenience',
           },
         },
+        componentAccessibility: {
+          headerLabel: 'Accordion header',
+          expandHint: 'Double tap to expand',
+          collapseHint: 'Double tap to collapse',
+          expandedAnnouncement: 'Accordion expanded',
+          collapsedAnnouncement: 'Accordion collapsed',
+          keyboardShortcut: 'Press Alt+Down/Up to navigate between accordions',
+          customAction: 'Custom accessibility action',
+          statePersistence: 'Accordion remembers expanded/collapsed state',
+        }
       },
       alerts: {
         title: 'Alerts',

@@ -13,10 +13,10 @@ import React, {
 } from 'react';
 import {
   AccessibilityInfo,
-  NativeEventSubscription,
   Platform,
-  findNodeHandle,
+  findNodeHandle
 } from 'react-native';
+import { useStore } from './StoreContext';
 
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
@@ -96,89 +96,74 @@ export const AccessibilityContext = createContext<AccessibilityContent>(defaultC
 
 export const useAccessibilityContext = () => useContext(AccessibilityContext);
 
-export const AccessibilityProvider = ({ children }: { children: ReactNode }) => {
-  // Screen reader state
-  const [screenReaderIsEnabled, setScreenReaderIsEnabled] = useState(false);
 
-  // Orientation state
+interface AccessibilityProviderProps {
+  children: ReactNode;
+}
+
+export const AccessibilityProvider: React.FC<AccessibilityProviderProps> = ({ children }) => {
+  // MobX store
+  const store = useStore().preferencesStore;
+
+  // Orientation state (not in MobX)
   const [orientation, setOrientation] = useState<OrientationType>("portrait");
 
-  // Visual preferences
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [boldTextEnabled, setBoldTextEnabled] = useState(false);
-  const [highContrastEnabled, setHighContrastEnabled] = useState(false);
-  const [largeTextEnabled, setLargeTextEnabled] = useState(false);
-  const [fontScale, setFontScale] = useState(1);
+  // Local state for system reduce motion
+  const [systemReduceMotion, setSystemReduceMotion] = useState(false);
 
-  // Audio preferences
-  const [soundCueEnabled, setSoundCueEnabled] = useState(false);
+  // Visual preferences
+  // prefersReducedMotion is true if either system or store is true
+  const prefersReducedMotion = systemReduceMotion || store.isReduceMotion;
+  const boldTextEnabled = false; // Not in MobX, keep local
+  const highContrastEnabled = store.isHighContrast;
+  const largeTextEnabled = store.fontSize > 1;
+  const fontScale = store.fontSize;
+
+  // Audio preferences (from MobX)
+  const soundCueEnabled = false; // Not in MobX, keep local
+
+  // Screen reader state (from MobX)
+  const screenReaderIsEnabled = store.isScreenReaderEnabled;
+  const setScreenReaderIsEnabled: Dispatch<SetStateAction<boolean>> = (value) => {
+    if (typeof value === 'function') {
+      // value is a function: (prevState: boolean) => boolean
+      store.setScreenReader(value(store.isScreenReaderEnabled));
+    } else {
+      // value is a boolean
+      store.setScreenReader(value);
+    }
+  };
+
+  // Listen for system reduce motion changes and sync with MobX store
+  useEffect(() => {
+    let isMounted = true;
+    // Initial fetch
+    AccessibilityInfo.isReduceMotionEnabled()
+      .then((enabled) => {
+        console.log('System reduce motion enabled:', enabled);
+        if (isMounted) {
+          setSystemReduceMotion(enabled);
+          if (store.isReduceMotion !== enabled) {
+            store.setReduceMotion(enabled);
+          }
+        }
+      });
+    // Listener
+    const sub = AccessibilityInfo.addEventListener('reduceMotionChanged', (enabled) => {
+      setSystemReduceMotion(enabled);
+      if (store.isReduceMotion !== enabled) {
+        store.setReduceMotion(enabled);
+      }
+    });
+    return () => {
+      isMounted = false;
+      // @ts-ignore
+      if (sub && typeof sub.remove === 'function') sub.remove();
+    };
+  }, [store]);
 
   // Initialize accessibility states
-  useEffect(() => {
-    const initializeAccessibilityStates = async () => {
-      // Initialize screen reader status
-      const isScreenReaderEnabled = await AccessibilityInfo.isScreenReaderEnabled();
-      setScreenReaderIsEnabled(isScreenReaderEnabled);
-
-      // Initialize reduced motion preference
-      try {
-        const isReduceMotionEnabled = await AccessibilityInfo.isReduceMotionEnabled();
-        setPrefersReducedMotion(isReduceMotionEnabled);
-      } catch (error) {
-        console.warn('Error checking reduced motion:', error);
-      }
-
-      // Initialize bold text preference (iOS)
-      if (Platform.OS === 'ios') {
-        try {
-          const isBoldTextEnabled = await AccessibilityInfo.isBoldTextEnabled();
-          setBoldTextEnabled(isBoldTextEnabled);
-        } catch (error) {
-          console.warn('Error checking bold text:', error);
-        }
-      }
-
-      // Initialize high contrast preference (Android)
-      if (Platform.OS === 'android') {
-        // High contrast preference is not supported on Android by AccessibilityInfo
-        setHighContrastEnabled(false);
-      }
-
-      // Initialize font scale preference
-      try {
-        if (Platform.OS === 'ios') {
-          // @ts-ignore - might not be available in all typings
-          const contentSizeMultiplier = await AccessibilityInfo.getAccessibilityContentSizeMultiplier();
-          console.log('fontScale:', contentSizeMultiplier);
-
-          if (contentSizeMultiplier !== undefined) {
-            setFontScale(contentSizeMultiplier);
-            setLargeTextEnabled(contentSizeMultiplier > 1);
-          }
-        }
-      } catch (error) {
-        console.warn('Error checking font scale:', error);
-      }
-
-      // Initialize sound cue status (iOS)
-      if (Platform.OS === 'ios') {
-        try {
-          // @ts-ignore - might not be available in all typings
-          const isSoundPlaybackEnabled = await AccessibilityInfo.isSoundPlaybackEnabled?.();
-          if (isSoundPlaybackEnabled !== undefined) {
-            setSoundCueEnabled(isSoundPlaybackEnabled);
-          }
-        } catch (error) {
-          console.warn('Error checking sound playback:', error);
-        }
-      }
-    };
-
-    initializeAccessibilityStates();
-  }, []);
-
-
-
+  // Remove local state for values now in MobX
 
   useEffect(() => {
     const updateOrientation = async () => {
@@ -209,50 +194,7 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
     };
   }, []);
 
-  // Set up accessibility change listeners
-  useEffect(() => {
-    const listeners: NativeEventSubscription[] = [];
-
-    // Screen reader listener
-    const screenReaderListener = AccessibilityInfo.addEventListener(
-      'screenReaderChanged',
-      (isEnabled) => {
-        setScreenReaderIsEnabled(isEnabled);
-      },
-    );
-    listeners.push(screenReaderListener);
-
-    // Reduced motion listener
-    const reducedMotionListener = AccessibilityInfo.addEventListener(
-      'reduceMotionChanged',
-      (isEnabled) => {
-        setPrefersReducedMotion(isEnabled);
-      },
-    );
-    listeners.push(reducedMotionListener);
-
-    // Bold text listener (iOS)
-    if (Platform.OS === 'ios') {
-      const boldTextListener = AccessibilityInfo.addEventListener(
-        'boldTextChanged',
-        (isEnabled) => {
-          setBoldTextEnabled(isEnabled);
-        },
-      );
-      listeners.push(boldTextListener);
-    }
-
-    // High contrast listener (Android)
-    if (Platform.OS === 'android') {
-      // High contrast preference is not supported on Android by AccessibilityInfo
-      setHighContrastEnabled(false);
-    }
-
-    // Clean up listeners on unmount
-    return () => {
-      listeners.forEach(listener => listener.remove());
-    };
-  }, []);
+  // Remove local listeners for values now in MobX
 
   // Focus management
   const setFocus = useCallback(({ ref, delay }: SetFocusOptions) => {
@@ -329,10 +271,10 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
 
   // Haptic feedback
   const triggerHaptic = useCallback((
-    type: Parameters<typeof ReactNativeHapticFeedback.trigger>[0] = 'impactLight'
+    type: string | undefined = 'impactLight'
   ) => {
     // If you're using react-native-haptic-feedback
-    ReactNativeHapticFeedback.trigger(type, {
+    ReactNativeHapticFeedback.trigger(type as any, {
       enableVibrateFallback: true,
       ignoreAndroidSystemSettings: false,
     });
@@ -394,6 +336,16 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
 
     // Accessibility checking
     isElementAccessible,
+
+    // MobX store actions for preferences
+    setHighContrast: store.setHighContrast,
+    setFontSize: store.setFontSize,
+    setReduceMotion: store.setReduceMotion,
+    setHaptics: store.setHaptics,
+    setSimpleNavigation: store.setSimpleNavigation,
+    setTextToSpeech: store.setTextToSpeech,
+    setDarkMode: store.setDarkMode,
+    // ...add more as needed
   };
 
   return (
