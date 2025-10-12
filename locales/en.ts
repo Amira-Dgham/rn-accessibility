@@ -328,7 +328,6 @@ export const en = {
         free: 'Free',
       },
     },
-
     components: {
       examples: 'Examples',
       requirements: 'Requirements',
@@ -337,25 +336,32 @@ export const en = {
           A: 'This is a basic accordion example with minimal accessibility features. It uses a button role and a simple label.',
           AA: 'This accordion example includes enhanced accessibility: state announcements, focus indicators, and larger touch targets.',
           AAA: 'This accordion demonstrates full accessibility: ARIA roles, live regions, custom actions, and single-expand mode.',
+          none: 'No accessibility features are applied to this accordion.',
         },
         title: 'Accordions',
+        titles: {
+          A: 'Basic Accordion (Level A)',
+          AA: 'Enhanced Accordion (Level AA)',
+          AAA: 'Fully Accessible Accordion (Level AAA)',
+          none: 'Non-Accessible Accordion',
+        },
         description:
           'Accordions are collapsible content sections that help organize information hierarchically.',
         requirements: {
           A: {
-            '1': 'Provide clear accessibility labels for the accordion header',
-            '2': 'Ensure proper focus management when accordion expands/collapses',
-            '3': 'Use semantic roles to identify accordion sections',
+            '1': 'Provide clear accessibility labels for the accordion header.',
+            '2': 'Ensure proper focus management when the accordion expands or collapses.',
+            '3': 'Use semantic roles to identify accordion sections.',
           },
           AA: {
-            '1': 'Add appropriate accessibility hints for interaction expectations',
-            '2': 'Ensure the entire accordion header is tappable with minimum 44×44 points touch target',
-            '3': 'Include focus indication with sufficient contrast',
+            '1': 'Add appropriate accessibility hints for interaction expectations.',
+            '2': 'Ensure the entire accordion header is tappable with a minimum 44×44 points touch target.',
+            '3': 'Include a visible focus indicator with sufficient contrast.',
           },
           AAA: {
-            '1': 'Allow keyboard shortcuts for quick navigation between accordions',
-            '2': 'Provide custom accessibility actions for advanced interaction',
-            '3': 'Remember expanded/collapsed states between sessions for user convenience',
+            '1': 'Allow keyboard shortcuts for quick navigation between accordions.',
+            '2': 'Provide custom accessibility actions for advanced interactions.',
+            '3': 'Remember expanded and collapsed states between sessions for user convenience.',
           },
         },
         componentAccessibility: {
@@ -1338,7 +1344,6 @@ export const en = {
         },
       },
     },
-
     errors: {
       networkError: 'Network connection error',
       unknownError: 'An unknown error occurred',
