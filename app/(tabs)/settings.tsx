@@ -4,9 +4,10 @@ import React, { FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Header from '@/components/Header';
-import { observer } from 'mobx-react-lite';
+import { useAccessibilityContext } from '@/context/AccessibilityProvider';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePreferences } from '@/hooks/usePreferences';
+import { observer } from 'mobx-react-lite';
 
 export type SettingsScreenProps = {};
 
@@ -21,6 +22,7 @@ export type SettingsScreenProps = {};
 const SettingsScreen: FC<SettingsScreenProps> = observer(() => {
   const { t } = useLanguage();
   const { preferencesConfig, getSwitchValue, handleSwitchToggle } = usePreferences();
+  const { prefersReducedMotion } = useAccessibilityContext();
 
   /**
    * Returns extra props for the Card component depending on the preference type
@@ -30,7 +32,18 @@ const SettingsScreen: FC<SettingsScreenProps> = observer(() => {
     type: 'switch' | 'select' | 'slider';
   }) => {
     switch (preference.type) {
-      case 'switch':
+      case 'switch': {
+        // Special handling for reduceMotion: use context value and disable if system setting is enabled
+        if (preference.key === 'reduceMotion') {
+          return {
+            switch: {
+              value: prefersReducedMotion,
+              onValueChange: () => { }, // No-op if system setting is enabled
+              size: 'small' as const,
+              disabled: prefersReducedMotion, // Disable if system setting is enabled
+            },
+          };
+        }
         return {
           switch: {
             value: getSwitchValue(preference.key),
@@ -38,6 +51,7 @@ const SettingsScreen: FC<SettingsScreenProps> = observer(() => {
             size: 'small' as const,
           },
         };
+      }
       case 'select':
       case 'slider':
       default:
@@ -88,3 +102,4 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
 });
+

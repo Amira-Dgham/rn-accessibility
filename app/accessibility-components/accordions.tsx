@@ -1,113 +1,76 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { AccessibilityLevel } from '@/types/accessibility.types';
+import { ThemedText, ThemedView } from '@/components';
 import { Accordion } from '@/components/Accordion';
-// src/examples/Accordions.tsx
-import { ThemedText } from '@/components';
+import { useLanguage } from '@/hooks/useLanguage';
+import { AccessibilityLevel } from '@/types/accessibility.types';
+import { observer } from 'mobx-react-lite';
 
 interface AccordionsProps {
   level: AccessibilityLevel;
 }
-
-const Accordions: React.FC<AccordionsProps> = ({ level }) => {
-  const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({
-    item1: false,
-    item2: false,
-    item3: false,
+const Accordions = observer(({ level }: AccordionsProps) => {
+  // Store expansion state for each level separately
+  const [expansionState, setExpansionState] = useState<Record<AccessibilityLevel, boolean>>({
+    A: false,
+    AA: false,
+    AAA: false,
+    none: false
   });
+  const { t } = useLanguage();
 
-  const handleToggle = (key: string, expanded: boolean) => {
-    setExpandedItems((prev) => ({ ...prev, [key]: expanded }));
+  const handleToggle = (expanded: boolean) => {
+    setExpansionState(prev => ({
+      ...prev,
+      [level]: expanded
+    }));
   };
-  if (level === 'A') {
-    // Basic accordion with minimal accessibility
-    return (
-      <View style={styles.container}>
-        <ThemedText>Basic Accordion (Level A)</ThemedText>
-        <View style={styles.accordionContainer}>
-          <Accordion
-            title="Basic Accordion Item"
-            expanded={expandedItems.item1}
-            onToggle={(expanded) => handleToggle('item1', expanded)}
-          >
-            <ThemedText>
-              This is basic accordion content with minimal accessibility features.
-            </ThemedText>
-          </Accordion>
-        </View>
-      </View>
-    );
-  }
 
-  if (level === 'AA') {
-    // Enhanced accordion with better accessibility features
-    return (
-      <View style={styles.container}>
-        <ThemedText>Enhanced Accordion (Level AA)</ThemedText>
-        <View style={styles.accordionContainer}>
-          <Accordion
-            title="Enhanced Accordion Item 1"
-            expanded={expandedItems.item1}
-            onToggle={(expanded) => handleToggle('item1', expanded)}
-          >
-            <ThemedText>
-              This accordion item has enhanced accessibility features including better contrast and
-              focus management.
-            </ThemedText>
-          </Accordion>
-        </View>
-      </View>
-    );
-  }
-  if (level === 'AAA') {
-    // Basic accordion with minimal accessibility
-    return (
-      <View style={styles.container}>
-        <ThemedText>Basic Accordion (Level A)</ThemedText>
-        <View style={styles.accordionContainer}>
-          <Accordion
-            title="Basic Accordion Item"
-            expanded={expandedItems.item1}
-            onToggle={(expanded) => handleToggle('item1', expanded)}
-          >
-            <ThemedText>
-              This is basic accordion content with minimal accessibility features.
-            </ThemedText>
-          </Accordion>
-        </View>
-      </View>
-    );
-  }
 
-  // AAA level: Full accessibility with comprehensive accordion features
+  const content = (
+    <ThemedText variant="bodyMedium">
+      {t(`accessibility.components.accordions.exampleAccessibility.${level}`)}
+    </ThemedText>
+  );
+
+  const Wrapper: React.ElementType = level === 'AAA' ? ThemedView : View;
+  const wrapperProps =
+    level === 'AAA'
+      ? { preset: 'auto', safeAreaEdges: ['top'] }
+      : { style: styles.container };
+
   return (
-    <View style={styles.container}>
-      <ThemedText>Full Accessibility Accordion (Level AAA)</ThemedText>
+    <Wrapper {...wrapperProps}>
       <View style={styles.accordionContainer}>
         <Accordion
-          title="Full Accessibility Item 1"
-          expanded={expandedItems.item1}
-          onToggle={(expanded) => handleToggle('item1', expanded)}
+          title={t(`accessibility.components.accordions.titles.${level}`)}
+          expanded={expansionState[level]}
+          onToggle={handleToggle}
+          accessibilityLevel={level}
+          testID={`accordion-${level}`}
         >
-          <ThemedText>
-            This accordion item demonstrates complete accessibility features including ARIA roles,
-            live regions, and comprehensive screen reader support.
-          </ThemedText>
+          {content}
         </Accordion>
       </View>
-    </View>
+    </Wrapper>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
-    gap: 16,
+    flex: 1,
+    padding: 16,
   },
-
   accordionContainer: {
-    gap: 8,
+    gap: 12,
   },
 });
 
-export default Accordions;
+const WrappedAccordions = ({ level }: AccordionsProps) => {
+  return (
+    <Accordions level={level} />
+  );
+};
+
+export default WrappedAccordions;

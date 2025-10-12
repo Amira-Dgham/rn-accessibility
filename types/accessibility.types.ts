@@ -29,3 +29,4 @@ export type AccessibilityTool = {
   localeKey: string;
   url: string;
 };
+

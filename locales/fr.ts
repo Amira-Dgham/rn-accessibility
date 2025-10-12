@@ -361,6 +361,16 @@ export const fr = {
           },
         },
       },
+      componentAccessibility: {
+        headerLabel: "En-tête d'accordéon",
+        expandHint: 'Double tap pour développer',
+        collapseHint: 'Double tap pour réduire',
+        expandedAnnouncement: 'Accordéon développé',
+        collapsedAnnouncement: 'Accordéon réduit',
+        keyboardShortcut: 'Appuyez sur Alt+Bas/Haut pour naviguer entre les accordéons',
+        customAction: ",Action d’accessibilité personnalisée",
+        statePersistence: ",L’accordéon mémorise l’état développé/réduit",
+      },
       buttons: {
         title: 'Boutons',
         description:
@@ -1180,7 +1190,20 @@ export const fr = {
         },
       },
       accordions: {
+        exampleAccessibility: {
+          A: "Ceci est un exemple d'accordéon basique avec des fonctionnalités d'accessibilité minimales. Il utilise un rôle de bouton et une étiquette simple.",
+          AA: "Cet exemple d'accordéon inclut une accessibilité améliorée : annonces d'état, indicateurs de focus et zones tactiles plus grandes.",
+          AAA: "Cet accordéon démontre une accessibilité complète : rôles ARIA, régions live, actions personnalisées et mode d'expansion unique.",
+          none: "Aucune accessibilité appliquée pour cet accordéon."
+
+        },
         title: 'Accordéons',
+        titles: {
+          A: "Accordéon basique (Niveau A)",
+          AA: "Accordéon amélioré (Niveau AA)",
+          AAA: "Accordéon complet (Niveau AAA)",
+          NONE: "Aucun accordéon d'accessibilité"
+        },
         description:
           'Les accordéons sont des sections de contenu pliables qui aident à organiser les informations de manière hiérarchique.',
         requirements: {
@@ -1199,6 +1222,16 @@ export const fr = {
             '2': "Fournir des actions d'accessibilité personnalisées pour une interaction avancée",
             '3': "Mémoriser les états développés/réduits entre les sessions pour la commodité de l'utilisateur",
           },
+        },
+        componentAccessibility: {
+          headerLabel: "En-tête de l'accordéon",
+          expandHint: 'Appuyez deux fois pour développer',
+          collapseHint: 'Appuyez deux fois pour réduire',
+          expandedAnnouncement: 'Accordéon développé',
+          collapsedAnnouncement: 'Accordéon réduit',
+          keyboardShortcut: 'Appuyez sur Alt+Bas/Haut pour naviguer entre les accordéons',
+          customAction: "Action d'accessibilité personnalisée",
+          statePersistence: "L'accordéon mémorise l'état développé/réduit",
         },
       },
     },

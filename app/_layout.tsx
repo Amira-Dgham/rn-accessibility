@@ -11,6 +11,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 
+import { AccessibilityProvider } from '@/context/AccessibilityProvider';
 import { StoreProvider, useStore } from '@/context/StoreContext';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import RootStack from '@/navigation/RootStack';
@@ -59,9 +60,11 @@ const AppContent = observer(() => {
   return (
     <ThemeProvider value={navigationTheme}>
       <KeyboardProvider>
-        <RootStack />
-        {/* Set the status bar style based on the color scheme */}
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        <AccessibilityProvider>
+          <RootStack />
+          {/* Set the status bar style based on the color scheme */}
+          <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        </AccessibilityProvider>
       </KeyboardProvider>
     </ThemeProvider>
   );
