@@ -1,102 +1,80 @@
 import { ThemedText, ThemedView } from '@/components';
-
+import Alert from '@/components/Alert';
+import { useLanguage } from '@/hooks/useLanguage';
 import { AccessibilityLevel } from '@/types/accessibility.types';
-import { Alert } from '@/components/Alert';
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import { observer } from 'mobx-react-lite';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 interface AlertsProps {
   level: AccessibilityLevel;
 }
 
-const Alerts: React.FC<AlertsProps> = ({ level }) => {
-  if (level === 'A') {
-    // Basic alert with minimal accessibility
-    return (
-      <ThemedView style={styles.container}>
-        <ThemedText style={styles.title}>Basic Alert (Level A)</ThemedText>
-        <Alert
-          title="Basic Alert"
-          message="This is a basic alert message with minimal accessibility features"
-          type="info"
-          accessibilityLevel="A"
-        />
-        <ThemedText style={styles.description}>
-          Basic accessibility: Simple text content with basic styling
-        </ThemedText>
-      </ThemedView>
-    );
-  }
+const Alerts = observer(({ level }: AlertsProps) => {
+  const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
-  if (level === 'AA') {
-    // Enhanced alert with better contrast and focus management
-    return (
-      <ThemedView style={styles.container}>
-        <ThemedText style={styles.title}>Enhanced Alert (Level AA)</ThemedText>
-        <Alert
-          title="Enhanced Alert"
-          message="This alert has better contrast and focus management"
-          type="success"
-          accessibilityLevel="AA"
-        />
-        <Alert
-          title="Warning Alert"
-          message="This is a warning message with enhanced accessibility"
-          type="warning"
-          accessibilityLevel="AA"
-        />
-        <ThemedText style={styles.description}>
-          Enhanced accessibility: Better color contrast, focus indicators, and semantic markup
-        </ThemedText>
-      </ThemedView>
-    );
-  }
+  // Title and message dynamically fetched or translated
+  const title = t(`accessibility.components.alerts.titles.${level}`);
+  const message = t(`accessibility.components.alerts.messages.${level}`);
 
-  // AAA level: Full accessibility with multiple alert types and comprehensive features
+  const handleOpen = () => setVisible(true);
+  const handleClose = () => setVisible(false);
+
+  const Wrapper: React.ElementType = level === 'AAA' ? ThemedView : View;
+  const wrapperProps =
+    level === 'AAA'
+      ? { preset: 'auto', safeAreaEdges: ['top'] }
+      : { style: styles.container };
+
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText style={styles.title}>Full Accessibility Alert (Level AAA)</ThemedText>
-      <Alert
-        title="Success Alert"
-        message="This alert has complete accessibility features"
-        type="success"
-        accessibilityLevel="AAA"
-      />
-      <Alert
-        title="Error Alert"
-        message="This is an error message with full accessibility support"
-        type="error"
-        accessibilityLevel="AAA"
-      />
-      <Alert
-        title="Info Alert"
-        message="Information message with comprehensive accessibility"
-        type="info"
-        accessibilityLevel="AAA"
-      />
-      <ThemedText style={styles.description}>
-        Full accessibility: ARIA roles, live regions, high contrast, keyboard navigation, and screen
-        reader announcements
+    <Wrapper {...wrapperProps}>
+      <ThemedText variant="body">
+        {t(`accessibility.components.alerts.labels.${level}`)}
       </ThemedText>
-    </ThemedView>
+
+      <Alert
+        visible={visible}
+        title={title}
+        message={message}
+        onClose={handleClose}
+        level={level}
+        buttons={[
+          {
+            text: t('common.ok'),
+            onPress: handleClose,
+          },
+        ]}
+      />
+
+      <View style={styles.buttonContainer}>
+        <ThemedText
+          variant="bodyMedium"
+          onPress={handleOpen}
+          style={styles.triggerText}
+        >
+          {t(`accessibility.components.alerts.trigger.${level}`)}
+        </ThemedText>
+      </View>
+    </Wrapper>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
-    gap: 16,
   },
-  title: {
-    fontSize: 18,
+  buttonContainer: {
+    marginTop: 16,
+    alignItems: 'center',
+  },
+  triggerText: {
+    color: '#007BFF',
     fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 14,
-    color: '#666',
-    fontStyle: 'italic',
   },
 });
 
-export default Alerts;
+const WrappedAlerts = ({ level }: AlertsProps) => <Alerts level={level} />;
+
+export default WrappedAlerts;

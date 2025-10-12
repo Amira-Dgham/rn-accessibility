@@ -21,6 +21,8 @@ export const Colors = {
     blue: '#80C4E9',
     blueBackground: '#eff6ff',
     gray: '#6B7280',
+    overlay50: "rgba(25, 16, 21, 0.5)",
+
   },
   dark: {
     text: '#ECEDEE',
@@ -41,6 +43,7 @@ export const Colors = {
     blue: '#60a5fa',
     blueBackground: '#1e293b',
     gray: '#9CA3AF',
+    overlay50: "rgba(25, 16, 21, 0.5)",
   },
 } as const;
 
